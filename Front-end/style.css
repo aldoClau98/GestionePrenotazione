@@ -143,10 +143,7 @@ footer .social a {
 
 .footer-basic {
     padding-top: 50px;
-    margin-top: 45px;
-    -webkit-box-shadow: -26px -37px 58px -58px rgba(204,204,204,1);
--moz-box-shadow: -26px -37px 58px -58px rgba(204,204,204,1);
-box-shadow: -26px -37px 58px -58px rgba(204,204,204,1);
+    margin-top: 45px 1px solid;
     color: #4b4c4d;
 }
   

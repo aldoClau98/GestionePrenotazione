@@ -14,7 +14,6 @@ body {
     line-height: 1.5;
     color: #4b4c4d;
     text-align: left;
-    background-color: #fff;
 }
 
 .container {
@@ -24,9 +23,24 @@ body {
     margin-right: auto;
     margin-left: auto;
 }
+nav {
+    background-color: white;
+    -webkit-box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
+    -moz-box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
+    box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
+}
 
 nav .navbar-brand {
     padding-left: 10%;
+}
+
+nav .navbar-brand img{
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
+    -moz-box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
+    box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
 }
 
 #navbarText .navbar-nav {
@@ -49,11 +63,11 @@ nav .navbar-brand {
     border-radius: 10px;
     border: none;
     color: white;
+    box-shadow: 3 4px 6px 3 rgba(80, 61, 94, 2);
 }
 
 #navbarText .btn:hover {
     background-color: #fa6661;
-    color: #4b4c4d;
 }
 
 #navbarText .nav-item {
@@ -85,7 +99,6 @@ nav .navbar-brand {
 #container-centrale {
     background: #f1f7fc;
     padding: 4% 20% 4% 20%;
-    border-radius: 30%;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -93,11 +106,13 @@ hr {
     margin-top: 1rem;
     margin-bottom: 1rem;
     border: 0;
-    border-top: 1px solid #4b4c4d;
+    border-top: 1px solid #ccc;
     box-sizing: content-box;
     height: 0;
     overflow: visible;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
+    -moz-box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
+    box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
 }
 
 #container-centrale-back {
@@ -127,7 +142,11 @@ footer .social a {
 }
 
 .footer-basic {
-    margin-top: 50px;
+    padding-top: 50px;
+    margin-top: 45px;
+    -webkit-box-shadow: -26px -37px 58px -58px rgba(204,204,204,1);
+-moz-box-shadow: -26px -37px 58px -58px rgba(204,204,204,1);
+box-shadow: -26px -37px 58px -58px rgba(204,204,204,1);
     color: #4b4c4d;
 }
   
@@ -138,6 +157,7 @@ footer .social a {
     font-size: 18px;
     line-height: 1.6;
     margin-bottom: 0;
+    
 }
   
 .footer-basic li {
@@ -186,7 +206,7 @@ footer .social a {
 }
 
 #calendar-background .calendar {
-  width: 290px;
+  width: 300px;
   margin: auto;
   transition: opacity 1s;
   transition: 1s;
@@ -205,7 +225,7 @@ footer .social a {
   color: white;
   font-size: 24px;
   font-weight: 900;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   padding: 7px 60px 7px 60px;
   background-color: #fa6661;
   text-transform: uppercase;
@@ -216,7 +236,7 @@ footer .social a {
   font-size: 125px;
   font-weight: 900;
   text-align: center;
-  width: 290px;
+  width: 300px;
   background-color: white;
   padding-top: 33px;
   padding-bottom: 33px;
@@ -350,6 +370,9 @@ footer .social a {
     box-shadow: 0 0 0 .2rem rgba(0,123,255,.25);
   }
   
+  .navbar .navbar-text .btn-group .dropdown-menu .dropdown-item:active {
+      background-color: #fa6661;
+  }
   
   
   

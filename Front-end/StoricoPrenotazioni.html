@@ -10,7 +10,7 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>  
-        <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>
+        <script src="https://code.iconify.design/1/1.0.3/iconify.min.js"></script>   
     </head>
     <body>
         <!--INIZIO NAV BAR-->
@@ -33,34 +33,59 @@
                     </li>
                 </ul>
                 <span class="navbar-text actions">
-                    <a class="login" href="Login.html">Log In</a>
-                    <a class="btn btn-secondary" type="button" href="Registrazione.html">Registrazione</a>
+                    <a class="login" href="Homepage.html">Log Out</a>
+                    <div class="btn-group" role="group">
+                        <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">face</i>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                          <a class="dropdown-item" href="AreaPersonale.html">Area personale</a>
+                          <a class="dropdown-item" href="StoricoPrenotazioni.html">Storico prenotazioni</a>
+                          <a class="dropdown-item" href="RichiestePrenotazione.html">Richieste prenotazione</a>
+                        </div>
+                    </div>
+                    
                 </span>
             </div>
         </nav>
 <!--FINE NAVBAR-->
         <div class="container" style="padding-top: 200px;">
-            <p>Login</p>
+            <p>Storico prenotazioni</p>
         </div>
 <!--INIZIO CONTAINER CENTRALE-->
         <div id="container-centrale">
-            <div class="login-clean">
-                <form method="GET" action="">
-                    <h2 class="sr-only">Login Form</h2>
-                    <div class="illustration">
-                        <img src="profilo.png" width="50%">
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="email" name="email" placeholder="Email" />
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="password" name="password" placeholder="Password" />
-                    </div>
-                    <div class="form-group">
-                        <a class="btn btn-secondary btn-block" href="AreaPersonale.html" type="submit">Log In</a>
-                    </div>
-                </form>
-            </div>
+            <div class="row" id="container-tabelle">
+                <div class="col">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col"># Prenotazione</th>
+                            <th scope="col">Motivazione</th>
+                            <th scope="col">Aula</th>
+                            <th scope="col">Dipartimento</th>
+                            <th scope="col">Data</th>
+                            <th scope="col">Ora inizio</th>
+                            <th scope="col">Ora fine</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1
+                                <a class="btn action-button" role="button" href="ModificaPassword.html">
+                                    <i class="material-icons">delete</i>
+                                </a>
+                            </th>
+                            <td>Ballo di gruppo</td>
+                            <td>P1</td>
+                            <td>Ingegneria</td>
+                            <td>20/12/2019</td>
+                            <td>10:00</td>
+                            <td>18:00</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>    
         </div>
 <!--FINE CONTAINER CENTRALE-->
         

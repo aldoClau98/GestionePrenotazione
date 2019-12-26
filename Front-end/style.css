@@ -37,10 +37,6 @@ nav .navbar-brand {
 nav .navbar-brand img{
     background-color: white;
     border-radius: 50%;
-    border: 1px solid #ccc;
-    -webkit-box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
-    -moz-box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
-    box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
 }
 
 #navbarText .navbar-nav {
@@ -371,6 +367,9 @@ footer .social a {
       background-color: #fa6661;
   }
   
+  .container p{
+      display: block ruby;
+  }
   
   
   

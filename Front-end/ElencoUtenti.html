@@ -44,15 +44,15 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                           <a class="dropdown-item" href="AreaPersonale.html">Area personale</a>
-                          <a class="dropdown-item" href="StoricoPrenotazioni.html">Storico prenotazioni</a>
+                          <a class="dropdown-item" href="StoricoPrenotazioni.html">Storico renotazioni</a>
                           <a class="dropdown-item" href="RichiestePrenotazione.html">Richieste prenotazione</a>
                           <a class="dropdown-item" href="ElencoUtenti.html">Elenco utenti</a>
-                          <a class="dropdown-item" href="CreaEdificio.html">Crea edificio</a>
-                          <a class="dropdown-item" href="RimuoviEdificio.html">Rimuovi edificio</a>
-                          <a class="dropdown-item" href="CreaDipartimento.html">Crea Dipartimento</a>
-                          <a class="dropdown-item" href="RimuoviDipartimento.html">Rimuovi Dipartimento</a>
-                          <a class="dropdown-item" href="CreaAula.html">Crea aula</a>
-                          <a class="dropdown-item" href="RimuoviAula.html">Rimuovi aula</a>
+                          <a class="dropdown-item" href="#">Crea edificio</a>
+                          <a class="dropdown-item" href="#">Rimuovi edificio</a>
+                          <a class="dropdown-item" href="#">Crea Dipartimento</a>
+                          <a class="dropdown-item" href="#">Rimuovi Dipartimento</a>
+                          <a class="dropdown-item" href="#">Crea aula</a>
+                          <a class="dropdown-item" href="#">Rimuovi aula</a>
                         </div>
                     </div>
                 </span>
@@ -60,7 +60,7 @@
         </nav>
 <!--FINE NAVBAR-->
         <div class="container" style="padding-top: 200px;">
-            <p>Area personale</p>
+            <p>Elenco utenti</p>
         </div>
 <!--INIZIO CONTAINER CENTRALE-->
         <div id="container-centrale">
@@ -73,7 +73,8 @@
                             <th scope="col">Nome</th>
                             <th scope="col">Cognome</th>
                             <th scope="col">E-mail</th>
-                            <th scope="col">Password</th>
+                            <th scope="col">Tipo utente</th>
+                            <th scope="col">Amministratore</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -82,11 +83,28 @@
                             <td>Pippo</td>
                             <td>Pippotto</td>
                             <td>pippo@pippotto.studenti.it</td>
-                            <td>pippolo66
-                                <a class="btn action-button" role="button" href="ModificaPassword.html">
+                            <td>Studente</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Pippone</td>
+                            <td>Pippottone</td>
+                            <td>pippone@pippottone.it</td>
+                            <td>Insegnante</td>
+                            <td>Si 
+                                <a class="btn action-button" role="button" href>
                                     <i class="material-icons">edit</i>
                                 </a>
                             </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Pipponeone</td>
+                            <td>Pippottoneone</td>
+                            <td>pipponeone@pippottoneone.studenti.it</td>
+                            <td>Studente</td>
+                            <td>No</td>
                         </tr>
                         </tbody>
                     </table>

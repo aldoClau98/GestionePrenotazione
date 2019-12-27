@@ -14,8 +14,8 @@ public class DriverManagerConnectionPool {
 	public static Connection getConnection() throws SQLException {
 		if (datasource == null) {
 			PoolProperties p = new PoolProperties();
-			p.setUrl("jdbc:mysql://127.0.0.1:3306/codex?useSSL=false&serverTimezone=" + TimeZone.getDefault().getID());
-			
+			p.setUrl("jdbc:mysql://127.0.0.1:3306/GestionePrenotazioni?useSSL=false&serverTimezone=" + TimeZone.getDefault().getID());
+			//
 			p.setDriverClassName("com.mysql.cj.jdbc.Driver");
 			p.setUsername("root");
 			p.setPassword("toor");

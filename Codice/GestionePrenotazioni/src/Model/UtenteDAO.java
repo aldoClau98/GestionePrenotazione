@@ -31,7 +31,8 @@ public class UtenteDAO {
 	//ricerca un  tipo di utente per email
 	public Utente doRetrieveByKey(String email) {
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
-			PreparedStatement ps = con.prepareStatement("select Email, Password, Nome , Cognome, TipoUtente from Utente where=?;");
+			System.out.println(email);
+			PreparedStatement ps = con.prepareStatement("select Email, Password, Nome , Cognome, TipoUtente from Utente Where Email=?;");
 			ps.setString(1, email);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {

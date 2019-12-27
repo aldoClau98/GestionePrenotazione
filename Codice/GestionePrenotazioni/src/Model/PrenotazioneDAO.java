@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class PrenotazioneDAO {
 
 	
-	
+	//doSave
+	//DoDelete
 	
 	public synchronized int doSave( String titolo, Date data, int oraInizio, int oraFine, String descrizione, String nomeUtente, String aula, String edificio ) {
 		PreparedStatement ps = null;
@@ -75,7 +76,7 @@ public class PrenotazioneDAO {
 	}
 	
 		//Ricerca prenotazioni utente
-	public Dipartimento doRetrieveByUtente(String nomeUtente) {
+	public ArrayList<Prenotazione> doRetrieveByUtente(String nomeUtente) {
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
 			PreparedStatement ps = con.prepareStatement("select IDprenotazione ,Titolo,Data ,OraInizio ,OraFine ,Descrizione ,Aula ,Edificio from Prenotazione where NomeUtente=?;");
 			ps.setString(1, nomeUtente);
@@ -94,7 +95,7 @@ public class PrenotazioneDAO {
 				p.setEdificio(rs.getString(8));
 				prenotazioniUtente.add(p);
 			}
-			return null;
+			return prenotazioniUtente;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

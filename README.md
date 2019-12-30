@@ -31,7 +31,7 @@ server.
 Nel nostro caso è stato utilizzato il server di Tomcat.
 
 ## Autori:
-Martina Borriello 
-Veronica Marcantuono
-Andrea Claro
-Aldo Claudini
+* Martina Borriello 
+* Veronica Marcantuono
+* Andrea Claro
+* Aldo Claudini

@@ -1,5 +1,6 @@
 package Model;
 
+
 public class Struttura {
 	
 	public Struttura() {
@@ -21,10 +22,10 @@ public class Struttura {
 		this.edificio = edificio;
 	}
 	public int getTipoAula() {
-		return TipoAula;
+		return tipoAula;
 	}
 	public void setTipoAula(int tipoAula) {
-		TipoAula = tipoAula;
+		this.tipoAula = tipoAula;
 	}
 	public void setDipartimento(String dipartimento) {
 		Dipartimento = dipartimento;
@@ -32,7 +33,7 @@ public class Struttura {
 	
 	private String aula;
 	private String edificio;
-	private int TipoAula;
+	private int tipoAula;
 	private String Dipartimento;
 	public String getDipartimento() {
 		return Dipartimento;

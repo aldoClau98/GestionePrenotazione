@@ -48,7 +48,7 @@ public class DipartimentoDAO {
 	public ArrayList<Dipartimento> doRetrieveAll() {
 
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
-			PreparedStatement ps = con.prepareStatement("select Nome  AmmDip from Dipartimento;");
+			PreparedStatement ps = con.prepareStatement("select Nome , AmmDip from Dipartimento;");
 
 			ArrayList<Dipartimento> listaProdotti = new ArrayList<>();
 			ResultSet rs = ps.executeQuery();

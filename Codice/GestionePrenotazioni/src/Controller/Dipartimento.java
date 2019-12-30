@@ -1,7 +1,7 @@
 package Controller;
 
 import java.io.IOException;
-
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,20 +11,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Model.StrutturaDAO;
 
-@WebServlet("/ServletHome")
-public class ServletHome extends ServletBasic {
+/**
+ * Servlet implementation class Dipartimento
+ */
+@WebServlet("/Dipartimento")
+public class Dipartimento extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
-		view.forward(request, response);
+	HttpSession session = request.getSession();
+		String dip = request.getParameter("dip");
+		//prendo  edifici  ed aule associate
+		ArrayList<Model.Struttura> listaStr = new StrutturaDAO().doStrutturabyDip(dip);
 		
+		session.setAttribute("listaStr", listaStr);
+		//le mando  alla  JSP
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Dipartimenti.jsp");
+		view.forward(request, response);
+	
 	}
 
-	
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

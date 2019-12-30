@@ -30,7 +30,7 @@ public class StrutturaDAO {
 		return 0;
 	}
 
-	// elimina edificio ed aula ed edificio nel database
+	// elimina edificio ed aula nel database
 	public synchronized int doDelete(String aula, String edificio) {
 		PreparedStatement ps = null;
 
@@ -45,49 +45,152 @@ public class StrutturaDAO {
 		}
 		return 0;
 	}
-	
-	
+
 	// prendi tutti le strutture
-		public ArrayList<Struttura> doRetrieveAll() {
+	public ArrayList<Struttura> doRetrieveAll() {
 
-			try (Connection con = DriverManagerConnectionPool.getConnection()) {
-				PreparedStatement ps = con.prepareStatement("select Aula, Edificio, tipo, Dipartimento from Struttura;");
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("select Aula, Edificio, tipo, Dipartimento from Struttura;");
 
-				ArrayList<Struttura> listaStrutture = new ArrayList<>();
-				ResultSet rs = ps.executeQuery();
-				while (rs.next()) {
-					Struttura p = new Struttura();
-					p.setAula(rs.getString(1));
-					p.setEdificio(rs.getString(2));
-					p.setTipoAula(rs.getInt(3));
-					p.setDipartimento(rs.getString(4));
-					
-					listaStrutture.add(p);
-				}
-				return listaStrutture;
-			} catch (SQLException e) {
-				throw new RuntimeException(e);
+			ArrayList<Struttura> listaStrutture = new ArrayList<>();
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Struttura p = new Struttura();
+				p.setAula(rs.getString(1));
+				p.setEdificio(rs.getString(2));
+				p.setTipoAula(rs.getInt(3));
+				p.setDipartimento(rs.getString(4));
+
+				listaStrutture.add(p);
 			}
+			return listaStrutture;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
-		
-			//Ricerca per struttura
-		public Dipartimento doRetrieveByKey(String nome) {
-			try (Connection con = DriverManagerConnectionPool.getConnection()) {
-				PreparedStatement ps = con.prepareStatement("select Nome, AmmDip from  Dipartimento where Nome=?;");
-				ps.setString(1, nome);
-				ResultSet rs = ps.executeQuery();
-				if (rs.next()) {
-					Dipartimento p = new Dipartimento();
-					p.setDip(rs.getString(1));
-					p.setAmmDip(rs.getString(2));
+	}
 
-					return p;
+	// Ricerca per dipartimento
+	public Dipartimento doRetrieveByKey(String nome) {
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("select Nome, AmmDip from  Dipartimento where Nome=?;");
+			ps.setString(1, nome);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				Dipartimento p = new Dipartimento();
+				p.setDip(rs.getString(1));
+				p.setAmmDip(rs.getString(2));
 
-				}
-				return null;
-			} catch (SQLException e) {
-				throw new RuntimeException(e);
+				return p;
+
 			}
+			return null;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
+	}
 
+	// crea lista nomi Edifici
+	public ArrayList<String> doRetrieveAllEdifici() {
+
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("select  Edificio from Struttura;");
+
+			ArrayList<String> listaNomiEdifici = new ArrayList<>();
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				String p = (rs.getString(1));
+
+				listaNomiEdifici.add(p);
+			}
+
+			return listaNomiEdifici;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	// Ricerca aule per Edificio
+	public ArrayList<Aula> doAulabyEdificio(String edificio) {
+		// connessione al database
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			// preparo la query
+			PreparedStatement ps = con
+					.prepareStatement("select Aula, tipo, Descrizione from  Struttura where Edificio=?;");
+			ps.setString(1, edificio);
+
+			ArrayList<Aula> listaAule = new ArrayList<>();
+			// eseguo la query
+			ResultSet rs = ps.executeQuery();
+			// riempio la mia lista di aule
+			while (rs.next()) {
+				Aula p = new Aula();
+				p.setNome(rs.getString(1));
+				p.setIsAulaStd(rs.getInt(2));
+				p.setDescrizione(rs.getString(3));
+
+				listaAule.add(p);
+			}
+			return listaAule;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	// Ricerca Struttura
+	public Struttura doStrutturabyName(String aula, String edificio) {
+		// connessione al database
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			// preparo la query
+			PreparedStatement ps = con
+					.prepareStatement("select Aula, tipo,Edificio,Dipartimento from  Struttura where Aula=? AND Edificio=?;");
+			ps.setString(1, aula);
+			ps.setString(2, edificio);
+			// eseguo la query
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				Struttura p = new Struttura();
+				p.setAula(rs.getString(1));
+				p.setTipoAula(rs.getInt(2));
+				p.setDipartimento(rs.getString(3));
+				p.setEdificio(rs.getString(4));
+				System.out.println("AULA PRESA:OK");
+
+				return p;
+							}
+			return null;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	
+	
+	// Ricerca Strutture per Dipartimento
+	public ArrayList<Struttura> doStrutturabyDip(String dip) {
+		// connessione al database
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			// preparo la query
+			PreparedStatement ps = con
+					.prepareStatement("select Aula, Edificio, tipo, Dipartimento from  Struttura where Dipartimento=?;");
+			ps.setString(1, dip);
+
+			ArrayList<Struttura> listastr = new ArrayList<>();
+			// eseguo la query
+			ResultSet rs = ps.executeQuery();
+			// riempio la mia lista di aule
+			while (rs.next()) {
+				Struttura p = new Struttura();
+				p.setAula(rs.getString(1));
+				p.setEdificio(rs.getString(2));
+				p.setTipoAula(rs.getInt(3));
+				p.setDipartimento(rs.getString(4));
+
+				listastr.add(p);
+			}
+			return listastr;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

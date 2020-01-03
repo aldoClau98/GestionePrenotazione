@@ -1,11 +1,11 @@
 package Model;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 
 
 public class PrenotazioneDAO {
@@ -14,13 +14,13 @@ public class PrenotazioneDAO {
 	//doSave
 	//DoDelete
 	
-	public synchronized int doSave( String titolo, Date data, int oraInizio, int oraFine, String descrizione, String nomeUtente, String aula, String edificio ) {
+	public synchronized int doSave( String titolo, String data, int oraInizio, int oraFine, String descrizione, String nomeUtente, String aula, String edificio ) {
 		PreparedStatement ps = null;
 
 		try (Connection conn = DriverManagerConnectionPool.getConnection();) {
 			ps = conn.prepareStatement("insert into Prenotazione(Titolo,Data ,OraInizio ,OraFine ,Descrizione ,NomeUtente ,Aula ,Edificio) values (?,?,?,?,?,?,?,?);");
 			ps.setString(1, titolo);
-			ps.setDate(2, data);
+			ps.setString(2, data);
 			ps.setInt(3, oraInizio);
 			ps.setInt(4, oraFine);
 			ps.setString(5, descrizione);
@@ -60,7 +60,7 @@ public class PrenotazioneDAO {
 				Prenotazione p = new Prenotazione();
 				p.setIDprenotazione(rs.getInt(1));
 				p.setTitolo(rs.getString(2));
-				p.setData(rs.getDate(3));
+				p.setData(PrenotazioneDAO.SplitData(rs.getString(3)));
 				p.setOraInizio(rs.getInt(4));
 				p.setOraFine(rs.getInt(5));
 				p.setDescrizione(rs.getString(6));
@@ -87,7 +87,7 @@ public class PrenotazioneDAO {
 				Prenotazione p = new Prenotazione();
 				p.setIDprenotazione(rs.getInt(1));
 				p.setTitolo(rs.getString(2));
-				p.setData(rs.getDate(3));
+				p.setData(PrenotazioneDAO.SplitData(rs.getString(3)));
 				p.setOraInizio(rs.getInt(4));
 				p.setOraFine(rs.getInt(5));
 				p.setDescrizione(rs.getString(6));
@@ -100,4 +100,53 @@ public class PrenotazioneDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	//Ricerca prenotazioni per data
+		/*
+		 * Data è di tipo string in questo modo ci rende piu  facile 
+		 *  la chiamata al database,  ma il formato  deve essere gestito dal 
+		 *  FrontEnd*/
+		public ArrayList<Prenotazione> doRetrieveByDate(String data) {
+			try (Connection con = DriverManagerConnectionPool.getConnection()) {
+				
+				
+				PreparedStatement ps = con.prepareStatement("select IDprenotazione ,Titolo,Data ,OraInizio ,OraFine ,Descrizione ,Aula ,Edificio from Prenotazione where Data=?;");
+				ps.setString(1, data);
+				System.out.println("data: "+data);
+				ArrayList<Prenotazione> prenotazioniData = new ArrayList<>();
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					
+					Prenotazione p = new Prenotazione();
+					p.setIDprenotazione(rs.getInt(1));
+					p.setTitolo(rs.getString(2));
+					p.setData(PrenotazioneDAO.SplitData(rs.getString(3)));
+					p.setOraInizio(rs.getInt(4));
+					p.setOraFine(rs.getInt(5));
+					p.setDescrizione(rs.getString(6));
+					p.setAulaPrenotata(rs.getString(7));
+					p.setEdificio(rs.getString(8));
+					prenotazioniData.add(p);
+					System.out.println("Prenotazione aggiunta nella lista");
+				}
+				return prenotazioniData;
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		
+		public static MyCalendar SplitData(String temp) {
+			
+			MyCalendar date = new MyCalendar();
+			int year= Integer.parseInt(temp.substring(0, 3));
+			int month =  Integer.parseInt(temp.substring(5, 7));
+			int day =  Integer.parseInt(temp.substring(9,10));
+			date.setDate(year, month, day);
+
+			date.setDayofWeek();
+			return date;
+			
+		}
+		
+		
 }

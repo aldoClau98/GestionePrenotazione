@@ -1,5 +1,5 @@
 package Model;
-import java.sql.Date;
+
 
 public class Prenotazione {
 	
@@ -22,11 +22,11 @@ public class Prenotazione {
 	public void setTitolo(String titolo) {
 		this.titolo = titolo;
 	}
-	public Date getData() {
-		return data;
+	public String getData() {
+		return data.getDate();
 	}
-	public void setData(Date data) {
-		this.data = data;
+	public void setData(MyCalendar data) {
+		this.data=data;
 	}
 	public int getOraInizio() {
 		return oraInizio;
@@ -67,9 +67,10 @@ public class Prenotazione {
 		this.utente = utente;
 	}
 
+	
 	private int IDprenotazione;
 	private String titolo;
-	private  Date data;
+	private MyCalendar data =  new MyCalendar();
 	private int oraInizio;
 	private int oraFine;
 	private String descrizione;

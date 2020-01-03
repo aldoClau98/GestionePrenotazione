@@ -28,15 +28,15 @@ public class Struttura {
 		this.tipoAula = tipoAula;
 	}
 	public void setDipartimento(String dipartimento) {
-		Dipartimento = dipartimento;
+		this.dipartimento = dipartimento;
 	}
 	
 	private String aula;
 	private String edificio;
 	private int tipoAula;
-	private String Dipartimento;
+	private String dipartimento;
 	public String getDipartimento() {
-		return Dipartimento;
+		return dipartimento;
 	}
 
 

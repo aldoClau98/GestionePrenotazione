@@ -2,6 +2,9 @@ package Controller;
 
 import java.io.IOException;
 
+import Model.Prenotazione;
+import Model.PrenotazioneDAO;
+import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,29 +12,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.UtenteDAO;
-import Model.Utente;
 
 /**
- * Servlet implementation class ModificaPassword
+ * Servlet implementation class CercaPrenotazioni
  */
-@WebServlet("/ModificaPassword")
-public class ModificaPassword extends ServletBasic {
+@WebServlet("/CercaPrenotazioni")
+public class CercaPrenotazioni extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     
+	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-	String email =  request.getParameter("email");
-	String password = request.getParameter("password");
+		String data = request.getParameter("date");
+		
 	
+		
+
 	
-	int result = new UtenteDAO().doUpdate(email,password);
-	request.setAttribute("ResultPassword", result);
+		ArrayList<Prenotazione> listaPren =  new PrenotazioneDAO().doRetrieveByDate(data);
 	
-			
-				RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/AreaPersonale.jsp");
-				requestDispatcher.forward(request, response);
+		request.setAttribute("listaPren", listaPren);
+	
+	RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Aula.jsp");
+	view.forward(request, response);
+	
 	
 	}
 

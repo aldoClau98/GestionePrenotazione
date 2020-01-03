@@ -17,11 +17,13 @@
 					<thead class="show-hidden-menu-1">
 						<tr>
 							<th scope="col">
-
 								<form method="post" action="Dipartimento">
 									<input type="hidden" name="dip" value="${i.dip}" />
 									<button type="submit">${i.dip}</button>
 								</form>
+							</th>
+							<th>
+							Amministratore: ${i.ammDip}
 							</th>
 						</tr>
 					</thead>
@@ -34,6 +36,8 @@
 								<th scope="row">Edificio: ${l.edificio}</th>
 								<td>Aula: ${l.aula}</td>
 								<td>Prenotabile dagli  studenti: ${l.tipoAula}</td>
+								
+							
 							</tr>
 						</tbody>
 					</c:forEach>

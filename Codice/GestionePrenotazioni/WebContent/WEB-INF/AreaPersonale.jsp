@@ -5,6 +5,11 @@
 <%
 	Utente c = (Utente) session.getAttribute("utente");
 %>
+<div class="container" style="padding-top: 200px;">
+	<p>Area personale</p>
+</div>
+
+<!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
 	<div class="row" id="container-tabelle">
 		<div class="col">
@@ -25,12 +30,11 @@
 						<td>${utente.cognome}</td>
 						<td>${utente.email}</td>
 						<td>${utente.password}</td>
-							<form method="POST" action="NavModificaPassword">
-								<button class="btn action-button" role="button"
-									href="NavModificaPassword">
-									<i class="material-icons">edit</i>
-								</button>
-							</form>
+							<td>
+							<a class="btn action-button" role="button" href="NavModificaPassword">
+								<i class="material-icons">edit</i>
+							</a>
+						</td>
 						
 					</tr>
 				</tbody>

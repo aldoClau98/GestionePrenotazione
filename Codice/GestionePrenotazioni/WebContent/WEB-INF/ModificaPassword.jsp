@@ -2,12 +2,10 @@
 <jsp:include page="Header.jsp"/>
 
 <%@ page import="Model.Utente"%>
-
-
-
-<% Utente c = (Utente) session.getAttribute("utente");
- 	 %>
-
+<% Utente c = (Utente) session.getAttribute("utente");%>
+<div class="container" style="padding-top: 200px;">
+	<p>Modifica password</p>
+</div>
 <!--INIZIO CONTAINER CENTRALE-->
         <div id="container-centrale">
             <div class="row register-form">

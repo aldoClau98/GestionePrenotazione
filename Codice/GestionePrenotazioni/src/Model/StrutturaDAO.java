@@ -93,7 +93,7 @@ public class StrutturaDAO {
 	public ArrayList<String> doRetrieveAllEdifici() {
 
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
-			PreparedStatement ps = con.prepareStatement("select  Edificio from Struttura;");
+			PreparedStatement ps = con.prepareStatement("select DISTINCT  Edificio from Struttura;");
 
 			ArrayList<String> listaNomiEdifici = new ArrayList<>();
 			ResultSet rs = ps.executeQuery();
@@ -109,25 +109,25 @@ public class StrutturaDAO {
 		}
 	}
 
-	// Ricerca aule per Edificio
-	public ArrayList<Aula> doAulabyEdificio(String edificio) {
+	// Ricerca le aule per Edificio
+	public ArrayList<Struttura> doAulabyEdificio(String edificio) {
 		// connessione al database
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
 			// preparo la query
 			PreparedStatement ps = con
-					.prepareStatement("select Aula, tipo, Descrizione from  Struttura where Edificio=?;");
+					.prepareStatement("select Aula, tipo, Descrizione,Dipartimento from  Struttura where Edificio=?;");
 			ps.setString(1, edificio);
 
-			ArrayList<Aula> listaAule = new ArrayList<>();
+			ArrayList<Struttura> listaAule = new ArrayList<>();
 			// eseguo la query
 			ResultSet rs = ps.executeQuery();
 			// riempio la mia lista di aule
 			while (rs.next()) {
-				Aula p = new Aula();
-				p.setNome(rs.getString(1));
-				p.setIsAulaStd(rs.getInt(2));
+				Struttura p = new Struttura();
+				p.setAula(rs.getString(1));
+				p.setTipoAula(rs.getInt(2));
 				p.setDescrizione(rs.getString(3));
-
+				p.setDipartimento(rs.getString(4));
 				listaAule.add(p);
 			}
 			return listaAule;
@@ -142,7 +142,7 @@ public class StrutturaDAO {
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
 			// preparo la query
 			PreparedStatement ps = con
-					.prepareStatement("select Aula, tipo,Edificio,Dipartimento from  Struttura where Aula=? AND Edificio=?;");
+					.prepareStatement("select Aula, tipo,Edificio,Dipartimento,Descrizione from  Struttura where Aula=? AND Edificio=?;");
 			ps.setString(1, aula);
 			ps.setString(2, edificio);
 			// eseguo la query
@@ -154,6 +154,7 @@ public class StrutturaDAO {
 				p.setTipoAula(rs.getInt(2));
 				p.setDipartimento(rs.getString(3));
 				p.setEdificio(rs.getString(4));
+				p.setDescrizione(rs.getString(5));
 				System.out.println("AULA PRESA:OK");
 
 				return p;
@@ -185,7 +186,6 @@ public class StrutturaDAO {
 				p.setEdificio(rs.getString(2));
 				p.setTipoAula(rs.getInt(3));
 				p.setDipartimento(rs.getString(4));
-
 				listastr.add(p);
 			}
 			return listastr;

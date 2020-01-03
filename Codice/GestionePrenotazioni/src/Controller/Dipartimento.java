@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Model.StrutturaDAO;
+import Model.Struttura;
 
 /**
  * Servlet implementation class Dipartimento
@@ -25,7 +26,7 @@ public class Dipartimento extends HttpServlet {
 	HttpSession session = request.getSession();
 		String dip = request.getParameter("dip");
 		//prendo  edifici  ed aule associate
-		ArrayList<Model.Struttura> listaStr = new StrutturaDAO().doStrutturabyDip(dip);
+		ArrayList<Struttura> listaStr = new StrutturaDAO().doStrutturabyDip(dip);
 		
 		session.setAttribute("listaStr", listaStr);
 		//le mando  alla  JSP

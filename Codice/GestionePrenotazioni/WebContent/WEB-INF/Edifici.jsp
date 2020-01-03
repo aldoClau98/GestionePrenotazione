@@ -2,55 +2,58 @@
 	pageEncoding="ISO-8859-1"%>
 <jsp:include page="Header.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <%@ page import="Model.Struttura"%>
-
 <%@ page import="java.util.ArrayList"%>
 
+<div class="container" style="padding-top: 200px;">
+	<p>Edifici</p>
+</div>
 
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
 	<div class="row" id="container-tabelle">
 		<div class="col">
-
-			<c:forEach items="${listaEdifici}" var="i">
 				<!-- ciclo  che crea tutte le aule  -->
+			<c:forEach items="${listaEdifici}" var="i">
+			
 				<table class="table table-hover">
-					<thead>
-
+					<thead class="show-hidden-menu-1">
 						<tr>
 							<th>
 								<form method="post" action="Edifici">
 									<input type="hidden" name="edificio" value="${i}" />
-									<!--  quando un  aula viene cliccata mando il  
+									<!--  quando un  edificio viene cliccato mando il  
                    nome al controller che si  va a prendere le aule dell'edificio e le rimanda alla jsp   -->
 									<button type="submit">${i}</button>
 								</form>
 							</th>
 						</tr>
 					</thead>
+					</table>
+					
+					</c:forEach>
+					<table>
 					<c:forEach items="${listaAule}" var="l">
+					
 						<!-- le aule dell'edificio  vengono visualizzate  di seguito -->
-						<tbody style="">
-							<!-- PROBLEMA: quando  vengono visualizzate le aule, escono  sotto tutti gli edifici -->
-							<tr data-href="Aula">
+						<tbody tbody class="" style="display:">
+							<tr>
+							<!-- Qui ci vuole per forza un form,  da vedere con  Andrea -->
 								<th>
 									<form method="post" action="Aula">
 									<input type="hidden" name="edificio" value="${i}" />
-										<input type="hidden" name="aula" value="${l.nome}" />
-										<button type="submit">${l.nome}</button>
+										<input type="hidden" name="aula" value="${l.aula}" />
+										<button type="submit">${l.aula}</button>
 									</form>
 								</th>
-								<td>${l.isAulaStd}</td>
-								<td>${l.descrizione}</td>
+								<td>Prenotabile da studenti: ${l.tipoAula}</td>
+								<td>Descrizione: ${l.descrizione}</td>
+								
 							</tr>
-
-
-
 						</tbody>
 					</c:forEach>
 				</table>
-			</c:forEach>
+			
 		</div>
 
 		<!--FINE CONTAINER CENTRALE-->

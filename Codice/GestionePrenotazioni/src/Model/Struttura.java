@@ -6,9 +6,6 @@ public class Struttura {
 	public Struttura() {
 		
 	}
-	
-	
-
 	public String getAula() {
 		return aula;
 	}
@@ -30,14 +27,23 @@ public class Struttura {
 	public void setDipartimento(String dipartimento) {
 		this.dipartimento = dipartimento;
 	}
+	public String getDescrizione() {
+		return descrizione;
+	}
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
+	}
+	public String getDipartimento() {
+		return dipartimento;
+	}
 	
 	private String aula;
 	private String edificio;
 	private int tipoAula;
 	private String dipartimento;
-	public String getDipartimento() {
-		return dipartimento;
-	}
+	private String descrizione;
+	
+	
 
 
 

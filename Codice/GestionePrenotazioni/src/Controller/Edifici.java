@@ -23,11 +23,14 @@ public class Edifici extends HttpServlet {
 			throws ServletException, IOException {
 
 		String edificio = request.getParameter("edificio");
-
-		ArrayList<Model.Aula> listaAule = new StrutturaDAO().doAulabyEdificio(edificio);
-		ArrayList<String> listaEdifici = new StrutturaDAO().doRetrieveAllEdifici(); 
+		// Ricerca le aule per Edificio
+		ArrayList<Model.Struttura> listaAule = new StrutturaDAO().doAulabyEdificio(edificio);
+		// Ricerca il nome degli edifici nel databse
+		ArrayList<String> listaEdifici = new StrutturaDAO().doRetrieveAllEdifici();
+		// salvataggio dei dati nella request
 		request.setAttribute("listaAule", listaAule);
 		request.setAttribute("listaEdifici", listaEdifici);
+		// invio del controllo alla jsp
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Edifici.jsp");
 		view.forward(request, response);
 

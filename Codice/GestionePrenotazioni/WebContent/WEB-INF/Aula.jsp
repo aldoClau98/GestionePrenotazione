@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<jsp:include page="Header.jsp" />
+
 <%@ page import="Model.Struttura"%>
 <%@ page import="Model.Prenotazione"%>
 <%@ page import="java.util.ArrayList"%>
@@ -9,6 +9,9 @@
 <%
 	final String[] array = { "Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato", "Domenica" };
 %>
+
+<jsp:include page="Header.jsp" />
+
 <div class="container" style="padding-top: 200px;">
 	<p>${struttura.aula}</p>
 	<p>${struttura.edificio}</p>
@@ -59,6 +62,33 @@
 							}
 						%>
 		</div>
+		<div class="col">
+            <div class="login-clean">
+              <form method="GET" action="">                          
+                  <div class="form-group">
+                      <input class="form-control" name="titolo" placeholder="Titolo" />
+                  </div>
+                  <div class="form-group">
+                      <input class="form-control" name="oraInizio" placeholder="Ora inizio" />
+                  </div>
+                  <div class="form-group">
+                    <input class="form-control" name="oraFine" placeholder="Ora fine" />
+                </div>
+                <div class="form-group">
+                  <input class="form-control" name="descrizione" placeholder="Descrizione" />
+                </div>
+                  <div class="form-group">
+                      <a class="btn btn-secondary btn-block" href="AreaPersonale.html" type="submit">Prenota</a>
+                  </div>
+              </form>
+          </div>
+          <button class="btn btn-secondary" style="margin-left: 100px;">Rendi aula prenotabile</button>
+        </div>
 	</div>
 </div>
+<script>
+	$('#datepicker').datepicker({
+	  uiLibrary: 'bootstrap'
+	});
+</script>
 <jsp:include page="Footer.jsp" />

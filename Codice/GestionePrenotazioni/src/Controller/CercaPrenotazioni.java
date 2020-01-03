@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 /**
@@ -25,15 +26,17 @@ public class CercaPrenotazioni extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		String data = request.getParameter("date");
+		String data = "2019-07-03";  //request.getParameter("date");
+		String aula = request.getParameter("aula");
+		HttpSession  session = request.getSession();
 		
 	
 		
 
 	
-		ArrayList<Prenotazione> listaPren =  new PrenotazioneDAO().doRetrieveByDate(data);
+		ArrayList<Prenotazione> listaPren =  new PrenotazioneDAO().doRetrieveByDate(data, aula);
 	
-		request.setAttribute("listaPren", listaPren);
+		session.setAttribute("listaPren", listaPren);
 	
 	RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Aula.jsp");
 	view.forward(request, response);

@@ -106,13 +106,16 @@ public class PrenotazioneDAO {
 		 * Data è di tipo string in questo modo ci rende piu  facile 
 		 *  la chiamata al database,  ma il formato  deve essere gestito dal 
 		 *  FrontEnd*/
-		public ArrayList<Prenotazione> doRetrieveByDate(String data) {
+		public ArrayList<Prenotazione> doRetrieveByDate(String data,String aula) {
 			try (Connection con = DriverManagerConnectionPool.getConnection()) {
 				
 				
-				PreparedStatement ps = con.prepareStatement("select IDprenotazione ,Titolo,Data ,OraInizio ,OraFine ,Descrizione ,Aula ,Edificio from Prenotazione where Data=?;");
+				PreparedStatement ps = con.prepareStatement("select IDprenotazione ,Titolo,Data ,OraInizio ,OraFine ,Descrizione ,Aula ,Edificio from Prenotazione where Data=? AND Aula=?;");
 				ps.setString(1, data);
+				ps.setString(2, aula);
 				System.out.println("data: "+data);
+				System.out.println("Aula: "+aula);
+				
 				ArrayList<Prenotazione> prenotazioniData = new ArrayList<>();
 				ResultSet rs = ps.executeQuery();
 				while (rs.next()) {
@@ -147,6 +150,9 @@ public class PrenotazioneDAO {
 			return date;
 			
 		}
+		
+		
+	
 		
 		
 }

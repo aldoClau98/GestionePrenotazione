@@ -1,6 +1,7 @@
 package Controller;
 import Model.*;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,17 +20,33 @@ public class Aula extends HttpServlet {
        
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		HttpSession session =  request.getSession();
+		RequestDispatcher view;
 		//prendo  dalla request i  due parametri
+		String data = "2019-07-03";  //request.getParameter("date");
 		String aula =  request.getParameter("aula");
 		String edificio = request.getParameter("edificio");
+		
+		if(edificio !=null) {
 		//li passo  al  dao per l'interrogazione al  database
 		Model.Struttura  a = new StrutturaDAO().doStrutturabyName(aula, edificio);
 		
-		HttpSession session =  request.getSession();
 		session.setAttribute("struttura", a);
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Aula.jsp");
+		 view = request.getRequestDispatcher("WEB-INF/Aula.jsp");
 		view.forward(request, response);
+		
+		} else if(data !=null) {
+			ArrayList<Prenotazione> listaPren =  new PrenotazioneDAO().doRetrieveByDate(data, aula);
+			
+			session.setAttribute("listaPren", listaPren);
+		
+		 view = request.getRequestDispatcher("WEB-INF/Aula.jsp");
+		view.forward(request, response);
+		
+		}else {
+			 view = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
+			view.forward(request, response);
+		}
 	
 	}
 

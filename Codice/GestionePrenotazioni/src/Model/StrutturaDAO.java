@@ -6,6 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.sql.rowset.spi.SyncResolver;
+
 public class StrutturaDAO {
 
 	public StrutturaDAO() {
@@ -31,7 +33,7 @@ public class StrutturaDAO {
 	}
 
 	// elimina edificio ed aula nel database
-	public synchronized int doDelete(String aula, String edificio) {
+	public synchronized int  doDelete(String aula, String edificio) {
 		PreparedStatement ps = null;
 
 		try (Connection conn = DriverManagerConnectionPool.getConnection();) {
@@ -99,7 +101,7 @@ public class StrutturaDAO {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				String p = (rs.getString(1));
-
+					System.out.println("Struttura dao Edificio: "+p);
 				listaNomiEdifici.add(p);
 			}
 

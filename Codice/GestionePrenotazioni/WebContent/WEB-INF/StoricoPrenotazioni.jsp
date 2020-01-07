@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <jsp:include page="Header.jsp" />
+<%
 
+
+%>
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
     <div class="row" id="container-tabelle">
@@ -20,19 +23,29 @@
                 </tr>
                 </thead>
                 <tbody>
+                <c:forEach items="${listaPrenotazioni}" var="i">
                 <tr>
-                    <th scope="row">1
-                        <a class="btn action-button" role="button" href="ModificaPassword.html">
+                <th scope="row">1
+                        <a class="btn action-button" role="button" href="EliminaPrenotazione">
                             <i class="material-icons">delete</i>
                         </a>
+                        <form action="EliminaPrenotazione" method="get">
+						<input type="hidden" name="id" value="${i.IDprenotazione}">
+						 <input type="submit" value="Elimina"/>
+				</form>
                     </th>
-                    <td>Ballo di gruppo</td>
-                    <td>P1</td>
-                    <td>Ingegneria</td>
-                    <td>20/12/2019</td>
-                    <td>10:00</td>
-                    <td>18:00</td>
+                    <td>${i.titolo}</td>
+                    <td>${i.edificio}</td>
+                    <td>${i.aulaPrenotata}</td>
+                    <td>${i.data}</td>
+                    <td>${i.oraInizio}</td>
+                    <td>${i.oraFine}</td>
                 </tr>
+                
+                
+					
+                </c:forEach>
+              
                 </tbody>
             </table>
         </div>

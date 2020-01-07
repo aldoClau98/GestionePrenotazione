@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Model.UtenteDAO;
-import Model.Utente;
+import Model.*;
 
 /**
  * Servlet implementation class ModificaPassword
@@ -18,27 +18,36 @@ import Model.Utente;
 @WebServlet("/ModificaPassword")
 public class ModificaPassword extends ServletBasic {
 	private static final long serialVersionUID = 1L;
-       
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	String email =  request.getParameter("email");
-	String password = request.getParameter("password");
-	
-	
-	int result = new UtenteDAO().doUpdate(email,password);
-	request.setAttribute("ResultPassword", result);
-	
-			
-				RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/AreaPersonale.jsp");
-				requestDispatcher.forward(request, response);
-	
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		Utente utente = null;
+		String email = request.getParameter("email");
+		String newPassw = request.getParameter("newPassw");
+		System.out.println("email: "+email+"password: "+newPassw);
+		// trova l'utente nel database
+		utente = new UtenteDAO().doRetrieveByKey(email, newPassw);
+
+		if ( (email != null && newPassw != null) || utente == null) {
+				System.out.println("if di errore");
+			request.setAttribute("resultPassword", "0");
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
+			requestDispatcher.forward(request, response);
+		} else {
+			System.out.println("if di buono ");
+			request.setAttribute("resultPassword", (UtenteDAO.doUpdate(email, newPassw)));
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
+			requestDispatcher.forward(request, response);
+	}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

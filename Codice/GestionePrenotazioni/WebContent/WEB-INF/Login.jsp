@@ -5,7 +5,7 @@
   <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
     <div class="login-clean">
-        <form method="GET" action="Login">
+        <form method="POST" action="Login">
             <h2 class="sr-only">Login Form</h2>
             <div class="illustration">
                 <img src="profilo.png" width="50%">

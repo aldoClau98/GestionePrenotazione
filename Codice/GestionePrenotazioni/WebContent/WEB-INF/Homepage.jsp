@@ -1,26 +1,60 @@
 
-  <jsp:include page="Header.jsp"/>
-  
-  
-  <div class="container" style="padding-top: 200px;">
+<jsp:include page="Header.jsp" />
+<%
+	String resultlogin = request.getParameter("resultlogin");
+	String resultPassw = request.getParameter("resultPassword");
+	if (resultlogin != null) {
+		if (resultlogin.equals("1")) {
+%>
+<script>
+	alert("Login  avvenuto  con successo!");
+</script>
+<%
+	} else {
+%>
+<script>
+	alert("Login  Errato!");
+</script>
+<%
+	}
+	}
+
+	if (resultPassw != null) {
+		if (resultPassw.equals("1")) {
+%>
+<script>
+	alert("Password modificata con successo!");
+</script>
+<%
+	} else {
+%>
+<script>
+	alert("C'è stato un errore, la password on è stata modificata!");
+</script>
+<%
+	}
+	}
+%>
+
+<div class="container" style="padding-top: 200px;">
 	<p>Home</p>
 </div>
-  <!--INIZIO CONTAINER CENTRALE-->
+<!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
 	<div id="container-centrale-back">
-	   <div id="calendar-background">
-	       <header>
-	         <div class="calendar">
-	           <h5 id="date"></h5>
-	           <h2 id="day"></h2>
-	         </div>
-	       </header>
-	   </div>
-	</div>     
+		<div id="calendar-background">
+			<header>
+				<div class="calendar">
+					<h5 id="date"></h5>
+					<h2 id="day"></h2>
+				</div>
+			</header>
+		</div>
+	</div>
 </div>
 <!--FINE CONTAINER CENTRALE-->
 <script>
-//INIZIO SCRIPT CALENDARIO
+	//INIZIO SCRIPT CALENDARIO
 	var date = new Date();
 	// Returns the current day of the month
 	var day = date.getDate();
@@ -43,6 +77,6 @@
 	var year = date.getFullYear();
 	document.getElementById("date").innerHTML = month + " " + year;
 	document.getElementById("day").innerHTML = day;
-//FINE SCRIPT CALENDARIO
-</script>  
-    <jsp:include page="Footer.jsp"/>
+	//FINE SCRIPT CALENDARIO
+</script>
+<jsp:include page="Footer.jsp" />

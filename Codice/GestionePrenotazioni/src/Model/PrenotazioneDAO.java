@@ -36,10 +36,10 @@ public class PrenotazioneDAO {
 		return 0;
 	}
 
-	public void doDelete(int dip) {
+	public void doDelete(int id) {
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
-			PreparedStatement ps = con.prepareStatement("DELETE FROM Prenotazione WHERE ID=?;");
-			ps.setInt(1, dip);
+			PreparedStatement ps = con.prepareStatement("DELETE FROM Prenotazione WHERE IDprenotazione=?;");
+			ps.setInt(1, id);
 			ps.executeUpdate();
 
 		} catch (SQLException e) {
@@ -106,15 +106,15 @@ public class PrenotazioneDAO {
 		 * Data è di tipo string in questo modo ci rende piu  facile 
 		 *  la chiamata al database,  ma il formato  deve essere gestito dal 
 		 *  FrontEnd*/
-		public ArrayList<Prenotazione> doRetrieveByDate(String data,String aula) {
+		public ArrayList<Prenotazione> doRetrieveByDate(String email,String data) {
 			try (Connection con = DriverManagerConnectionPool.getConnection()) {
 				
 				
-				PreparedStatement ps = con.prepareStatement("select IDprenotazione ,Titolo,Data ,OraInizio ,OraFine ,Descrizione ,Aula ,Edificio from Prenotazione where Data=? AND Aula=?;");
-				ps.setString(1, data);
-				ps.setString(2, aula);
+				PreparedStatement ps = con.prepareStatement("select IDprenotazione ,Titolo,Data ,OraInizio ,OraFine ,Descrizione ,Aula ,Edificio, Email from Prenotazione join Utente  on  NomeUtente = Email where Email=? AND ( Data BETWEEN \"1975-07-03\" and ?)   order by  Data Desc ;");
+				ps.setString(1, email);
+				ps.setString(2, data);
 				System.out.println("data: "+data);
-				System.out.println("Aula: "+aula);
+				System.out.println("email: "+email);
 				
 				ArrayList<Prenotazione> prenotazioniData = new ArrayList<>();
 				ResultSet rs = ps.executeQuery();

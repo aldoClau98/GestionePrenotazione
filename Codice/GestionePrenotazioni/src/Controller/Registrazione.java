@@ -25,22 +25,22 @@ public class Registrazione extends HttpServlet {
 		int temp;
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
-		String password = request.getParameter("Password");
+		String password = request.getParameter("password");
 		String cognome = request.getParameter("cognome");
 		String tipoutente = request.getParameter("tipoutente");
 		
 		//funzione di registrazione dell'utente
 		 temp =   new UtenteDAO().doSave( email, password,  nome,  cognome, Integer.parseInt(tipoutente) );
-		  System.out.println(temp);
+	
 		  /*
 			 * risultato  dell operazione registrazione 
 			 * 1 se è  avvenuta con  successo 
 			 * 0  se l'operazione è  fallita
 			 */
-		
-			request.setAttribute("risult", temp);//reindirizzamento alla pagina di login
-			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Login.jsp");
-			view.forward(request, response);
+		 System.out.println("Registrazione: "+temp);
+			  request.setAttribute("risultReg", temp);//reindirizzamento alla pagina di login
+				RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Login.jsp");
+				view.forward(request, response);
 	}
 
 	/**

@@ -30,13 +30,23 @@
 						<td>${utente.cognome}</td>
 						<td>${utente.email}</td>
 						<td>${utente.password}</td>
-							<td>
-							<a class="btn action-button" role="button" href="NavModificaPassword">
-								<i class="material-icons">edit</i>
-							</a>
-						</td>
-						
+						<td><a class="btn action-button" role="button"
+							href="NavModificaPassword"> <i class="material-icons">edit</i>
+						</a></td>
+
 					</tr>
+					<%
+						if (request.getParameter("result") != null) {
+							String result =  request.getParameter("result");
+							if (result.equals("1")) {
+								out.write("<script>alert('Password modificata con successo!');</script>");
+							}else {
+								out.write("<script>alert('Errore modifica password!');</script>");
+							}
+							
+						}
+					%>
+
 				</tbody>
 			</table>
 		</div>

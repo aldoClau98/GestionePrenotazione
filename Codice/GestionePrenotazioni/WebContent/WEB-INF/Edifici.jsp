@@ -22,9 +22,7 @@
 							<th>
 								<form method="post" action="Edifici">
 									<input type="hidden" name="edificio" value="${i}" />
-									<!--  quando un  edificio viene cliccato mando il  
-                   nome al controller che si  va a prendere le aule dell'edificio e le rimanda alla jsp   -->
-									<button type="submit">${i}</button>
+									<input type="submit" value="${i}"/>
 								</form>
 							</th>
 						</tr>
@@ -40,7 +38,7 @@
 							<tr>
 							<!-- Qui ci vuole per forza un form,  da vedere con  Andrea -->
 								<th>
-									<form method="post" action="Aula">
+									<form method="post" action="NavAula">
 									<input type="hidden" name="edificio" value="${i}" />
 										<input type="hidden" name="aula" value="${l.aula}" />
 										<button type="submit">${l.aula}</button>

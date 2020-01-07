@@ -18,7 +18,7 @@
                         <label for="validationServer01">Nome</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <input type="text" class="form-control is-valid" id="validationServer01" value="Gianluca" required>
+                        <input type="text" class="form-control is-valid" name="nome" id="validationServer01" value="Gianluca" required>
                         <div class="valid-feedback">Funziona!</div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                         <label for="validationServer02">Cognome</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <input type="text" class="form-control is-valid" id="validationServer02" value="Grignani" required>
+                        <input type="text" class="form-control is-valid" name="cognome"id="validationServer02" value="Grignani" required>
                         <div class="valid-feedback">Funziona!</div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                         <label for="validationServer03">E-mail</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <input type="text" class="form-control is-valid" id="validationServer03" value="pippo@pippotto.studenti.it" required>
+                        <input type="text" class="form-control is-valid"name="email" id="validationServer03" value="pippo@pippotto.studenti.it" required>
                         <div class="valid-feedback">Funziona!</div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                         <label for="validationServer04">Password</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <input type="text" class="form-control is-valid" id="validationServer04" value="pippolo66" required>
+                        <input type="text" class="form-control is-valid" name="password"id="validationServer04" value="pippolo66" required>
                         <div class="valid-feedback">Funziona!</div>
                     </div>
                 </div>
@@ -67,6 +67,7 @@
                       <div class="invalid-feedback">Senza aver accettato, non potrai registrarti.</div>
                     </div>
                   </div>
+                  <input  type="hidden"  name="tipoutente"  value="0" required>
                 <button class="btn btn-secondary" type="submit">Submit</button>
             </form>
         </div>

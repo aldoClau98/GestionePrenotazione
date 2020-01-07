@@ -22,35 +22,40 @@ import Model.UtenteDAO;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		HttpSession sessione = request.getSession();
-		String email =  request.getParameter("email");
-		String password =  request.getParameter("password");
-	//controllo
-		System.out.println("email: "+email);
-		
-			
-			Utente utente = new UtenteDAO().doRetrieveByKey(email);
-	
-				if (utente == null) {
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/ErrorLogin.jsp");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		// controllo
+
+		Utente utente = null;
+
+		if (email != null && password != null) {
+			utente = new UtenteDAO().doRetrieveByKey(email, password);
+		}
+		if (utente == null) {
+			System.out.println("Login: 0");
+			request.setAttribute("resultlogin", "0");
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 			requestDispatcher.forward(request, response);
-					}
-					else 
-					{
+		} else {
+			System.out.println("Login: 1");
 
 			sessione.setAttribute("utente", utente);
 
 			ArrayList<Prenotazione> storicoPrenotazioni = new PrenotazioneDAO().doRetrieveByUtente(email);
-			request.setAttribute("storicoPrenotazioni", storicoPrenotazioni);
-			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/AreaPersonale.jsp");
+			sessione.setAttribute("storicoPrenotazioni", storicoPrenotazioni);
+			request.setAttribute("resultlogin", "1");
+			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 			requestDispatcher.forward(request, response);
-	}
+		}
 
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

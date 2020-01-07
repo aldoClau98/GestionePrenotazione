@@ -29,11 +29,12 @@ public class UtenteDAO {
 		return 0;
 	}
 	//ricerca un  tipo di utente per email
-	public Utente doRetrieveByKey(String email) {
+	public Utente doRetrieveByKey(String email,String password) {
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
 			System.out.println(email);
-			PreparedStatement ps = con.prepareStatement("select Email, Password, Nome , Cognome, TipoUtente from Utente Where Email=?;");
+			PreparedStatement ps = con.prepareStatement("select Email, Password, Nome , Cognome, TipoUtente from Utente Where Email=? AND Password=?;");
 			ps.setString(1, email);
+			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				Utente p = new Utente();
@@ -53,7 +54,7 @@ public class UtenteDAO {
 	}
 
 	//modifica della password
-	public int  doUpdate( String email, String password) {
+	public static int  doUpdate( String email, String password) {
 		int rs=0;
 		try (Connection con = DriverManagerConnectionPool.getConnection()){
 			PreparedStatement ps= con.prepareStatement("UPDATE Utente SET  password=?  WHERE email =?;");

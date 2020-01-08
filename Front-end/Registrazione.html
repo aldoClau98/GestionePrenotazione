@@ -53,8 +53,7 @@
                                 <label for="validationServer01">Nome</label>
                             </div>
                             <div class="col-sm-6 input-column">
-                                <input type="text" class="form-control is-valid" id="validationServer01" value="Gianluca" required>
-                                <div class="valid-feedback">Funziona!</div>
+                                <input type="text" class="form-control" id="nome" value="Gianluca" Name="nome" required onchange="verify(this.id, this.value)">
                             </div>
                         </div>
                         <div class="form-row form-group">
@@ -62,8 +61,7 @@
                                 <label for="validationServer02">Cognome</label>
                             </div>
                             <div class="col-sm-6 input-column">
-                                <input type="text" class="form-control is-valid" id="validationServer02" value="Grignani" required>
-                                <div class="valid-feedback">Funziona!</div>
+                                <input type="text" class="form-control" id="cognome" value="Grignani" Name="cognome"required onchange="verify(this.name, this.value)">
                             </div>
                         </div>
                         <div class="form-row form-group">
@@ -71,8 +69,7 @@
                                 <label for="validationServer03">E-mail</label>
                             </div>
                             <div class="col-sm-6 input-column">
-                                <input type="text" class="form-control is-valid" id="validationServer03" value="pippo@pippotto.studenti.it" required>
-                                <div class="valid-feedback">Funziona!</div>
+                                <input type="text" class="form-control" id="email" Name="email" value="pippo@pippotto.studenti.it" required onchange="verify(this.id, this.value)">
                             </div>
                         </div>
                         <div class="form-row form-group">
@@ -80,8 +77,7 @@
                                 <label for="validationServer04">Password</label>
                             </div>
                             <div class="col-sm-6 input-column">
-                                <input type="text" class="form-control is-valid" id="validationServer04" value="pippolo66" required>
-                                <div class="valid-feedback">Funziona!</div>
+                                <input type="text" class="form-control" id="password" value="pippolo66" Name="password" required onchange="verify(this.id, this.value)">
                             </div>
                         </div>
                         <div class="form-row form-group">
@@ -89,20 +85,19 @@
                                 <label for="validationServer05">Ripeti password</label>
                             </div>
                             <div class="col-sm-6 input-column">
-                                <input type="text" class="form-control is-invalid" id="validationServer05" value="pippolo65" required>
-                                <div class="invalid-feedback">Non va bene!</div>
+                                <input type="text" class="form-control" id="rpassword" value="pippolo65" Name="rpassword" required onchange="verify(this.id, this.value)">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
-                              <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
-                              <label class="form-check-label" for="invalidCheck3">
+                              <input class="form-check-input" type="checkbox" id="check" Name="check" required onclick=submitting(this.form)>
+                              <label class="form-check-label" for="check">
                                   Accetta termini e condizioni, <br>per l'utilizzo dei dati per profilazione.
                               </label>
                               <div class="invalid-feedback">Senza aver accettato, non potrai registrarti.</div>
                             </div>
-                          </div>
-                        <button class="btn btn-secondary" type="submit">Submit</button>
+                        </div>
+                        <button class="btn btn-secondary" id="submit" Name="submit">Submit</button>
                     </form>
                 </div>
             </div>                
@@ -137,5 +132,121 @@
             </footer>
         </div>
 <!--FINE FOOTER-->
+    <script>
+        function submitting(form){
+            nome = form.nome
+            cognome = form.cognome
+            email = form.email
+            password = form.password
+            rpassword = form.rpassword
+            check = form.check
+            button = form.submit
+            if (check.checked) {
+                if ((nome.getAttribute("class") == "form-control is-valid") && (cognome.getAttribute("class") == "form-control is-valid") 
+                    && email.getAttribute("class") == "form-control is-valid" && password.getAttribute("class") == "form-control is-valid" 
+                    && rpassword.getAttribute("class") == "form-control is-valid"){
+                        button.disabled = false
+                }
+                else {
+                    button.disabled = true;
+                    check.checked = false;
+                }
+            }
+        }
+        
+        function verify(id, str) {
+            if (id == "nome") {
+                var regex = /^[0-9a-zA-Z]\w{3,14}$/;
+                input = document.getElementById(id);
+                if (str.length < 2 || str.length > 25) {
+                    input.setAttribute("class", "form-control is-invalid");
+                }
+                else {
+                    if (regex.test(str)) {
+                        input.setAttribute("class", "form-control is-valid");
+                    }
+                    else {
+                        input.setAttribute("class", "form-control is-invalid");
+                        var check = document.getElementById("check");
+                        check.checked = false;
+                        console.log(check.checked);
+                    }
+                }
+            }
+
+            else if (id == "cognome") {
+                var regex = /^[0-9a-zA-Z]\w{3,14}$/;
+                input = document.getElementById(id);
+                if (str.length < 2 || str.length > 25) {
+                    input.setAttribute("class", "form-control is-invalid")
+                }
+                else {
+                    if (regex.test(str)) {
+                        input.setAttribute("class", "form-control is-valid")
+                    }
+                    else {
+                        input.setAttribute("class", "form-control is-invalid");
+                        var check = document.getElementById("check");
+                        check.checked = false;
+                        console.log(check.checked);
+                    }
+                }
+            }
+
+            else if (id == "email") {
+                var regex = /^[0-9a-zA-Z]\w{3,14}$/;
+                input = document.getElementById(id);
+                if (str.length < 2 || str.length > 25) {
+                    input.setAttribute("class", "form-control is-invalid")
+                }
+                else {
+                    if (regex.test(str)) {
+                        input.setAttribute("class", "form-control is-valid")
+                    }
+                    else {
+                        input.setAttribute("class", "form-control is-invalid");
+                        var check = document.getElementById("check");
+                        check.checked = false;
+                        console.log(check.checked);
+                    }
+                }
+            }
+
+            else if (id == "password") {
+                var regex = /^[0-9a-zA-Z]\w{3,14}$/;
+                input = document.getElementById(id);
+                if (str.length < 2 || str.length > 25) {
+                    input.setAttribute("class", "form-control is-invalid")
+                }
+                else {
+                    if (regex.test(str)) {
+                        input.setAttribute("class", "form-control is-valid")
+                    }
+                    else {
+                        input.setAttribute("class", "form-control is-invalid");
+                        var check = document.getElementById("check");
+                        check.checked = false;
+                        console.log(check.checked);
+                    }
+                }
+            }
+
+            else if (id == "rpassword") {
+                var regex = /^[0-9a-zA-Z]\w{3,14}$/;
+                input = document.getElementById(id);
+                inp = document.getElementById("password");
+                if (str == inp.value) {
+                    input.setAttribute("class", "form-control is-valid")
+                }
+                else {
+                    input.setAttribute("class", "form-control is-invalid")
+                    var check = document.getElementById("check");
+                    check.checked = false;
+                    console.log(check.checked);
+                }
+            }
+
+        }
+    </script>
     </body>
 </html>

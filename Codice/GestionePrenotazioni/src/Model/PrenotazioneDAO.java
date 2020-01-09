@@ -47,8 +47,23 @@ public class PrenotazioneDAO {
 		}
 
 	}
+	
+	
+	public void doUpdate(int id) {
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("UPDATE Prenotazione SET  Accettata=? WHERE IDprenotazione = ?;");
+			ps.setInt(1, 1);
+			ps.setInt(2, id);
+			ps.executeUpdate();
 
-	// prendi tutti i dipartimenti
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+		
+		
+	}
+
+	// prendi tutte le prenotazioni
 	public ArrayList<Prenotazione> doRetrieveAll() {
 
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
@@ -100,6 +115,37 @@ public class PrenotazioneDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	//Ricerca prenotazioni per dipartimento
+		public ArrayList<Prenotazione> doRetrieveByDip(String dipartimento,String data) {
+			try (Connection con = DriverManagerConnectionPool.getConnection()) {
+				PreparedStatement ps = con.prepareStatement(
+						"select Utente.Email, IDprenotazione, Titolo, Data, "
+						+ "OraInizio, OraFine, Descrizione, Aula, Edificio from Dipartimento join"
+						+ " Utente on  AmmDip = Utente.Email join Prenotazione on Utente.Email ="
+						+ " NomeUtente where  Dipartimento.Nome=? AND Data > ? ;");
+				ps.setString(1, dipartimento);
+				ps.setString(2, data);
+				ArrayList<Prenotazione> prenotazioniDip = new ArrayList<>();
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					Prenotazione p = new Prenotazione();
+					p.setUtente(rs.getString(1));
+					p.setIDprenotazione(rs.getInt(2));
+					p.setTitolo(rs.getString(3));
+					p.setData(PrenotazioneDAO.SplitData(rs.getString(4)));
+					p.setOraInizio(rs.getInt(5));
+					p.setOraFine(rs.getInt(6));
+					p.setDescrizione(rs.getString(7));
+					p.setAulaPrenotata(rs.getString(8));
+					p.setEdificio(rs.getString(9));
+					System.out.println("PrenotazioneDAO IDprenotazione: "+p.getIDprenotazione());
+					prenotazioniDip.add(p);
+				}
+				return prenotazioniDip;
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
 	
 	//Ricerca prenotazioni per data
 		/*

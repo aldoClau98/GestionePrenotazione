@@ -1,5 +1,7 @@
 package Controller;
-
+import Model.DipartimentoDAO;
+import Model.MyCalendar;
+import Model.Dipartimento;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -42,8 +44,19 @@ public class Login extends HttpServlet {
 			requestDispatcher.forward(request, response);
 		} else {
 			System.out.println("Login: 1");
-
+			//salva la data corrente 
+			MyCalendar data = new MyCalendar();
+			System.out.println("Login  utente: "+utente.getTipoUtente());
+			sessione.setAttribute("CurrentData", data.getDate());
+				//salva l'utente nella sessione
 			sessione.setAttribute("utente", utente);
+					//se l'utente è  amminsitratore di  dipartimento
+						if((utente.getTipoUtente())==1) {
+							
+							String dip= new DipartimentoDAO().doRetrieveByKey(utente.getEmail());
+							System.out.println("Login dipartimento: "+dip);
+							sessione.setAttribute("dipartimento", dip);
+						}
 
 			ArrayList<Prenotazione> storicoPrenotazioni = new PrenotazioneDAO().doRetrieveByUtente(email);
 			sessione.setAttribute("storicoPrenotazioni", storicoPrenotazioni);

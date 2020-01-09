@@ -67,18 +67,14 @@ public class DipartimentoDAO {
 	}
 	
 		//Ricerca per Dipartimento
-	public Dipartimento doRetrieveByKey(String nome) {
+	public String doRetrieveByKey(String email) {
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
-			PreparedStatement ps = con.prepareStatement("select Nome, AmmDip from  Dipartimento where Nome=?;");
-			ps.setString(1, nome);
+			PreparedStatement ps = con.prepareStatement("select Nome from  Dipartimento where AmmDip=?;");
+			ps.setString(1, email);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
-				Dipartimento p = new Dipartimento();
-				p.setDip(rs.getString(1));
-				p.setAmmDip(rs.getString(2));
-
+				String p = rs.getString(1);
 				return p;
-
 			}
 			return null;
 		} catch (SQLException e) {

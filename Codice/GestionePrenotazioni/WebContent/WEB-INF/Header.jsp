@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page import="Model.Utente"%>
 <%
 	Utente c = (Utente) session.getAttribute("utente");	
@@ -84,20 +85,32 @@
 			 
 			</span>
 			
-			<%
-				} else {
+			<%		// l' utente è un amministratore 
+				} else if ((c.getTipoUtente())== 1) {
 			%>
 			<span class="navbar-text actions"> <a class="login"
 				href="NavAreaPersonale">Profilo</a> <a class="btn btn-secondary"
 				type="button" href="Logout">Log out</a>
 				 <a href="NavStoricoPrenotazioni">StoricoPrenotazioni</a>
+				 <a href="NavRichiestePrenotazioni">Richieste Prenotazioni</a>
 			</span>
 			
 			
 			
 			<%
-				}
-			%>
+				}else {
+			%><span class="navbar-text actions"> <a class="login"
+				href="NavAreaPersonale">Profilo</a> <a class="btn btn-secondary"
+				type="button" href="Logout">Log out</a>
+				 <a href="NavStoricoPrenotazioni">StoricoPrenotazioni</a>
+				
+			</span>
+			
+			
+			
+			<%
+				} 
+				%>
 		</div>
 	</nav>
 	<!--FINE NAVBAR-->

@@ -1,7 +1,8 @@
-$('.toast').toast({autohide:false});
 
-$('.toast').toast("show");
+$(document).ready(function(){
 
-$("#sort").click(function(){
-    $('#sort').remove() 
+    $('#snackbar').attr("class", "show");
+        
+    setTimeout(function(){
+        $('#snackbar').attr("class","");}, 3000);
 });

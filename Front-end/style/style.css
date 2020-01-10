@@ -24,17 +24,6 @@ body {
     margin-left: auto;
 }
 
-#sideNav{
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    width: 17rem;
-    height: 100vh;
-}
-
 nav {
     background-color: white;
     -webkit-box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
@@ -49,11 +38,6 @@ nav .navbar-brand {
 nav .navbar-brand img{
     background-color: white;
     border-radius: 50%;
-}
-
-#navbarText .navbar-nav {
-    display: block ruby;
-    padding-left: 30%;
 }
 
 #navbarText .navbar-text {
@@ -84,6 +68,7 @@ nav .navbar-brand img{
     color:#fa6661;
     text-decoration:none;
     cursor: pointer;
+    padding: 10px 0 10px 0;
 }
 
 #navbarText .nav-item:after{
@@ -211,7 +196,8 @@ footer .social a {
 }
 
 #calendar-background .calendar {
-  width: 300px;
+  width: auto;
+  max-width: 500px;
   margin: auto;
   transition: opacity 1s;
   transition: 1s;
@@ -241,7 +227,8 @@ footer .social a {
   font-size: 125px;
   font-weight: 900;
   text-align: center;
-  width: 300px;
+  width: auto;
+  max-width: 500px;
   background-color: white;
   padding-top: 33px;
   padding-bottom: 33px;
@@ -298,7 +285,7 @@ footer .social a {
 
 
 .register-form form.custom-form {
-    padding: 55px;
+    padding: 55px 0 55px 0;
     box-sizing: border-box;
     background-color: #ffffff;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
@@ -316,6 +303,11 @@ footer .social a {
     padding: 0 10px 15px;
     margin-bottom: 60px;
     border-bottom: 2px solid grey;
+}
+
+#regisCol{
+    width: auto;
+    max-width: auto;
 }
   
 .login-clean {
@@ -434,4 +426,12 @@ footer .social a {
 
 
 
-  
+@media (min-width: 992px) {
+    #navbarText .navbar-nav {
+        padding-left: 30%;
+    }
+}
+
+@media (min-width: 768px) {
+
+}

@@ -54,7 +54,7 @@
                     Data
                 </span>
                 <span>
-                    <input id="datepicker" width="200px" />
+                    <input id="datepicker" width="200px" onchange="getData(this.value)"/>
                 </span>
                 <span>
                     <button class="btn btn-secondary" style="height: 38px;">
@@ -175,19 +175,26 @@
                     <div class="login-clean">
                       <form method="GET" action="">                          
                           <div class="form-group">
-                              <input class="form-control" name="titolo" placeholder="Titolo" />
+                              <input class="form-control" name="titolo" id="titolo" placeholder="Titolo" onchange="verifyA(this.id, this.value)"/>
+                              <div class="invalid-feedback">Da 5 a 32 caratteri, no caratteri speciali</div>
                           </div>
                           <div class="form-group">
-                              <input class="form-control" name="oraInizio" placeholder="Ora inizio" />
+                            <input class="form-control" name="data" id="data" placeholder="Data" disabled/>
                           </div>
                           <div class="form-group">
-                            <input class="form-control" name="oraFine" placeholder="Ora fine" />
+                              <input class="form-control" name="oraInizio" id="oraInizio" placeholder="Ora inizio" onchange="verifyA(this.id, this.value)"/>
+                              <div class="invalid-feedback">Formato ora 00:00</div>
+                          </div>
+                          <div class="form-group">
+                            <input class="form-control" name="oraFine" id="oraFine" placeholder="Ora fine" onchange="verifyA(this.id, this.value)"/>
+                            <div class="invalid-feedback">Formato ora 00:00</div>
                         </div>
                         <div class="form-group">
-                          <input class="form-control" name="descrizione" placeholder="Descrizione" />
+                          <input class="form-control" name="descrizione" id="descrizione" placeholder="Descrizione" onchange="verifyA(this.id, this.value)"/>
+                          <div class="invalid-feedback">Da 15 a 250 caratteri, no caratteri speciali</div>
                         </div>
                           <div class="form-group">
-                              <a class="btn btn-secondary btn-block" href="AreaPersonale.html" type="submit">Prenota</a>
+                            <button class="btn btn-secondary btn-block" id="submit">Prenota</button>
                           </div>
                       </form>
                   </div>
@@ -231,4 +238,6 @@
         uiLibrary: 'bootstrap'
       });
     </script>
+    <script src="function/data-aula.js"></script>
+    <script src="function/regex-prenotaAula.js"></script>
 </html>

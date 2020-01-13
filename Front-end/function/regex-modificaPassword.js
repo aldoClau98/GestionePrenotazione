@@ -32,10 +32,11 @@ function verifyP(id, str) {
     }
 
     else if (id == "rpassword") {
+        var regex = /^\w+([\.-])?\w+$/;
         input = document.getElementById(id);
         var button = document.getElementById("submit");
-        inp = document.getElementById("password");
-        if (str == inp.value) {
+        var check = document.getElementById("check");
+        if (regex.test(str)) {
             input.setAttribute("class", "form-control is-valid");
             if(document.getElementById("password").getAttribute("class") ==  "form-control is-valid") {
                 button.disabled = false;
@@ -43,7 +44,6 @@ function verifyP(id, str) {
         }
         else {
             input.setAttribute("class", "form-control is-invalid");
-            var check = document.getElementById("check");
             check.checked = false;
             button.disabled = true;
         }

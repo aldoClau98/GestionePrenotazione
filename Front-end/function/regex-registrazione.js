@@ -20,40 +20,29 @@ function submitting(form){
 }
 
 function verify(id, str) {
+    var check = document.getElementById("check");
+
     if (id == "nome") {
         var regex = /^[a-zA-Z]+$/;
         input = document.getElementById(id);
-        var check = document.getElementById("check");
-        if (str.length < 2 || str.length > 25) {
+        if ((str.length < 2 || str.length > 25) || !regex.test(str)) {
             input.setAttribute("class", "form-control is-invalid");
             check.checked = false;
         }
         else {
-            if (regex.test(str)) {
-                input.setAttribute("class", "form-control is-valid");
-            }
-            else {
-                input.setAttribute("class", "form-control is-invalid");
-            }
+            input.setAttribute("class", "form-control is-valid");
         }
     }
 
     else if (id == "cognome") {
         var regex = /^[a-zA-Z]+$/;
         input = document.getElementById(id);
-        var check = document.getElementById("check");
-        if (str.length < 2 || str.length > 25) {
+        if (str.length < 2 || str.length > 25 || !regex.test(str)) {
             input.setAttribute("class", "form-control is-invalid");
             check.checked = false;
         }
         else {
-            if (regex.test(str)) {
-                input.setAttribute("class", "form-control is-valid")
-            }
-            else {
-                input.setAttribute("class", "form-control is-invalid");
-                check.checked = false;
-            }
+            input.setAttribute("class", "form-control is-valid")
         }
     }
 
@@ -61,26 +50,18 @@ function verify(id, str) {
         var regex1 = /^(\w+([\.-])?\w+)+@?(studenti\.unisa\.it)?$/;
         var regex2 = /^(\w+([\.-])?\w+)+@?(unisa\.it)?$/;
         input = document.getElementById(id);
-        var check = document.getElementById("check");
-        if (str.length < 0 || str.length > 254) {
+        if (str.length < 0 || str.length > 254 || !(regex1.test(str) || regex2.test(str))) {
             input.setAttribute("class", "form-control is-invalid");
             check.checked = false;
         }
         else {
-            if (regex1.test(str) || regex2.test(str)) {
-                input.setAttribute("class", "form-control is-valid")
-            }
-            else {
-                input.setAttribute("class", "form-control is-invalid");
-                check.checked = false;
-            }
+            input.setAttribute("class", "form-control is-valid")
         }
     }
 
     else if (id == "password") {
         var regex = /^\w+([\.-])?\w+$/;
         input = document.getElementById(id);
-        var check = document.getElementById("check");
         if (regex.test(str)) {
                 input.setAttribute("class", "form-control is-valid");
         }
@@ -98,7 +79,6 @@ function verify(id, str) {
         }
         else {
             input.setAttribute("class", "form-control is-invalid")
-            var check = document.getElementById("check");
             check.checked = false;
         }
     }

@@ -53,6 +53,7 @@
                             </div>
                             <div class="col-sm-6 input-column">
                                 <input type="text" class="form-control" id="nome" value="Gianluca" Name="nome" required onchange="verify(this.id, this.value)">
+                                <div class="invalid-feedback">Da 2 a 25 caratteri, solo lettere</div>
                             </div>
                         </div>
                         <div class="form-row form-group">
@@ -61,6 +62,7 @@
                             </div>
                             <div class="col-sm-6 input-column">
                                 <input type="text" class="form-control" id="cognome" value="Grignani" Name="cognome"required onchange="verify(this.name, this.value)">
+                                <div class="invalid-feedback">Da 2 a 25 caratteri, solo lettere</div>
                             </div>
                         </div>
                         <div class="form-row form-group">
@@ -68,7 +70,8 @@
                                 <label for="validationServer03">E-mail</label>
                             </div>
                             <div class="col-sm-6 input-column">
-                                <input type="text" class="form-control" id="email" Name="email" value="pippo@pippotto.studenti.it" required onchange="verify(this.id, this.value)">
+                                <input type="text" class="form-control" id="email" Name="email" value="pippo@studenti.unisa.it" required onchange="verify(this.id, this.value)">
+                                <div class="invalid-feedback">Devi avere una mail universitaria</div>
                             </div>
                         </div>
                         <div class="form-row form-group">
@@ -77,6 +80,7 @@
                             </div>
                             <div class="col-sm-6 input-column">
                                 <input type="text" class="form-control" id="password" value="pippolo66" Name="password" required onchange="verify(this.id, this.value)">
+                                <div class="invalid-feedback">Può contenere solo '.' o '-' all'interno</div>
                             </div>
                         </div>
                         <div class="form-row form-group">
@@ -85,6 +89,7 @@
                             </div>
                             <div class="col-sm-6 input-column">
                                 <input type="text" class="form-control" id="rpassword" value="pippolo65" Name="rpassword" required onchange="verify(this.id, this.value)">
+                                <div class="invalid-feedback">Deve essere uguale a password</div>
                             </div>
                         </div>
                         <div class="form-group">

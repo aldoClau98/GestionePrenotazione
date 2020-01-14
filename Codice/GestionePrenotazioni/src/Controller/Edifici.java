@@ -25,13 +25,13 @@ public class Edifici extends HttpServlet {
 		String edificio = request.getParameter("edificio");
 		// Ricerca le aule per Edificio
 		ArrayList<Model.Struttura> listaAule = new StrutturaDAO().doAulabyEdificio(edificio);
-		// Ricerca il nome degli edifici nel databse
-		ArrayList<String> listaEdifici = new StrutturaDAO().doRetrieveAllEdifici();
+	
+		System.out.println("Edifici Servlet:  edificio: "+edificio);
 		// salvataggio dei dati nella request
 		request.setAttribute("listaAule", listaAule);
-		request.setAttribute("listaEdifici", listaEdifici);
+		request.setAttribute("edificio", edificio);
 		// invio del controllo alla jsp
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Edifici.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Aula.jsp");
 		view.forward(request, response);
 
 	}

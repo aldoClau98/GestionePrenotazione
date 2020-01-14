@@ -35,7 +35,7 @@ public class PrenotazioneDAO {
 		}
 		return 0;
 	}
-
+			
 	public void doDelete(int id) {
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
 			PreparedStatement ps = con.prepareStatement("DELETE FROM Prenotazione WHERE IDprenotazione=?;");

@@ -30,27 +30,9 @@
 					</table>
 					
 					</c:forEach>
-					<table>
-					<c:forEach items="${listaAule}" var="l">
-					
-						<!-- le aule dell'edificio  vengono visualizzate  di seguito -->
-						<tbody tbody class="" style="display:">
-							<tr>
-							<!-- Qui ci vuole per forza un form,  da vedere con  Andrea -->
-								<th>
-									<form method="post" action="NavAula">
-									<input type="hidden" name="edificio" value="${i}" />
-										<input type="hidden" name="aula" value="${l.aula}" />
-										<button type="submit">${l.aula}</button>
-									</form>
-								</th>
-								<td>Prenotabile da studenti: ${l.tipoAula}</td>
-								<td>Descrizione: ${l.descrizione}</td>
-								
-							</tr>
-						</tbody>
-					</c:forEach>
-				</table>
+				 </div>
+				 </div>
+				
 			
 		</div>
 

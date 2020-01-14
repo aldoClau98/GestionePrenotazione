@@ -37,13 +37,13 @@
 					</tr>
 					<%
 						if (request.getParameter("result") != null) {
-							String result =  request.getParameter("result");
+							String result = request.getParameter("result");
 							if (result.equals("1")) {
 								out.write("<script>alert('Password modificata con successo!');</script>");
-							}else {
+							} else {
 								out.write("<script>alert('Errore modifica password!');</script>");
 							}
-							
+
 						}
 					%>
 

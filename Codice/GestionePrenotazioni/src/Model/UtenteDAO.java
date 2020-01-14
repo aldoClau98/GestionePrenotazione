@@ -6,16 +6,18 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UtenteDAO {
-	
+
 	public UtenteDAO() {
-		
+
 	}
-	//doSave Salva un nuovo utente nel  database
-	public synchronized int doSave(String email,String password, String nome, String cognome, int tipoUtente) {
+
+	// doSave Salva un nuovo utente nel database
+	public synchronized int doSave(String email, String password, String nome, String cognome, int tipoUtente) {
 		PreparedStatement ps = null;
 
 		try (Connection conn = DriverManagerConnectionPool.getConnection();) {
-			ps = conn.prepareStatement("insert into  Utente(Email,Password,Nome,Cognome,TipoUtente) values (?,?,?,?,?);");
+			ps = conn.prepareStatement(
+					"insert into  Utente(Email,Password,Nome,Cognome,TipoUtente) values (?,?,?,?,?);");
 			ps.setString(1, email);
 			ps.setString(2, password);
 			ps.setString(3, nome);
@@ -28,11 +30,13 @@ public class UtenteDAO {
 		}
 		return 0;
 	}
-	//ricerca un  tipo di utente per email
-	public Utente doRetrieveByKey(String email,String password) {
+
+	// ricerca un tipo di utente per email
+	public Utente doRetrieveByKey(String email, String password) {
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
 			System.out.println(email);
-			PreparedStatement ps = con.prepareStatement("select Email, Password, Nome , Cognome, TipoUtente from Utente Where Email=? AND Password=?;");
+			PreparedStatement ps = con.prepareStatement(
+					"select Email, Password, Nome , Cognome, TipoUtente from Utente Where Email=? AND Password=?;");
 			ps.setString(1, email);
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
@@ -53,21 +57,21 @@ public class UtenteDAO {
 		}
 	}
 
-	//modifica della password
-	public static int  doUpdate( String email, String password) {
-		int rs=0;
-		try (Connection con = DriverManagerConnectionPool.getConnection()){
-			PreparedStatement ps= con.prepareStatement("UPDATE Utente SET  password=?  WHERE email =?;");
-				
-				ps.setString(1,password);
-				ps.setString(2, email);
-				
-			rs=	 ps.executeUpdate();
-				
-				return rs;
-		}catch(SQLException e) {
-			throw  new  RuntimeException(e);
+	// modifica della password
+	public static int doUpdate(String email, String password) {
+		int rs = 0;
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("UPDATE Utente SET  password=?  WHERE email =?;");
+
+			ps.setString(1, password);
+			ps.setString(2, email);
+
+			rs = ps.executeUpdate();
+
+			return rs;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
 		}
 	}
-	
+
 }

@@ -77,5 +77,10 @@ public class Prenotazione {
 	private String aulaPrenotata;
 	private String edificio;
 	private String utente;
+	
+	
+
 
 }
+
+

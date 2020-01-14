@@ -37,7 +37,7 @@ public class Aula extends HttpServlet {
 		view.forward(request, response);
 		
 		} else {
-			ArrayList<Prenotazione> listaPren =  new PrenotazioneDAO().doRetrieveByDate(data, aula);
+			ArrayList<Model.Prenotazione> listaPren =  new PrenotazioneDAO().doRetrieveByDate(data, aula);
 			
 			session.setAttribute("listaPren", listaPren);
 		

@@ -23,6 +23,7 @@ body {
     margin-right: auto;
     margin-left: auto;
 }
+
 nav {
     background-color: white;
     -webkit-box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
@@ -37,11 +38,6 @@ nav .navbar-brand {
 nav .navbar-brand img{
     background-color: white;
     border-radius: 50%;
-}
-
-#navbarText .navbar-nav {
-    display: block ruby;
-    padding-left: 30%;
 }
 
 #navbarText .navbar-text {
@@ -72,6 +68,7 @@ nav .navbar-brand img{
     color:#fa6661;
     text-decoration:none;
     cursor: pointer;
+    padding: 10px 0 10px 0;
 }
 
 #navbarText .nav-item:after{
@@ -112,7 +109,7 @@ hr {
 }
 
 #container-centrale-back {
-    background: url("logo-unisa.png") no-repeat center;
+    background: url("../img/logo-unisa.png") no-repeat center;
 }
 
 footer .social {
@@ -199,7 +196,8 @@ footer .social a {
 }
 
 #calendar-background .calendar {
-  width: 300px;
+  width: auto;
+  max-width: 500px;
   margin: auto;
   transition: opacity 1s;
   transition: 1s;
@@ -229,7 +227,8 @@ footer .social a {
   font-size: 125px;
   font-weight: 900;
   text-align: center;
-  width: 300px;
+  width: auto;
+  max-width: 500px;
   background-color: white;
   padding-top: 33px;
   padding-bottom: 33px;
@@ -286,7 +285,7 @@ footer .social a {
 
 
 .register-form form.custom-form {
-    padding: 55px;
+    padding: 55px 0 55px 0;
     box-sizing: border-box;
     background-color: #ffffff;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
@@ -304,6 +303,11 @@ footer .social a {
     padding: 0 10px 15px;
     margin-bottom: 60px;
     border-bottom: 2px solid grey;
+}
+
+#regisCol{
+    width: auto;
+    max-width: auto;
 }
   
 .login-clean {
@@ -371,5 +375,63 @@ footer .social a {
       display: block ruby;
   }
   
+ .register-form .custom-form .form-group .label-column {
+      padding-top: 10px;
+  }
   
+  #snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #4b4c4d; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 90%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+  }
   
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar.show {
+    visibility: visible; /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+
+
+@media (min-width: 992px) {
+    #navbarText .navbar-nav {
+        padding-left: 30%;
+    }
+}
+
+@media (min-width: 768px) {
+
+}

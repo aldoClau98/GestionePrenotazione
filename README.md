@@ -31,7 +31,29 @@ server.
 Nel nostro caso è stato utilizzato il server di Tomcat.
 
 ## Autori:
-* Martina Borriello 
-* Veronica Marcantuono
-* Andrea Claro
-* Aldo Claudini
+<table>
+  <tbody>
+    <tr>
+      </td>
+        <td align="center" valign="top">
+        <img width="100" height="100" src="https://avatars1.githubusercontent.com/u/55531272?s=400&u=cc394cae0a33c65ea1b7ca4b624cd2ffad0803f3&v=4">
+        <br>
+        <a href="https://github.com/andrea-claro">Andrea Claro</a>
+      </td>
+      </td>
+        <td align="center" valign="top">
+        <img width="100" height="100" src="https://avatars2.githubusercontent.com/u/44474118?s=400&v=4">
+        <br>
+        <a href="https://github.com/aldoClau98">Aldo Claudini</a>
+      </td>      
+      <td align="center" valign="top">
+        <img width="100" height="100" src="https://avatars3.githubusercontent.com/u/55535342?s=400&v=4">
+        <br>
+        <a href="https://github.com/martina211">Martina Boriello</a>
+      </td>
+      <td align="center" valign="top">
+        Veronica Marcantuono
+      </td>
+      </tr>
+  </tbody>
+</table>

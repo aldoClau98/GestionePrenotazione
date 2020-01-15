@@ -50,7 +50,7 @@ public class Login extends HttpServlet {
 			sessione.setAttribute("CurrentData", data.getDate());
 				//salva l'utente nella sessione
 			sessione.setAttribute("utente", utente);
-					//se l'utente è  amminsitratore di  dipartimento
+					//se l'utente ï¿½  amminsitratore di  dipartimento
 						if((utente.getTipoUtente())==1) {
 							
 							String dip= new DipartimentoDAO().doRetrieveByKey(utente.getEmail());
@@ -60,7 +60,7 @@ public class Login extends HttpServlet {
 
 			ArrayList<Prenotazione> storicoPrenotazioni = new PrenotazioneDAO().doRetrieveByUtente(email);
 			sessione.setAttribute("storicoPrenotazioni", storicoPrenotazioni);
-			request.setAttribute("resultlogin", "1");
+			request.setAttribute("resultLogin", "1");
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 			requestDispatcher.forward(request, response);
 		}

@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 
     $('#snackbar').attr("class", "show");

@@ -5,7 +5,7 @@
 	
 <div class="container" style="padding-top: 200px;">
 	<p>
-		<span id="parola">Home</span>
+		<span>Home</span>
 	</p>
 	
 	  

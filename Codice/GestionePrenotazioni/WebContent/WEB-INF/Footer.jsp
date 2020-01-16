@@ -30,6 +30,7 @@
 	</div>
 <!--FINE FOOTER-->
 
+<script src="function/showing-menu.js"></script>
 <script src="function/calendario.js"></script>
 <script src="function/banner.js"></script>
 

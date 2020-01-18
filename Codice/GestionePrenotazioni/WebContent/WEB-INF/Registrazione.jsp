@@ -1,25 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<% 	String pageTitle= "Registrazione";
+   	request.setAttribute("pageTitle", pageTitle);%>
+   	
 <jsp:include page="Header.jsp"/>
   
-<div class="container" style="padding-top: 200px;">
-	<p>Registrazione</p>
+<div class="container" style="padding-top:180px">
+	<p>
+		<span><%= pageTitle %></span>
+	</p>
 </div> 
 
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
     <div class="row register-form">
         <div class="col-md-8 offset-md-2">
-            <form class="custom-form" method="GET" action="Registrazione">
+            <form class="custom-form" method="POST" action="Registrazione">
                 <h1>Inserire i dati</h1>
                 <div class="form-row form-group">
                     <div class="col-sm-4 label-column">
                         <label for="validationServer01">Nome</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <input type="text" class="form-control is-valid" name="nome" id="validationServer01" value="Gianluca" required>
-                        <div class="valid-feedback">Funziona!</div>
+                        <input type="text" class="form-control" id="nome" value="Gianluca" Name="nome" required onchange="verify(this.id, this.value)">
+                        <div class="invalid-feedback">Da 2 a 25 caratteri, solo lettere</div>
                     </div>
                 </div>
                 <div class="form-row form-group">
@@ -27,8 +32,8 @@
                         <label for="validationServer02">Cognome</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <input type="text" class="form-control is-valid" name="cognome"id="validationServer02" value="Grignani" required>
-                        <div class="valid-feedback">Funziona!</div>
+                        <input type="text" class="form-control" id="cognome" value="Grignani" Name="cognome"required onchange="verify(this.name, this.value)">
+                        <div class="invalid-feedback">Da 2 a 25 caratteri, solo lettere</div>
                     </div>
                 </div>
                 <div class="form-row form-group">
@@ -36,8 +41,8 @@
                         <label for="validationServer03">E-mail</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <input type="text" class="form-control is-valid"name="email" id="validationServer03" value="pippo@pippotto.studenti.it" required>
-                        <div class="valid-feedback">Funziona!</div>
+                        <input type="text" class="form-control" id="email" Name="email" value="pippo@studenti.unisa.it" required onchange="verify(this.id, this.value)">
+                        <div class="invalid-feedback">Devi avere una mail universitaria</div>
                     </div>
                 </div>
                 <div class="form-row form-group">
@@ -45,8 +50,8 @@
                         <label for="validationServer04">Password</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <input type="text" class="form-control is-valid" name="password"id="validationServer04" value="pippolo66" required>
-                        <div class="valid-feedback">Funziona!</div>
+                        <input type="text" class="form-control" id="password" value="pippolo66" Name="password" required onchange="verify(this.id, this.value)">
+                        <div class="invalid-feedback">Può contenere solo '.' o '-' all'interno</div>
                     </div>
                 </div>
                 <div class="form-row form-group">
@@ -54,21 +59,20 @@
                         <label for="validationServer05">Ripeti password</label>
                     </div>
                     <div class="col-sm-6 input-column">
-                        <input type="text" class="form-control is-invalid" id="validationServer05" value="pippolo65" required>
-                        <div class="invalid-feedback">Non va bene!</div>
+                        <input type="text" class="form-control" id="rpassword" value="pippolo65" Name="rpassword" required onchange="verify(this.id, this.value)">
+                        <div class="invalid-feedback">Deve essere uguale a password</div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="form-check">
-                      <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
-                      <label class="form-check-label" for="invalidCheck3">
-                          Accetta termini e condizioni, <br>per l'utilizzo dei dati per profilazione.
-                      </label>
-                      <div class="invalid-feedback">Senza aver accettato, non potrai registrarti.</div>
-                    </div>
+                   <div class="form-check">
+                     <input class="form-check-input" type="checkbox" id="check" Name="check" required onchange=submitting(this.form)>
+                     <label class="form-check-label" for="check">
+                         Accetta termini e condizioni, <br>per l'utilizzo dei dati per profilazione.
+                     </label>
                   </div>
-                  <input  type="hidden"  name="tipoutente"  value="0" required>
-                <button class="btn btn-secondary" type="submit">Submit</button>
+                </div>
+                <input  type="hidden"  name="tipoutente"  value="0" required>
+                <button class="btn btn-secondary" id="submit" Name="submit" type="submit">Submit</button>
             </form>
         </div>
     </div>                

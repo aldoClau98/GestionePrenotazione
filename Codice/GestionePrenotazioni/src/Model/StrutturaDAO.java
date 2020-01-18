@@ -110,9 +110,28 @@ public class StrutturaDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	
+	public ArrayList<String> doRetrieveAllDipartimenti() {
+
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("select DISTINCT  Dipartimento from Struttura;");
+
+			ArrayList<String> listaNomiDipartimenti = new ArrayList<>();
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				String p = (rs.getString(1));
+					System.out.println("Struttura dao Edificio: "+p);
+				listaNomiDipartimenti.add(p);
+			}
+
+			return listaNomiDipartimenti;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 	// Ricerca le aule per Edificio
-	public ArrayList<Struttura> doAulabyEdificio(String edificio) {
+	public static ArrayList<Struttura> doAulabyEdificio(String edificio) {
 		// connessione al database
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
 			// preparo la query
@@ -170,7 +189,7 @@ public class StrutturaDAO {
 	
 	
 	// Ricerca Strutture per Dipartimento
-	public ArrayList<Struttura> doStrutturabyDip(String dip) {
+	public static ArrayList<Struttura> doStrutturabyDip(String dip) {
 		// connessione al database
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
 			// preparo la query
@@ -195,4 +214,32 @@ public class StrutturaDAO {
 			throw new RuntimeException(e);
 		}
 	}
+	public static ArrayList<Struttura> doStrutturabyDipartimenti(String dip) {
+		// connessione al database
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			// preparo la query
+			PreparedStatement ps = con
+					.prepareStatement("select Aula, Edificio, tipo, Dipartimento, Descrizione from  Struttura where Dipartimento=?;");
+			ps.setString(1, dip);
+
+			ArrayList<Struttura> listastr = new ArrayList<>();
+			// eseguo la query
+			ResultSet rs = ps.executeQuery();
+			// riempio la mia lista di aule
+			while (rs.next()) {
+				Struttura p = new Struttura();
+				p.setAula(rs.getString(1));
+				p.setEdificio(rs.getString(2));
+				p.setTipoAula(rs.getInt(3));
+				p.setDipartimento(rs.getString(4));
+				p.setDescrizione(rs.getString(5));
+				listastr.add(p);
+			}
+			return listastr;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
+
+

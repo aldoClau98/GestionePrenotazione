@@ -25,7 +25,7 @@
 	                </a>
 	            </li>
 	        </ul>
-	        <p class="copyright">Gestione Prenotazioni Â© 2019</p>
+	        <p class="copyright">Gestione Prenotazioni © 2019</p>
 	    </footer>
 	</div>
 <!--FINE FOOTER-->
@@ -33,6 +33,9 @@
 <script src="function/showing-menu.js"></script>
 <script src="function/calendario.js"></script>
 <script src="function/banner.js"></script>
+<script src="function/regex-login.js"></script>
+<script src="function/regex-registrazione.js"></script>
+<script src="function/regex-modificaPassword.js"></script>
 
 </body>
 

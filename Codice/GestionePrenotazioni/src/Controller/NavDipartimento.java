@@ -21,8 +21,10 @@ public class NavDipartimento extends ServletBasic {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session =  request.getSession();
 		
-		ArrayList<Model.Dipartimento> listaDipartimenti = new DipartimentoDAO().doRetrieveAll();
+		ArrayList<String> listaDipartimenti = new StrutturaDAO().doRetrieveAllDipartimenti();
+		ArrayList<Model.Dipartimento> listaAmministratori = new DipartimentoDAO().doRetrieveAll();
 		session.setAttribute("listaDipartimenti", listaDipartimenti);
+		session.setAttribute("listaAmministratori", listaAmministratori);
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Dipartimenti.jsp");
 		view.forward(request, response);
 	}

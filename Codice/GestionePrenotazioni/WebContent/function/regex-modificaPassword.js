@@ -1,11 +1,11 @@
-function submitting(form){
+function submittingP(form){
     password = form.password
     rpassword = form.rpassword
     check = form.check
     button = form.submit
     if (check.checked) {
-        if (password.getAttribute("class") == "form-control is-valid" 
-            && rpassword.getAttribute("class") == "form-control is-valid"){
+        if ((password.getAttribute("class") == "form-control is-valid")
+            && (rpassword.getAttribute("class") == "form-control is-valid")){
                 button.disabled = false
         }
         else {
@@ -30,10 +30,11 @@ function verifyP(id, str) {
         }        
     }
 
-    else if (id == "rpassword") {
+    if (id == "rpassword") {
         var regex = /^\w+([\.-])?\w+$/;
         input = document.getElementById(id);
-        if (regex.test(str)) {
+        pass = document.getElementById("password");
+        if (regex.test(str) && input.value != pass.value) {
             input.setAttribute("class", "form-control is-valid");
         }
         else {

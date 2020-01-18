@@ -21,12 +21,10 @@ public class ServletHome extends ServletBasic {
 
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 		view.forward(request, response);
-		
 	}
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

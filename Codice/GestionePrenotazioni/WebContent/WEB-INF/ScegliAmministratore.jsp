@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<% 	String pageTitle= "Assegnamento amministrazione";
+   	request.setAttribute("pageTitle", pageTitle);%>
+   	
 <jsp:include page="Header.jsp" />
 
-<div class="container" style="padding-top: 200px;">
-	<p>Assegna amministratore per ###</p>
+<div class="container" style="padding-top:180px">
+	<p>
+		<span><%= pageTitle %> per ###(dipartimento)</span>
+	</p>
 </div>
 
 <!--INIZIO CONTAINER CENTRALE-->

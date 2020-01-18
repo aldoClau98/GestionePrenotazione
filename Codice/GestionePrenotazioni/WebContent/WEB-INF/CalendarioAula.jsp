@@ -1,18 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%@ page import="Model.Struttura"%>
 <%@ page import="Model.Prenotazione"%>
 <%@ page import="java.util.ArrayList"%>
 
-<%
-	final String[] array = {"Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato", "Domenica"};
-%>
+<% final String[] array = {"Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato", "Domenica"}; %>
 
+<% 	String pageTitle= "Calendario";
+   	request.setAttribute("pageTitle", pageTitle);%>
+   	
 <jsp:include page="Header.jsp" />
 
-<div class="container" style="padding-top: 200px;">
+<div class="container" style="padding-top:180px">
 	<p>${struttura.aula}</p>
 	<p>${struttura.edificio}</p>
 	<p>${astruttura.dipartimento}</p>
@@ -24,8 +26,9 @@
 			type="submit" />
 	</form>
 
-
 </div>
+
+<!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
 	<div class="row" id="container-tabelle">
 		<div class="col">
@@ -102,4 +105,5 @@
 								uiLibrary : 'bootstrap'
 							});
 						</script>
-						<jsp:include page="Footer.jsp" />
+
+<jsp:include page="Footer.jsp" />

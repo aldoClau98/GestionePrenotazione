@@ -6,11 +6,14 @@
 <%@ page import="Model.Struttura"%>
 <%@ page import="java.util.ArrayList"%>
 
+<% 	String pageTitle= "Edifici";
+   	request.setAttribute("pageTitle", pageTitle);%>
+   	
 <jsp:include page="Header.jsp" />
 
-<div class="container" style="padding-top: 200px;">
+<div class="container" style="padding-top:180px">
 	<p>
-		<span>Edifici</span>
+		<span><%= pageTitle %></span>
 	</p>
 </div>
 
@@ -34,5 +37,6 @@
 		
 	</div>
 </div>
+<!--FINE CONTAINER CENTRALE-->
 
 <jsp:include page="Footer.jsp" />

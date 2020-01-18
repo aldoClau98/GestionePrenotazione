@@ -1,11 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<% 	String pageTitle= "Storico prenotazioni";
+   	request.setAttribute("pageTitle", pageTitle);%>
+   	
 <jsp:include page="Header.jsp" />
-<%
 
+<div class="container" style="padding-top:180px">
+	<p>
+		<span><%= pageTitle %> per ###(dipartimento)</span>
+	</p>
+</div>
 
-%>
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
     <div class="row" id="container-tabelle">

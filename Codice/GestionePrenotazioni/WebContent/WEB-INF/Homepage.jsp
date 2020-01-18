@@ -1,11 +1,14 @@
+<% 	String pageTitle= "Home";
+   	request.setAttribute("pageTitle", pageTitle);%>
+   	
 <jsp:include page="Header.jsp" />
 
 <% 	String resultLogin = (String) request.getAttribute("resultLogin");
 	String resultPassw = (String) request.getAttribute("resultPassword"); %>
 	
-<div class="container" style="padding-top: 200px;">
+<div class="container" style="padding-top:180px">
 	<p>
-		<span>Home</span>
+		<span><%= pageTitle %></span>
 	</p>
 	
 	  

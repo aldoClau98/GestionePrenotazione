@@ -9,11 +9,14 @@
 <% ArrayList<Model.Dipartimento> listaAmministratori = (ArrayList<Model.Dipartimento>)session.getAttribute("listaAmministratori"); 
 	ArrayList<String> listaDipartimenti =(ArrayList<String>) session.getAttribute("listaDipartimenti"); %>
 
+<% 	String pageTitle= "Dipartimenti";
+   	request.setAttribute("pageTitle", pageTitle);%>
+   	
 <jsp:include page="Header.jsp" />
 
-<div class="container" style="padding-top: 200px;">
+<div class="container" style="padding-top:180px">
 	<p>
-		<span>Dipartimenti</span>
+		<span><%= pageTitle %></span>
 	</p>
 </div>
 

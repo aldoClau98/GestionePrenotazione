@@ -1,3 +1,6 @@
+<% 	String pageTitle= "Area-Personale";
+   	request.setAttribute("pageTitle", pageTitle);%>
+
 <jsp:include page="Header.jsp" />
 
 <%@ page import="Model.Utente"%>
@@ -5,9 +8,9 @@
 <% Utente c = (Utente) session.getAttribute("utente"); 
    String result = request.getParameter("result"); %>
 
-<div class="container" style="padding-top: 200px;">
+<div class="container" style="padding-top:180px">
 	<p>
-		<span>Area personale</span>
+		<span><%= pageTitle %></span>
 	</p>
 		
 <% if (result != null) {

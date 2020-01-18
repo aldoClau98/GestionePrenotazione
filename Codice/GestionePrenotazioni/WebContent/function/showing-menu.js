@@ -1,17 +1,67 @@
-$(document).ready(function() {
-    $('.show-hidden-menu-1').click(function() {
-        $('.hidden-menu-1').slideToggle("fast");
-    });
+function getAule(str){
+	var building = document.getElementById(str);
+	if (str.length == 0)
+		return;
+	building.innerHTML = '';
+	var xhttp = new XMLHttpRequest();
+	xhttp.responseType = 'json';
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			for (var i = 0; i < this.response.length; i++) {
+				var room = document.createElement('tr');
+		        room.value = this.response[i];
+		        room.addEventListener("click", function (){
+		            window.location.href = "NavAula?aula="+room.value;
+		        });
+		        building.appendChild(room);
+		        col1 = document.createElement('th');
+		        col2 = document.createElement('td');
+		        col3 = document.createElement('td');
+		        col1.innerHTML = "Aula: "+this.response[i];
+		        col2.innerHTML = this.response[i+1];
+		        col3.innerHTML = "Dipartimento: "+this.response[i+2];
+		        room.appendChild(col1);
+		        room.appendChild(col2);
+		        room.appendChild(col3);
+		        i+=2;
+			}
+		}
+	}
+    xhttp.open("GET", "AulaGetter?str="+str, true);
+    xhttp.send();
+}
 
-    $('.show-hidden-menu-2').click(function() {
-        $('.hidden-menu-2').slideToggle("fast");
-    });
-
-    $('.show-hidden-menu-3').click(function() {
-        $('.hidden-menu-3').slideToggle("fast");
-    });
-});
-
-$('tr[data-href]').on("click", function() {
-    document.location = $(this).data('href');
-});
+function getDipartimenti(str){
+	console.log(str);
+	var building = document.getElementById(str);
+	console.log(building);
+	if (str.length == 0)
+		return;
+	building.innerHTML = '';
+	var xhttp = new XMLHttpRequest();
+	xhttp.responseType = 'json';
+	xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			for (var i = 0; i < this.response.length; i++) {
+			    var room = document.createElement('tr');
+		        room.value = this.response[i];
+		        room.addEventListener("click", function (){
+		            window.location.href = "NavAula?aula="+room.value;
+		        });
+		        building.appendChild(room);
+		        col1 = document.createElement('th');
+		        col2 = document.createElement('td');
+		        col3 = document.createElement('td');
+		        col1.innerHTML = "Aula: "+this.response[i];
+		        col2.innerHTML = this.response[i+1];
+		        col3.innerHTML = "Edificio: "+this.response[i+2];
+		        room.appendChild(col1);
+		        room.appendChild(col2);
+		        room.appendChild(col3);
+		        i+=2;
+			}
+		}
+	}
+    xhttp.open("GET", "DipGetter?str="+str, true);
+    xhttp.send();
+}

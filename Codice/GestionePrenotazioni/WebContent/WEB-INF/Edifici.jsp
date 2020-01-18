@@ -22,28 +22,12 @@
 			<c:forEach items="${listaEdifici}" var="i">
 				<div class="col">
 					<table class="table table-hover">
-						<thead class="show-hidden-menu-1">
+						<thead onclick="getAule('${i}')">
 							<tr>
-								<th>${i}</th>
+								<th>Edificio ${i}</th>
 							</tr>
 						</thead>
-						<!-- <tbody class="hidden-menu-1" style="display:none">
-		                	<tr data-href="Aula.html">
-			                    <th scope="row">1</th>
-			                    <td>S2</td>
-			                    <td>Room</td>
-		                  	</tr>
-		                  	<tr data-href="Aula.html">
-			                    <th scope="row">2</th>
-			                    <td>P2</td>
-			                    <td>Laboratory</td>
-		                  	</tr>
-		                  	<tr data-href="Aula.html">
-			                    <th scope="row">3</th>
-			                    <td>F2</td>
-			                    <td>Room</td>
-		                  	</tr>
-                		</tbody> -->
+						<tbody id="${i}"></tbody>
 					</table>
 				</div>
 			</c:forEach>

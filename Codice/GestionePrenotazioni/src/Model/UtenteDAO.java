@@ -31,43 +31,53 @@ public class UtenteDAO {
 		}
 		return 0;
 	}
-	
-	public synchronized int doUpdate(String email,int flag) {
+
+	public synchronized int doUpdate(String email, int flag) {
 		PreparedStatement ps = null;
 
 		try (Connection conn = DriverManagerConnectionPool.getConnection();) {
-			
-			if(flag==2) {
-			ps = conn.prepareStatement(
-					"Update Utente set  TipoUtente=? where email=?;");
-			ps.setInt(1, flag);
-			ps.setString(2, email);
-			int rs = ps.executeUpdate();
-			return rs;
-			}else {
-				ps = conn.prepareStatement(
-						"Update Utente set  TipoUtente=? where email=?;");
+
+			if (flag == 2) {
+				ps = conn.prepareStatement("Update Utente set  TipoUtente=? where email=?;");
 				ps.setInt(1, flag);
 				ps.setString(2, email);
 				int rs = ps.executeUpdate();
-				
+				return rs;
+			} else {
+				ps = conn.prepareStatement("Update Utente set  TipoUtente=? where email=?;");
+				ps.setInt(1, flag);
+				ps.setString(2, email);
+				int rs = ps.executeUpdate();
+
 			}
-			
-			
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return 0;
 	}
-	
-	
-	
+
+	// cambia l' amministratore al dipartimento
+	public synchronized int doChangeDip(String email, String dip) {
+		PreparedStatement ps = null;
+
+		try (Connection conn = DriverManagerConnectionPool.getConnection();) {
+
+			ps = conn.prepareStatement("Update Dipartimento set  AmmDip=? where Nome=?;");
+			ps.setString(1, email);
+			ps.setString(2, dip);
+			int rs = ps.executeUpdate();
+			return rs;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
 	// ricerca un tipo di utente per email
 	public Utente doRetrieveByKey(String email, String password) {
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
-			
+
 			PreparedStatement ps = con.prepareStatement(
 					"select Email, Password, Nome , Cognome, TipoUtente from Utente Where Email=? AND Password=?;");
 			ps.setString(1, email);
@@ -89,17 +99,16 @@ public class UtenteDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	public ArrayList<Utente> doRetrieveAll() {
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
-		
-			PreparedStatement ps = con.prepareStatement(
-					"select Email, Nome , Cognome, TipoUtente from Utente ;");
+
+			PreparedStatement ps = con.prepareStatement("select Email, Nome , Cognome, TipoUtente from Utente ;");
 			ArrayList<Utente> listaUtente = new ArrayList<Utente>();
 			ResultSet rs = ps.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				Utente p = new Utente();
-				
+
 				p.setEmail(rs.getString(1));
 				p.setNome(rs.getString(2));
 				p.setCognome(rs.getString(3));

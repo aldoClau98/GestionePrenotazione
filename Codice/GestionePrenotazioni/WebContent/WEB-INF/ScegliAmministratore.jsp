@@ -15,25 +15,25 @@
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
     <div class="login-clean">
-        <form method="GET" action="DiventaAmministratore">
+        <form method="GET" action="ScegliAmministratore">
         <input type="hidden" name="flag" value="2">
             <div class="illustration">
                 <img src="profilo.png" width="80%">
             </div>
             <div class="form-group">
                 <div class="wrapper">
-                    <select name="characters" class="custom-select" tabindex="-1" id="select-name">
-                        <option value="" selected>Selezione un utente</option>
+                    <select name="email" class="custom-select" tabindex="-1" id="select-name">
+                        <option  selected>Selezione un utente</option>
                            <c:forEach items="${listaUtente}" var="i">
                            
-                            <option name="email">${i.email}</option>
+                            <option value="${i.email}">${i.email}</option>
                             </c:forEach>
                            
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <a class="btn btn-secondary btn-block" href=>Assegna</a>
+                <button  class="btn btn-secondary btn-block" type="submit">Assegna</button>
             </div>
         </form>
     </div>

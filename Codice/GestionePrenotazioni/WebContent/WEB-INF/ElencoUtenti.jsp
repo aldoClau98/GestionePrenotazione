@@ -43,7 +43,7 @@
 							<td><c:choose>
 									<c:when test="${i.tipoUtente>'1'}">
     						Si
-    						<form method="POST" action="NavAssegnaAmm">
+    						<form method="POST" action="NavEditAmm">
     						<input type="hidden" name="email" value="${i.email}"/>
     						<span>
     						 <button class="btn action-button" type="submit">

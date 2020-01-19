@@ -3,7 +3,7 @@
 <jsp:include page="Header.jsp" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-String docente =  request.getParameter("email");
+String docente =  request.getParameter("docente");
 
 %>
 <div class="container" style="padding-top: 200px;">
@@ -13,7 +13,7 @@ String docente =  request.getParameter("email");
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
     <div class="login-clean">
-        <form method="GET" action="CambiaDipartimento">
+        <form method="GET" action="EditAmministratore">
         <input type="hidden" name="email" value="${docente}"/>
             <div class="illustration">
                 <img src="profilo.png" width="80%">
@@ -36,7 +36,7 @@ String docente =  request.getParameter("email");
         
         
         <div class="login-clean">
-        <form method="GET" action="RimuoviAmministratore">
+        <form method="GET" action="ScegliAmministratore">
         <input type="hidden" name="flag" value="1">
         <input type="hidden" name="email" value="${docente}"/>
             <div class="illustration">

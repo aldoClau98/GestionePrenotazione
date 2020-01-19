@@ -18,7 +18,7 @@ import Model.UtenteDAO;
 /**
  * Servlet implementation class NavAssegnaAmm
  */
-@WebServlet("/NavAssegnaAmm")
+@WebServlet("/NavEditAmm")
 public class NavEditAmm extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -29,9 +29,9 @@ public class NavEditAmm extends HttpServlet {
 	
 	ArrayList<Model.Dipartimento> listaDipartimenti = new  DipartimentoDAO().doRetrieveAll();
 		
-		
+		String email =  request.getParameter("email");
 		session.setAttribute("listaDipartimenti", listaDipartimenti);
-		
+		request.setAttribute("docente", email);
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/EditAmministratore.jsp");
 		view.forward(request, response);
 	}

@@ -1,7 +1,7 @@
 function getAule(str){
-	var building = document.getElementById(str);
 	if (str.length == 0)
 		return;
+	var building = document.getElementById(str);
 	building.innerHTML = '';
 	var xhttp = new XMLHttpRequest();
 	xhttp.responseType = 'json';
@@ -32,11 +32,9 @@ function getAule(str){
 }
 
 function getDipartimenti(str){
-	console.log(str);
-	var building = document.getElementById(str);
-	console.log(building);
 	if (str.length == 0)
 		return;
+	var building = document.getElementById(str);
 	building.innerHTML = '';
 	var xhttp = new XMLHttpRequest();
 	xhttp.responseType = 'json';

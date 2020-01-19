@@ -186,6 +186,27 @@ public class StrutturaDAO {
 		}
 	}
 
+	public Struttura doStrutturabyAula(String aula) {
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			PreparedStatement ps = con
+					.prepareStatement("select Aula, tipo, Edificio, Dipartimento, Descrizione from  Struttura where Aula=?;");
+			ps.setString(1, aula);
+			ResultSet rs = ps.executeQuery();
+
+			if (rs.next()) {
+				Struttura p = new Struttura();
+				p.setAula(rs.getString(1));
+				p.setTipoAula(rs.getInt(2));
+				p.setEdificio(rs.getString(3));
+				p.setDipartimento(rs.getString(4));
+				p.setDescrizione(rs.getString(5));
+				return p;
+			}
+			return null;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 	
 	
 	// Ricerca Strutture per Dipartimento

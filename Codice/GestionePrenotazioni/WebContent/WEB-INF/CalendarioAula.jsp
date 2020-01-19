@@ -16,7 +16,7 @@
 
 <div class="container" style="padding-top:180px">
 	<p>
-		<span>Nome: ${strutt.aula}</span><br>
+		<span>Nome aula: ${strutt.aula}</span><br>
 	</p>
 	<p>
 		<span>Edificio: ${strutt.edificio}</span><br>
@@ -98,12 +98,24 @@
 						<input class="form-control" name="data" id="data" placeholder="Data" disabled/>
 					</div>
 					<div class="form-group">
-						<input class="form-control" name="oraInizio" id="oraInizio" placeholder="Ora inizio" onchange="verifyA(this.id, this.value)"/>
-                        <div class="invalid-feedback">Formato ora 00:00</div>
+						<select class="custom-select" name="oraInizio" tabindex="-1" id="oraInizio" onchange="verifyA(this.id, this.value)">
+							<option value="" selected>Orario di inizio..</option>
+                                    <option value="9">9:00</option>
+                                    <option value="10">10:00</option>
+                                    <option value="11">11:00</option>
+                                    <option value="12">12:00</option>
+                                    <option value="13">13:00</option>
+                                    <option value="14">14:00</option>
+                                    <option value="15">15:00</option>
+                                    <option value="16">16:00</option>
+                                    <option value="17">17:00</option>
+                                    <option value="18">18:00</option>
+						</select>
 					</div>
 					<div class="form-group">
-						<input class="form-control" name="oraFine" id="oraFine" placeholder="Ora fine" onchange="verifyA(this.id, this.value)"/>
-                        <div class="invalid-feedback">Formato ora 00:00</div>
+						<select class="custom-select" name="oraFine" tabindex="-1" id="oraFine">
+							<option value="" selected>Orario di fine..</option>
+						</select>
 					</div>
 					<div class="form-group">
 						<input class="form-control" name="descrizione" id="descrizione" placeholder="Descrizione" onchange="verifyA(this.id, this.value)"/>

@@ -15,17 +15,30 @@
 <jsp:include page="Header.jsp" />
 
 <div class="container" style="padding-top:180px">
-	<p>${struttura.aula}</p>
-	<p>${struttura.edificio}</p>
-	<p>${astruttura.dipartimento}</p>
-
-	<span> Data </span>
-	<form method="GET" action="Aula">
-		<input type="text" id="datepicker" name="date" width="200px" /> <input
-			type="hidden" name="aula" value="${struttura.aula}" /> <input
-			type="submit" />
-	</form>
-
+	<p>
+		<span>Nome: ${strutt.aula}</span><br>
+	</p>
+	<p>
+		<span>Edificio: ${strutt.edificio}</span><br>
+	</p>
+	<p>
+		<span>Dipartimento: ${strutt.dipartimento}</span><br>
+	</p>
+	<p>
+		<span>Tipologia: ${strutt.descrizione}</span><br>
+	</p>
+	<br><br><br>
+	<p style="display: block ruby">
+		<span>Seleziona data</span>
+		<span>
+			<input id="datepicker" width="200px" onchange="getData(this.value, '${strutt.aula}')"/>
+		</span>
+		<span>
+            <button class="btn btn-secondary" style="height: 38px;">
+                <i class="material-icons">calendar_today</i>
+            </button>
+        </span>
+    </p>
 </div>
 
 <!--INIZIO CONTAINER CENTRALE-->
@@ -36,8 +49,13 @@
 				<thead>
 					<tr>
 						<th>Orario</th>
+						<th>Lunedì</th>
+						<th>Martedì</th>
+						<th>Mercoledì</th>
+						<th>Giovedì</th>
+						<th>Venerdì</th>
 
-						<%
+						<%-- <%
 							if ((session.getAttribute("listaPren")) == null) {
 
 							} else {
@@ -63,47 +81,45 @@
 									out.print("<tbody></table>");
 								}
 							}
-						%>
-						</div>
-						<div class="col">
-							<div class="login-clean">
-								<form method="GET" action="Prenotazione">
-									<div class="form-group">
-								<input type="text" id="datepicker" name="date2" width="200px" /> 
-								</div>
-									<div class="form-group">
-										<input class="form-control" name="titolo" placeholder="Titolo" />
-									</div>
-									<div class="form-group">
-										<input class="form-control" name="oraInizio"
-											placeholder="Ora inizio" />
-									</div>
-									<div class="form-group">
-										<input class="form-control" name="oraFine"
-											placeholder="Ora fine" />
-									</div>
-									<div class="form-group">
-										<input class="form-control" name="descrizione"
-											placeholder="Descrizione" />
-									</div>
-									
-									<input type="hidden" name="aula" value="${struttura.aula}" />
-									 <input   type="hidden" name="edificio" value="${struttura.edificio}" />
-									 <div class="form-group">
-										<input class="btn btn-secondary btn-block"
-											type="submit" value="Prenota"/>
-									</div>
-								</form>
-							</div>
-							<button class="btn btn-secondary" style="margin-left: 100px;">Rendi
-								aula prenotabile</button>
-						</div>
-						</div>
-						</div>
-						<script>
-							$('#datepicker').datepicker({
-								uiLibrary : 'bootstrap'
-							});
-						</script>
+						%> --%>
+					</tr>
+				</thead>
+				<tbody id="orario"></tbody>
+			</table>
+		</div>
+		<div class="col">
+			<div class="login-clean">
+				<form method="GET" action="Prenotazione">
+					<div class="form-group">
+						<input class="form-control" name="titolo" id="titolo" placeholder="Titolo" onchange="verifyA(this.id, this.value)"/>
+                        <div class="invalid-feedback">Da 5 a 32 caratteri, no caratteri speciali</div>
+					</div>
+					<div class="form-group">
+						<input class="form-control" name="data" id="data" placeholder="Data" disabled/>
+					</div>
+					<div class="form-group">
+						<input class="form-control" name="oraInizio" id="oraInizio" placeholder="Ora inizio" onchange="verifyA(this.id, this.value)"/>
+                        <div class="invalid-feedback">Formato ora 00:00</div>
+					</div>
+					<div class="form-group">
+						<input class="form-control" name="oraFine" id="oraFine" placeholder="Ora fine" onchange="verifyA(this.id, this.value)"/>
+                        <div class="invalid-feedback">Formato ora 00:00</div>
+					</div>
+					<div class="form-group">
+						<input class="form-control" name="descrizione" id="descrizione" placeholder="Descrizione" onchange="verifyA(this.id, this.value)"/>
+                        <div class="invalid-feedback">Da 15 a 250 caratteri, no caratteri speciali</div>
+					</div>
+					<input type="hidden" name="aula" value="${struttura.aula}" />
+				 	<input type="hidden" name="edificio" value="${struttura.edificio}" />
+				 	<div class="form-group">
+						<button class="btn btn-secondary btn-block" id="submit">Prenota</button>
+					</div>
+				</form>
+			</div>
+			<button class="btn btn-secondary" style="margin-left: 100px;">Rendi aula prenotabile</button>
+		</div>
+	</div>
+</div>
+<!--FINE CONTAINER CENTRALE-->
 
 <jsp:include page="Footer.jsp" />

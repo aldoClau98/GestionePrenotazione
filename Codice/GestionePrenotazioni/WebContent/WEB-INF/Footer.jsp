@@ -29,13 +29,20 @@
 	    </footer>
 	</div>
 <!--FINE FOOTER-->
-
+<script>
+	$('#datepicker').datepicker({
+		uiLibrary : 'bootstrap'
+	});
+</script>
+<script src="function/data-aula.js"></script>
+<script src="function/regex-prenotaAula.js"></script>
 <script src="function/showing-menu.js"></script>
 <script src="function/calendario.js"></script>
 <script src="function/banner.js"></script>
 <script src="function/regex-login.js"></script>
 <script src="function/regex-registrazione.js"></script>
 <script src="function/regex-modificaPassword.js"></script>
+
 
 </body>
 

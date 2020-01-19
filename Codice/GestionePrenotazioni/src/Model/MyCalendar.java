@@ -52,7 +52,7 @@ public class MyCalendar  {
 	public String getToday() {
 		Calendar temp = Calendar.getInstance();
 
-		String data = Calendar.YEAR + "-" + Calendar.MONTH + "-" + Calendar.DAY_OF_MONTH;
+		String data = temp.YEAR + "-" + temp.MONTH + "-" + temp.DAY_OF_MONTH;
 		return data;
 	}
 
@@ -72,6 +72,32 @@ public class MyCalendar  {
 
 		// Set up the day's of the week with 0 being Sat as per algorithm.
 		final String[] DAY_OF_WEEK = { "Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato", "Domenica" };
+		int month = date.get(2);
+		int year = date.get(1);
+		int day = date.get(5);
+		// According to the algorithm Jan is 13 & Feb 14...
+		if (month < 3)
+			month = month + 12;
+		// Calculate
+		double h = (((day + (((month + 1) * 26) / 10) + year + (year / 4) + (6 * (year / 100)) + (year / 400)) - 1) % 7);
+		// Cast answer back to integer to get result from array
+		int ans = (int) h;
+
+		System.out.println("Day of the week is: " + DAY_OF_WEEK[ans]);
+		date.set(Calendar.DAY_OF_WEEK, ans);
+		return ans;
+	}
+	
+	
+	//serve per calcolarsi il  range  di  data per prendere le prenotazioni della settimana
+	public int getDayofWeek(String data) {
+
+		// Set up the day's of the week with 0 being Sat as per algorithm.
+		final String[] DAY_OF_WEEK = { "Lunedi", "Martedi", "Mercoledi", "Giovedi", "Venerdi", "Sabato", "Domenica" };
+		
+	
+		
+		
 		int month = date.get(2);
 		int year = date.get(1);
 		int day = date.get(5);

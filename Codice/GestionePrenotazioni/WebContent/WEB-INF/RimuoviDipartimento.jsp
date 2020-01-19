@@ -1,36 +1,38 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <% 	String pageTitle= "Rimozione dipartimento";
    	request.setAttribute("pageTitle", pageTitle);%>
+   	<jsp:include page="Header.jsp" />
    	
-<jsp:include page="Header.jsp" />
-
-<div class="container" style="padding-top:180px">
+   	
+   	
+   	
+   	<div class="container" style="padding-top:180px">
 	<p>
 		<span><%= pageTitle %></span>
 	</p>
 </div>
-
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
     <div class="login-clean">
-        <form method="GET" action="">
+        <form method="GET" action="RimuoviDipartimento">
             <div class="illustration">
                 <img src="dipartimento.jpg" width="80%">
             </div>
             <div class="form-group">
                 <div class="wrapper">
-                    <select name="characters" class="custom-select" tabindex="-1" id="select-name">
+                    <select name="dipartimento" class="custom-select" tabindex="-1" id="select-name">
                         <option value="" selected>Selezione un dipartimento</option>
-                            <option value="">Informatica</option>
-                            <option value="">Ingegneria</option>
-                            <option value="">Farmacia</option>
+                          <c:forEach items="${listaDip}" var="i">
+                            <option value="${i.dip}">${i.dip}</option>
+                          </c:forEach>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <a class="btn btn-secondary btn-block" href=>Elimina</a>
+                <button class="btn btn-secondary btn-block" type="submit" >Elimina</button>
             </div>
         </form>
     </div>

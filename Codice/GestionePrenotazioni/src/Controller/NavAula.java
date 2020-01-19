@@ -26,12 +26,14 @@ public class NavAula extends HttpServlet {
 		
 		String aula =  request.getParameter("aula");
 		String edificio = request.getParameter("edificio");
+		
+		
 		Model.Struttura  a = new StrutturaDAO().doStrutturabyName(aula, edificio);
 		Model.Struttura strutt = new StrutturaDAO().doStrutturabyAula(aula);
 		session.setAttribute("struttura", a);
 		session.setAttribute("strutt", strutt);
 		
-		view = request.getRequestDispatcher("WEB-INF/CalendarioAula.jsp");
+		 view = request.getRequestDispatcher("WEB-INF/CalendarioAula.jsp");
 		view.forward(request, response);
 	}
 

@@ -1,8 +1,10 @@
 package Controller;
 import Model.DipartimentoDAO;
-import Model.MyCalendar;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,29 +39,38 @@ public class Login extends HttpServlet {
 			utente = new UtenteDAO().doRetrieveByKey(email, password);
 		}
 		if (utente == null) {
-			System.out.println("Login: 0");
+			
 			request.setAttribute("resultlogin", "0");
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 			requestDispatcher.forward(request, response);
 		} else {
-			System.out.println("Login: 1");
 			//salva la data corrente 
-			MyCalendar data = new MyCalendar();
+			LocalDateTime ldt = LocalDateTime.now().plusDays(1);
+			DateTimeFormatter formmat1 = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ITALIAN);
+			String formatter = formmat1.format(ldt);
+			
+			
+			
+			
 			System.out.println("Login  utente: "+utente.getTipoUtente());
-			sessione.setAttribute("CurrentData", data.getDate());
+			
+			sessione.setAttribute("CurrentData",formatter);
+			System.out.println(formatter);
 				//salva l'utente nella sessione
 			sessione.setAttribute("utente", utente);
-					//se l'utente ï¿½  amminsitratore di  dipartimento
-						if((utente.getTipoUtente())==1) {
+			
+					//se l'utente è  amminsitratore di  dipartimento
+						if((utente.getTipoUtente())==2) {
 							
 							String dip= new DipartimentoDAO().doRetrieveByKey(utente.getEmail());
+							
 							System.out.println("Login dipartimento: "+dip);
 							sessione.setAttribute("dipartimento", dip);
 						}
 
 			ArrayList<Prenotazione> storicoPrenotazioni = new PrenotazioneDAO().doRetrieveByUtente(email);
 			sessione.setAttribute("storicoPrenotazioni", storicoPrenotazioni);
-			request.setAttribute("resultLogin", "1");
+			request.setAttribute("resultlogin", "1");
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 			requestDispatcher.forward(request, response);
 		}

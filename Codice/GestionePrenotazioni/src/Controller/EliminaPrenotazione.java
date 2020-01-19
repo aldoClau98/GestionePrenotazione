@@ -39,7 +39,7 @@ public class EliminaPrenotazione extends HttpServlet {
 		//rimozione della prenotazione
 		new  PrenotazioneDAO().doDelete(id);
 		
-		ArrayList<Prenotazione> listaPrenotazioni = new PrenotazioneDAO().doRetrieveByDate(c.getEmail(),
+		ArrayList<Model.Prenotazione> listaPrenotazioni = new PrenotazioneDAO().doRetrieveByDate(c.getEmail(),
 				dtf.format(localDate));
 		//rimuovo la vecchia lista
 		sessione.removeAttribute("listaPrenotazioni");

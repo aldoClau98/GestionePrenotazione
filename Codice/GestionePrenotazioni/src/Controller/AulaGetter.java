@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONArray;
 
+import com.mysql.cj.xdevapi.JsonArray;
+
 import Model.Struttura;
 import Model.StrutturaDAO;
 
@@ -25,7 +27,7 @@ public class AulaGetter extends HttpServlet {
 		String str = request.getParameter("str");
 		if (str != null) {
 			JSONArray prodJson = new JSONArray();
-			ArrayList<Struttura> strutture = StrutturaDAO.doAulabyEdificio(str);
+			ArrayList<Struttura> strutture =new  StrutturaDAO().doAulabyEdificio(str);
 			for (Struttura aula: strutture) {
 				prodJson.put(aula.getAula());
 				prodJson.put(aula.getDescrizione());

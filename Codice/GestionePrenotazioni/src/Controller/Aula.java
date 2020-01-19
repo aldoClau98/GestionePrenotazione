@@ -21,31 +21,24 @@ public class Aula extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session =  request.getSession();
-		RequestDispatcher view;
 		//prendo  dalla request i  due parametri
 		String data = "2019-07-03";  //request.getParameter("date");
 		String aula =  request.getParameter("aula");
 		String edificio = request.getParameter("edificio");
-		
-		if(edificio !=null) {
-			System.out.println("servlet aula edificio: "+edificio);
-		//interrogo il database
-		Model.Struttura  a = new StrutturaDAO().doStrutturabyName(aula, edificio);
-		//salvo 
-		session.setAttribute("struttura", a);
-		 view = request.getRequestDispatcher("WEB-INF/Aula.jsp");
-		view.forward(request, response);
-		
-		} else {
-			ArrayList<Model.Prenotazione> listaPren =  new PrenotazioneDAO().doRetrieveByDate(data, aula);
-			
-			session.setAttribute("listaPren", listaPren);
-		
-		 view = request.getRequestDispatcher("WEB-INF/Aula.jsp");
-		view.forward(request, response);
-		
-		}
 	
+		
+			//interrogo il database
+			Model.Struttura  a = new StrutturaDAO().doStrutturabyName(aula, edificio);
+			ArrayList<Model.Prenotazione> listaPren =  new PrenotazioneDAO().doRetrieveByCalendario(aula, edificio, data);
+			//salvo 
+			session.setAttribute("struttura", a);
+			session.setAttribute("listaPren", listaPren);
+		System.out.println("Aula listaPren: OK");
+		
+		
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/CalendarioAula.jsp");
+		view.forward(request, response);
+
 	}
 
 	

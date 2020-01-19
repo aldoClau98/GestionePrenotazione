@@ -41,7 +41,7 @@
 						<td>${utente.nome}</td>
 						<td>${utente.cognome}</td>
 						<td>${utente.email}</td>
-						<td>${utente.password}
+						<td>
 							<a class="btn action-button" role="button" 
 								href="NavModificaPassword"> 
 								<i class="material-icons">edit</i>

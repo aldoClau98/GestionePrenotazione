@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class UtenteDAO {
 
@@ -30,11 +31,43 @@ public class UtenteDAO {
 		}
 		return 0;
 	}
+	
+	public synchronized int doUpdate(String email,int flag) {
+		PreparedStatement ps = null;
+
+		try (Connection conn = DriverManagerConnectionPool.getConnection();) {
+			
+			if(flag==2) {
+			ps = conn.prepareStatement(
+					"Update Utente set  TipoUtente=? where email=?;");
+			ps.setInt(1, flag);
+			ps.setString(2, email);
+			int rs = ps.executeUpdate();
+			return rs;
+			}else {
+				ps = conn.prepareStatement(
+						"Update Utente set  TipoUtente=? where email=?;");
+				ps.setInt(1, flag);
+				ps.setString(2, email);
+				int rs = ps.executeUpdate();
+				
+			}
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+	
+	
+	
 
 	// ricerca un tipo di utente per email
 	public Utente doRetrieveByKey(String email, String password) {
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
-			System.out.println(email);
+			
 			PreparedStatement ps = con.prepareStatement(
 					"select Email, Password, Nome , Cognome, TipoUtente from Utente Where Email=? AND Password=?;");
 			ps.setString(1, email);
@@ -52,6 +85,30 @@ public class UtenteDAO {
 
 			}
 			return null;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public ArrayList<Utente> doRetrieveAll() {
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+		
+			PreparedStatement ps = con.prepareStatement(
+					"select Email, Nome , Cognome, TipoUtente from Utente ;");
+			ArrayList<Utente> listaUtente = new ArrayList<Utente>();
+			ResultSet rs = ps.executeQuery();
+			while(rs.next()) {
+				Utente p = new Utente();
+				
+				p.setEmail(rs.getString(1));
+				p.setNome(rs.getString(2));
+				p.setCognome(rs.getString(3));
+				p.setTipoUtente(rs.getInt(4));
+
+				listaUtente.add(p);
+
+			}
+			return listaUtente;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

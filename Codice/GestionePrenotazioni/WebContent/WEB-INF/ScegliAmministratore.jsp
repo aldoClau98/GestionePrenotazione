@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <% 	String pageTitle= "Assegnamento amministrazione";
    	request.setAttribute("pageTitle", pageTitle);%>
    	
@@ -15,7 +15,8 @@
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
     <div class="login-clean">
-        <form method="GET" action="">
+        <form method="GET" action="DiventaAmministratore">
+        <input type="hidden" name="flag" value="2">
             <div class="illustration">
                 <img src="profilo.png" width="80%">
             </div>
@@ -23,9 +24,11 @@
                 <div class="wrapper">
                     <select name="characters" class="custom-select" tabindex="-1" id="select-name">
                         <option value="" selected>Selezione un utente</option>
-                            <option value="">Pippolo</option>
-                            <option value="">Pippolone</option>
-                            <option value="">F2Pippotto</option>
+                           <c:forEach items="${listaUtente}" var="i">
+                           
+                            <option name="email">${i.email}</option>
+                            </c:forEach>
+                           
                     </select>
                 </div>
             </div>

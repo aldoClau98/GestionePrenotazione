@@ -26,9 +26,10 @@ public class CercaPrenotazioni extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		String data = "2019-07-03";  //request.getParameter("date");
 		String aula = request.getParameter("aula");
 		HttpSession  session = request.getSession();
+		String data = "2019-07-03";  //request.getParameter("date");
+		
 		
 	
 		

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <% 	String pageTitle= "Rimozione edificio";
    	request.setAttribute("pageTitle", pageTitle);%>
@@ -15,22 +16,22 @@
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
     <div class="login-clean">
-        <form method="GET" action="">
+        <form method="GET" action="RimuoviEdificio">
             <div class="illustration">
                 <img src="edificio.png" width="80%">
             </div>
             <div class="form-group">
                 <div class="wrapper">
-                    <select name="characters" class="custom-select" tabindex="-1" id="select-name">
+                    <select name="edificio" class="custom-select" tabindex="-1" id="select-name">
                         <option value="" selected>Selezione un edificio</option>
-                            <option value="">F</option>
-                            <option value="">E</option>
-                            <option value="">F2</option>
+                        	<c:forEach items="${listaEdifici}" var="i">
+                            <option value="${i}">${i}</option>
+                          </c:forEach>
                     </select>
                 </div>
             </div>
             <div class="form-group">
-                <a class="btn btn-secondary btn-block" href=>Elimina</a>
+                <button class="btn btn-secondary btn-block" type="submit">Elimina</button>
             </div>
         </form>
     </div>

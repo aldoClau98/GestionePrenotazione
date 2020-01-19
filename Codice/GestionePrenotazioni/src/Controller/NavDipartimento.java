@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -20,7 +21,7 @@ public class NavDipartimento extends ServletBasic {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session =  request.getSession();
 		
-		ArrayList<String> listaDipartimenti = new StrutturaDAO().doRetrieveAllDipartimenti();
+		ArrayList<String> listaDipartimenti = new DipartimentoDAO().doRetrieveAllDipartimenti();
 		ArrayList<Model.Dipartimento> listaAmministratori = new DipartimentoDAO().doRetrieveAll();
 		session.setAttribute("listaDipartimenti", listaDipartimenti);
 		session.setAttribute("listaAmministratori", listaAmministratori);
@@ -30,6 +31,7 @@ public class NavDipartimento extends ServletBasic {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

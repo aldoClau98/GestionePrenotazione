@@ -26,7 +26,8 @@ public class NavRichiestePrenotazioni extends ServletBasic {
 	String dip =  (String) sessione.getAttribute("dipartimento");
 	System.out.println("NAVRichesteprenotazione dipartimento: "+dip);
 	//Dalla sessione prendo la data corrente 
-	String data = "2019-06-09";// (String) sessione.getAttribute("CurrentData");
+	String data = (String) sessione.getAttribute("CurrentData");
+	System.out.println("navrichiesteprenotazione data: "+data);
 	//Dal database prendo  tutte le prenotazioni  di  quel  dipartimento	
 	ArrayList<Prenotazione> listaPrenotazioni = new  PrenotazioneDAO().doRetrieveByDip(dip,data);
 		sessione.setAttribute("listaPrenotazioni", listaPrenotazioni);

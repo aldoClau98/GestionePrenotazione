@@ -1,10 +1,9 @@
-<% 	String pageTitle= "Home";
-   	request.setAttribute("pageTitle", pageTitle);%>
-   	
 <jsp:include page="Header.jsp" />
 
 <% 	String resultLogin = (String) request.getAttribute("resultLogin");
-	String resultPassw = (String) request.getAttribute("resultPassword"); %>
+	String resultPassw = (String) request.getAttribute("resultPassword"); 
+	String pageTitle= "Home";
+   	request.setAttribute("pageTitle", pageTitle);%>
 	
 <div class="container" style="padding-top:180px">
 	<p>
@@ -29,7 +28,7 @@
 			<%request.setAttribute("resultPassw", "");
 	
 		} else { %>
-			<div id="snackbar">C'è stato un errore, la password on è stata modificata!</div>
+			<div id="snackbar">C'è stato u n  errore,  la password non è stata modificata</div>
 	<% 	} 
 	} %>
 </div>

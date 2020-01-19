@@ -14,11 +14,11 @@ public class PrenotazioneDAO {
 	//doSave
 	//DoDelete
 	
-	public synchronized int doSave( String titolo, String data, int oraInizio, int oraFine, String descrizione, String nomeUtente, String aula, String edificio ) {
+	public synchronized int doSave( String titolo, String data, int oraInizio, int oraFine, String descrizione, String nomeUtente, String aula, String edificio, int accettata ) {
 		PreparedStatement ps = null;
 
 		try (Connection conn = DriverManagerConnectionPool.getConnection();) {
-			ps = conn.prepareStatement("insert into Prenotazione(Titolo,Data ,OraInizio ,OraFine ,Descrizione ,NomeUtente ,Aula ,Edificio) values (?,?,?,?,?,?,?,?);");
+			ps = conn.prepareStatement("insert into Prenotazione(Titolo,Data ,OraInizio ,OraFine ,Descrizione ,NomeUtente ,Aula ,Edificio,accettata) values (?,?,?,?,?,?,?,?,?);");
 			ps.setString(1, titolo);
 			ps.setString(2, data);
 			ps.setInt(3, oraInizio);
@@ -27,7 +27,7 @@ public class PrenotazioneDAO {
 			ps.setString(6, nomeUtente);
 			ps.setString(7, aula);
 			ps.setString(8, edificio);
-
+			ps.setInt(9, accettata);
 			int rs = ps.executeUpdate();
 			return rs;
 		} catch (SQLException e) {
@@ -36,18 +36,44 @@ public class PrenotazioneDAO {
 		return 0;
 	}
 			
-	public void doDelete(int id) {
+	public int doDelete(int id) {
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
 			PreparedStatement ps = con.prepareStatement("DELETE FROM Prenotazione WHERE IDprenotazione=?;");
 			ps.setInt(1, id);
-			ps.executeUpdate();
+			int rs= ps.executeUpdate();
+			return  rs;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
 
+	}
+	public int doDeleteByStruttura(String edificio, String aula) {
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("DELETE FROM Prenotazione WHERE Edificio=? AND Aula=?;");
+			ps.setString(1, edificio);
+			ps.setString(2, aula);
+			int rs= ps.executeUpdate();
+			return  rs;
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 
 	}
 	
+
+	public int doDeleteByEdificio(String edificio ) {
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("DELETE FROM Prenotazione WHERE Edificio=?;");
+			ps.setString(1, edificio);
+			
+			int rs= ps.executeUpdate();
+			return  rs;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
 	
 	public void doUpdate(int id) {
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
@@ -119,10 +145,7 @@ public class PrenotazioneDAO {
 		public ArrayList<Prenotazione> doRetrieveByDip(String dipartimento,String data) {
 			try (Connection con = DriverManagerConnectionPool.getConnection()) {
 				PreparedStatement ps = con.prepareStatement(
-						"select Utente.Email, IDprenotazione, Titolo, Data, "
-						+ "OraInizio, OraFine, Descrizione, Aula, Edificio from Dipartimento join"
-						+ " Utente on  AmmDip = Utente.Email join Prenotazione on Utente.Email ="
-						+ " NomeUtente where  Dipartimento.Nome=? AND Data > ? ;");
+						"select  Utente.Email,IDprenotazione, Titolo, Data,OraInizio, OraFine, Prenotazione.Descrizione, Prenotazione.Aula, Prenotazione.Edificio from Struttura join Prenotazione on Struttura.Aula=Prenotazione.Aula join Utente on Prenotazione.NomeUtente=Utente.Email where  Struttura.Dipartimento=? AND Data > ? and accettata=0 ;");
 				ps.setString(1, dipartimento);
 				ps.setString(2, data);
 				ArrayList<Prenotazione> prenotazioniDip = new ArrayList<>();
@@ -156,11 +179,11 @@ public class PrenotazioneDAO {
 			try (Connection con = DriverManagerConnectionPool.getConnection()) {
 				
 				
-				PreparedStatement ps = con.prepareStatement("select IDprenotazione ,Titolo,Data ,OraInizio ,OraFine ,Descrizione ,Aula ,Edificio, Email from Prenotazione join Utente  on  NomeUtente = Email where Email=? AND ( Data BETWEEN \"1975-07-03\" and ?)   order by  Data Desc ;");
+				PreparedStatement ps = con.prepareStatement("select IDprenotazione ,Titolo,Data ,OraInizio ,OraFine ,Descrizione ,Aula ,Edificio, Email from Prenotazione join Utente  on  NomeUtente = Email where Email=? AND ( Data BETWEEN ? and ? )order by  Data Desc ;");
 				ps.setString(1, email);
-				ps.setString(2, data);
-				System.out.println("data: "+data);
-				System.out.println("email: "+email);
+				//qua gli dobbiamo passare la data corrente
+				ps.setString(3, "1975-01-01");
+				ps.setString(4, data);
 				
 				ArrayList<Prenotazione> prenotazioniData = new ArrayList<>();
 				ResultSet rs = ps.executeQuery();
@@ -169,7 +192,46 @@ public class PrenotazioneDAO {
 					Prenotazione p = new Prenotazione();
 					p.setIDprenotazione(rs.getInt(1));
 					p.setTitolo(rs.getString(2));
+					
 					p.setData(PrenotazioneDAO.SplitData(rs.getString(3)));
+					
+					p.setOraInizio(rs.getInt(4));
+					p.setOraFine(rs.getInt(5));
+					p.setDescrizione(rs.getString(6));
+					p.setAulaPrenotata(rs.getString(7));
+					p.setEdificio(rs.getString(8));
+					prenotazioniData.add(p);
+					System.out.println("Prenotazione aggiunta nella lista");
+				}
+				return prenotazioniData;
+			} catch (SQLException e) {
+				throw new RuntimeException(e);
+			}
+		}
+		
+		
+		public ArrayList<Prenotazione> doRetrieveByCalendario(String aula,String edificio,String data) {
+			try (Connection con = DriverManagerConnectionPool.getConnection()) {
+				
+				
+				PreparedStatement ps = con.prepareStatement("select IDprenotazione ,Titolo,Data ,OraInizio ,OraFine ,Descrizione ,Aula ,Edificio, Email from Prenotazione join Utente  on  NomeUtente = Email where Aula=? AND edificio = ? AND ( Data BETWEEN ? and ? )order by  Data Desc ;");
+				ps.setString(1, aula);
+				ps.setString(2, edificio);
+				ps.setString(3, "1975-01-01");
+				ps.setString(4, data);
+				System.out.println("PrenotazioneDAO data: "+data);
+				System.out.println("PrenotazioneDAO aula: "+aula);
+				
+				ArrayList<Prenotazione> prenotazioniData = new ArrayList<>();
+				ResultSet rs = ps.executeQuery();
+				while (rs.next()) {
+					
+					Prenotazione p = new Prenotazione();
+					p.setIDprenotazione(rs.getInt(1));
+					p.setTitolo(rs.getString(2));
+					
+					p.setData(PrenotazioneDAO.SplitData(rs.getString(3)));
+					
 					p.setOraInizio(rs.getInt(4));
 					p.setOraFine(rs.getInt(5));
 					p.setDescrizione(rs.getString(6));
@@ -187,11 +249,11 @@ public class PrenotazioneDAO {
 		public static MyCalendar SplitData(String temp) {
 			
 			MyCalendar date = new MyCalendar();
-			int year= Integer.parseInt(temp.substring(0, 3));
+			int year= Integer.parseInt(temp.substring(0, 4));
 			int month =  Integer.parseInt(temp.substring(5, 7));
 			int day =  Integer.parseInt(temp.substring(9,10));
 			date.setDate(year, month, day);
-
+			System.out.println("PrenotazioneDAO SplitData: "+date.getDate());
 			date.setDayofWeek();
 			return date;
 			

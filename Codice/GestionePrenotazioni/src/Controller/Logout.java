@@ -22,6 +22,7 @@ public class Logout extends HttpServlet {
 		request.getSession().removeAttribute("utente");
 		request.getSession().removeAttribute("storicoPrenotazioni");
 
+
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 		view.forward(request, response);
 

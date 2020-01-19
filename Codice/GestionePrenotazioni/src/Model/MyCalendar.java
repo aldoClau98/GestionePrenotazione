@@ -52,7 +52,7 @@ public class MyCalendar  {
 	public String getToday() {
 		Calendar temp = Calendar.getInstance();
 
-		String data = temp.YEAR + "-" + temp.MONTH + "-" + temp.DAY_OF_MONTH;
+		String data = Calendar.YEAR + "-" + Calendar.MONTH + "-" + Calendar.DAY_OF_MONTH;
 		return data;
 	}
 

@@ -1,7 +1,6 @@
 package Controller;
 import Model.DipartimentoDAO;
 import Model.MyCalendar;
-import Model.Dipartimento;
 import java.io.IOException;
 import java.util.ArrayList;
 

@@ -6,8 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.sql.rowset.spi.SyncResolver;
-
 public class StrutturaDAO {
 
 	public StrutturaDAO() {

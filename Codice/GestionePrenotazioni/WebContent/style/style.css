@@ -25,6 +25,7 @@ body {
 }
 
 nav {
+	max-height: 140px;
     background-color: white;
     -webkit-box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
     -moz-box-shadow: 5px 10px 22px 1px rgba(0,0,0,0.29);
@@ -250,7 +251,7 @@ footer .social a {
 }
 
 #container-centrale .table tr:hover {
-    background: #fa6661;
+    background: #dab3b2;
 }
 
 #container-centrale #registrazione {

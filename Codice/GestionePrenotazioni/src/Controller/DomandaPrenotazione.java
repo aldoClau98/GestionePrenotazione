@@ -36,7 +36,7 @@ public class DomandaPrenotazione extends HttpServlet {
 		String data = request.getParameter("data");
 		Utente utente = (Utente) session.getAttribute("utente");
 		String email = utente.getEmail();
-		// se l' utente è amministratore...
+		// se l' utente ï¿½ amministratore...
 		// ...se il dipartimento corrisponde al dipartimento dell amministratore, allora
 		// la prenotazione viene salvata direttamente nel database
 		String dipAmm = new DipartimentoDAO().doRetrieveByKey(utente.getEmail());
@@ -51,7 +51,7 @@ public class DomandaPrenotazione extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 			view.forward(request, response);
 		} else {
-			
+
 			int result = new PrenotazioneDAO().doSave(titolo, data, Integer.parseInt(oraInizio),
 					Integer.parseInt(oraFine), descrizione, email, aula, edificio, 0);
 

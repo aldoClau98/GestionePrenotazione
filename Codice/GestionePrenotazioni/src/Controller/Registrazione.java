@@ -1,6 +1,7 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,39 +16,44 @@ import Model.UtenteDAO;
  * Servlet implementation class Registrazione
  */
 @WebServlet("/Registrazione")
-public class Registrazione extends HttpServlet {
+public class Registrazione extends ServletBasic {
 	private static final long serialVersionUID = 1L;
-       
-    
-	
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int temp;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		int temp = 1;
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		String cognome = request.getParameter("cognome");
-		String tipoutente = request.getParameter("tipoutente");
-		
-		//funzione di registrazione dell'utente
-		 temp =   new UtenteDAO().doSave( email, password,  nome,  cognome, Integer.parseInt(tipoutente) );
-	
-		  /*
-			 * risultato  dell operazione registrazione 
-			 * 1 se è  avvenuta con  successo 
-			 * 0  se l'operazione è  fallita
-			 */
-		 System.out.println("Registrazione: "+temp);
-			  request.setAttribute("risultReg", temp);//reindirizzamento alla pagina di login
-				RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Login.jsp");
-				view.forward(request, response);
+		String[] type = email.split("@");
+
+		if (type[1].equals("studenti.unisa.it"))
+			try {
+				temp = userDAO.doSave(email, password, nome, cognome, 0);
+				request.setAttribute("messaggio", "Registrazione avvenuta");
+			} catch (Exception e) {
+				request.setAttribute("messaggio", "Registrazione non avvenuta");
+			}
+		else if (type[1].equals("unisa.it"))
+			try {
+				temp = userDAO.doSave(email, password, nome, cognome, 1);
+				request.setAttribute("messaggio", "Registrazione avvenuta");
+			} catch (Exception e) {
+				request.setAttribute("messaggio", "Registrazione non avvenuta");
+			}
+
+		/*
+		 * risultato dell operazione registrazione 1 se ï¿½ avvenuta con successo 0 se
+		 * l'operazione ï¿½ fallita
+		 */
+
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Login.jsp");
+		view.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

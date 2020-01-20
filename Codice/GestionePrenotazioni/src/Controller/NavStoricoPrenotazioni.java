@@ -1,12 +1,9 @@
 package Controller;
 
 import java.io.IOException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,7 +19,7 @@ import Model.*;
  * Servlet implementation class NavStoricoPrenotazioni
  */
 @WebServlet("/NavStoricoPrenotazioni")
-public class NavStoricoPrenotazioni extends HttpServlet {
+public class NavStoricoPrenotazioni extends ServletBasic {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -33,11 +30,13 @@ public class NavStoricoPrenotazioni extends HttpServlet {
 		// prende la data corrente
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 		LocalDate localDate = LocalDate.now();
-		System.out.println(dtf.format(localDate)); // 2016/11/16
+//		System.out.println(dtf.format(localDate)); // 2016/11/16
 
-		ArrayList<Model.Prenotazione> listaPrenotazioni = new PrenotazioneDAO().doRetrieveByDate(c.getEmail(),
+		ArrayList<Model.Prenotazione> listaPrenotazioni = prenDAO.doRetrieveByDate(c.getEmail(),
 				dtf.format(localDate));
-		sessione.setAttribute("listaPrenotazioni", listaPrenotazioni);
+		
+		request.setAttribute("listaPrenotazioni", listaPrenotazioni);
+		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/StoricoPrenotazioni.jsp");
 		view.forward(request, response);
 	}

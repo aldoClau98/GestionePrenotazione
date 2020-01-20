@@ -16,7 +16,7 @@
 	<div class="login-clean">
 		<form action="RimuoviAula" method="GET">
 			<div class="illustration">
-				<img src="aula.png" width="80%">
+				<img src="img/aula.png" width="80%">
 			</div>
 			<div class="form-group">
 				<input class="form-control" type="text" name="edificio" placeholder="Nome edificio" />

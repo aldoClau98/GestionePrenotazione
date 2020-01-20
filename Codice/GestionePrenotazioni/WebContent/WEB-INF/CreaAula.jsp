@@ -6,7 +6,7 @@
    	
 <jsp:include page="Header.jsp" />
 
-<div class="container" style="padding-top:180px">
+<div class="container" style="padding-top:160px">
 	<p>
 		<span><%= pageTitle %></span>
 	</p>

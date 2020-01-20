@@ -10,38 +10,33 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Model.Struttura;
 import Model.StrutturaDAO;
 
 /**
  * Servlet implementation class NavAula
  */
 @WebServlet("/NavAula")
-public class NavAula extends HttpServlet {
+public class NavAula extends ServletBasic {
 	private static final long serialVersionUID = 1L;
-       
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session =  request.getSession();
-		RequestDispatcher view;
-		
-		String aula =  request.getParameter("aula");
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+
+		String aula = request.getParameter("aula");
 		String edificio = request.getParameter("edificio");
-		
-		
-		Model.Struttura  a = new StrutturaDAO().doStrutturabyName(aula, edificio);
-		Model.Struttura strutt = new StrutturaDAO().doStrutturabyAula(aula);
-		session.setAttribute("struttura", a);
+
+		Struttura strutt = struttDAO.doStrutturabyAula(aula);
+
 		session.setAttribute("strutt", strutt);
-		
-		 view = request.getRequestDispatcher("WEB-INF/CalendarioAula.jsp");
+
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/CalendarioAula.jsp");
 		view.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

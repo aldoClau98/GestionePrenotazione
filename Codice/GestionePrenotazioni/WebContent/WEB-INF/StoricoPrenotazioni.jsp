@@ -1,62 +1,76 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<% 	String pageTitle= "Storico prenotazioni";
-   	request.setAttribute("pageTitle", pageTitle);%>
-   	
+<%@	page import="Model.Utente"%>
+<%@	page import="java.util.ArrayList"%>
+<%@	page import="Model.Prenotazione"%>
+
+
+
+<%
+	String pageTitle = "Storico prenotazioni";
+	request.setAttribute("pageTitle", pageTitle);
+	Utente c = (Utente) session.getAttribute("utente");
+	ArrayList<Model.Prenotazione> listaPrenotazioni = (ArrayList<Model.Prenotazione>)request.getAttribute("listaPrenotazioni");
+%>
+
 <jsp:include page="Header.jsp" />
 
-<div class="container" style="padding-top:180px">
+<div class="container" style="padding-top: 160px">
 	<p>
-		<span><%= pageTitle %> per ###(dipartimento)</span>
+		<span><%=pageTitle%> per ###(dipartimento)</span>
 	</p>
 </div>
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
-    <div class="row" id="container-tabelle">
-        <div class="col">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th scope="col"># Prenotazione</th>
-                    <th scope="col">Motivazione</th>
-                    <th scope="col">Aula</th>
-                    <th scope="col">Dipartimento</th>
-                    <th scope="col">Data</th>
-                    <th scope="col">Ora inizio</th>
-                    <th scope="col">Ora fine</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${listaPrenotazioni}" var="i">
-                <tr>
-                <th scope="row">1
-                        <a class="btn action-button" role="button" href="EliminaPrenotazione">
-                            <i class="material-icons">delete</i>
-                        </a>
-                        <form action="EliminaPrenotazione" method="get">
-						<input type="hidden" name="id" value="${i.IDprenotazione}">
-						 <input type="submit" value="Elimina"/>
-				</form>
-                    </th>
-                    <td>${i.titolo}</td>
-                    <td>${i.edificio}</td>
-                    <td>${i.aulaPrenotata}</td>
-                    <td>${i.data}</td>
-                    <td>${i.oraInizio}</td>
-                    <td>${i.oraFine}</td>
-                </tr>
-                
-                
-					
-                </c:forEach>
-              
-                </tbody>
-            </table>
-        </div>
-    </div>    
+	<div class="row" id="container-tabelle">
+		<div class="col">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th># Prenotazione</th>
+						<th>Motivazione</th>
+						<th>Aula</th>
+						<th>Edificio</th>
+						<th>Data</th>
+						<th>Ora inizio</th>
+						<th>Ora fine</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<% int k = 1;
+					for(Prenotazione p : listaPrenotazioni) { %>
+					<tr>
+						<th># <%=k%> <%= p.getTitolo() %>
+
+							<form action="EliminaPrenotazione" method="get">
+								<input type="hidden" name="id"
+									value="<%= p.getIDprenotazione() %>">
+								<button class="btn action-button" role="button" type="submit">
+									<i class="material-icons">delete</i>
+								</button>
+							</form>
+						</th>
+						<td><%= p.getDescrizione() %></td>
+						<td><%= p.getAula() %></td>
+						<td><%= p.getEdificio() %></td>
+						<td><%= p.getData() %></td>
+						<td><%= p.getOraInizio() %>:00</td>
+						<td><%= p.getOraFine() %>:00</td>
+					</tr>
+					<%
+							k++;
+						}
+						%>
+
+				</tbody>
+			</table>
+		</div>
+	</div>
 </div>
 <!--FINE CONTAINER CENTRALE-->
 
-<jsp:include page="Footer.jsp"/>
+<jsp:include page="Footer.jsp" />

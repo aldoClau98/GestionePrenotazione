@@ -26,7 +26,7 @@
                         <option  selected>Selezione un utente</option>
                            <c:forEach items="${listaUtente}" var="i">
                            
-                            <option value="${i.email}">${i.email}</option>
+                            <option value="${i}">${i}</option>
                             </c:forEach>
                            
                     </select>

@@ -47,8 +47,11 @@ public class Prenotazione {
 		this.descrizione = descrizione;
 	}
 
-	public String getAulaPrenotata() {
-		return aulaPrenotata;
+	public boolean getAulaPrenotata() {
+		if (Integer.parseInt(this.aulaPrenotata) == 0)
+			return false;
+		else
+			return true;
 	}
 	public void setAulaPrenotata(String aulaPrenotata) {
 		this.aulaPrenotata = aulaPrenotata;
@@ -66,8 +69,17 @@ public class Prenotazione {
 	public void setUtente(String utente) {
 		this.utente = utente;
 	}
-
 	
+	public String getAula() {
+		return aula;
+	}
+	public void setAula(String aula) {
+		this.aula = aula;
+	}
+
+
+
+
 	private int IDprenotazione;
 	private String titolo;
 	private MyCalendar data =  new MyCalendar();
@@ -77,10 +89,7 @@ public class Prenotazione {
 	private String aulaPrenotata;
 	private String edificio;
 	private String utente;
-	
-	
-
-
+	private String aula;
 }
 
 

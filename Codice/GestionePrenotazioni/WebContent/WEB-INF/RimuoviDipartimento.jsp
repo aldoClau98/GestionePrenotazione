@@ -19,7 +19,7 @@
     <div class="login-clean">
         <form method="GET" action="RimuoviDipartimento">
             <div class="illustration">
-                <img src="dipartimento.jpg" width="80%">
+                <img src="img/dipartimento.jpg" width="80%">
             </div>
             <div class="form-group">
                 <div class="wrapper">

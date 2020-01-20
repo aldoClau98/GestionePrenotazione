@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <jsp:include page="Header.jsp" />
 
-<div class="container" style="padding-top: 200px;">
+<div class="container" style="padding-top: 160px;">
 	<div id="container-centrale">
 		<div class="login-clean">
 			<form method="POST" action="DomandaPrenotazione">

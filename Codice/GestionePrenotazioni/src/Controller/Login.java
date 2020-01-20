@@ -1,4 +1,5 @@
 package Controller;
+
 import Model.DipartimentoDAO;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -23,7 +24,7 @@ import Model.UtenteDAO;
  * Servlet implementation class Login
  */
 @WebServlet("/Login")
-public class Login extends HttpServlet {
+public class Login extends ServletBasic {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -31,7 +32,6 @@ public class Login extends HttpServlet {
 		HttpSession sessione = request.getSession();
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		// controllo
 
 		Utente utente = null;
 
@@ -39,38 +39,27 @@ public class Login extends HttpServlet {
 			utente = new UtenteDAO().doRetrieveByKey(email, password);
 		}
 		if (utente == null) {
-			
-			request.setAttribute("resultlogin", "0");
+			request.setAttribute("messaggio", "Login fallito");
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 			requestDispatcher.forward(request, response);
 		} else {
-			//salva la data corrente 
+			// salva la data corrente
 			LocalDateTime ldt = LocalDateTime.now().plusDays(1);
 			DateTimeFormatter formmat1 = DateTimeFormatter.ofPattern("yyyy-MM-dd", Locale.ITALIAN);
 			String formatter = formmat1.format(ldt);
-			
-			
-			
-			
-			System.out.println("Login  utente: "+utente.getTipoUtente());
-			
-			sessione.setAttribute("CurrentData",formatter);
-			System.out.println(formatter);
-				//salva l'utente nella sessione
-			sessione.setAttribute("utente", utente);
-			
-					//se l'utente è  amminsitratore di  dipartimento
-						if((utente.getTipoUtente())==2) {
-							
-							String dip= new DipartimentoDAO().doRetrieveByKey(utente.getEmail());
-							
-							System.out.println("Login dipartimento: "+dip);
-							sessione.setAttribute("dipartimento", dip);
-						}
 
-			ArrayList<Prenotazione> storicoPrenotazioni = new PrenotazioneDAO().doRetrieveByUtente(email);
-			sessione.setAttribute("storicoPrenotazioni", storicoPrenotazioni);
-			request.setAttribute("resultlogin", "1");
+			sessione.setAttribute("CurrentData", formatter);
+			sessione.setAttribute("utente", utente);
+
+			// se l'utente ï¿½ amminsitratore di dipartimento
+			if ((utente.getTipoUtente()) == 2) {
+				String dip = dipDAO.doRetrieveByKey(utente.getEmail());
+				sessione.setAttribute("dipartimento", dip);
+			}
+
+//			ArrayList<Prenotazione> storicoPrenotazioni = prenDAO.doRetrieveByUtente(email);
+//			sessione.setAttribute("storicoPrenotazioni", storicoPrenotazioni);
+			request.setAttribute("messaggio", "Login avvenuto");
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 			requestDispatcher.forward(request, response);
 		}
@@ -79,7 +68,6 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

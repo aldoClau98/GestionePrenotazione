@@ -1,39 +1,17 @@
+<% 	String pageTitle= "Home";
+   	request.setAttribute("pageTitle", pageTitle);%>
+   	
 <jsp:include page="Header.jsp" />
 
-<% 	String resultLogin = (String) request.getAttribute("resultLogin");
-	String resultPassw = (String) request.getAttribute("resultPassword"); 
-	String pageTitle= "Home";
-   	request.setAttribute("pageTitle", pageTitle);%>
-	
-<div class="container" style="padding-top:180px">
+<div class="container" style="padding-top:160px">
 	<p>
 		<span><%= pageTitle %></span>
 	</p>
 	
-	  
-  
-  <% if (resultLogin != null) {
-  		if (resultLogin.equals("1")) { %>
-	  		<div id="snackbar">Login  avvenuto  con successo!</div>
-	  		<% request.setAttribute("resultLogin", ""); 
-
-		} else { %>
-			<div id="snackbar">Login  errato!</div>	
-		<% }
-  	}
-  
-  	if (resultPassw != null) {
-		if (resultPassw.equals("1")) { %>
-			<div id="snackbar">Password modificata con successo!</div>
-			<%request.setAttribute("resultPassw", "");
-	
-		} else { %>
-			<div id="snackbar">C'è stato u n  errore,  la password non è stata modificata</div>
-	<% 	} 
-	} %>
+  	<% if (request.getAttribute("messaggio") != null) { %>
+  	<div id="snackbar"><%= request.getAttribute("messaggio") %></div>
+  	<% } %>
 </div>
-
-
 
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">

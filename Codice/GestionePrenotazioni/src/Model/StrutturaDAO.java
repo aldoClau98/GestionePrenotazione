@@ -137,7 +137,6 @@ public class StrutturaDAO {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				String p = (rs.getString(1));
-					System.out.println("Struttura dao Edificio: "+p);
 				listaNomiEdifici.add(p);
 			}
 
@@ -193,7 +192,6 @@ public class StrutturaDAO {
 				p.setDipartimento(rs.getString(3));
 				p.setEdificio(rs.getString(4));
 				p.setDescrizione(rs.getString(5));
-				System.out.println("AULA PRESA:OK");
 
 				return p;
 							}
@@ -258,7 +256,7 @@ public Struttura doStrutturabyAula(String aula) {
 
 
 
-public static ArrayList<Struttura> doStrutturabyDipartimenti(String dip) {
+public ArrayList<Struttura> doStrutturabyDipartimenti(String dip) {
 	// connessione al database
 	try (Connection con = DriverManagerConnectionPool.getConnection()) {
 		// preparo la query

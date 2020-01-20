@@ -9,10 +9,8 @@ function getAule(str){
 		if (this.readyState == 4 && this.status == 200) {
 			for (var i = 0; i < this.response.length; i++) {
 				var room = document.createElement('tr');
-		        room.value = this.response[i];
-		        room.addEventListener("click", function (){
-		            window.location.href = "NavAula?aula="+room.value;
-		        });
+		        room.setAttribute("id", this.response[i])
+		        room.setAttribute("onclick", "sendingTrough('"+room.getAttribute("id")+"')")
 		        building.appendChild(room);
 		        col1 = document.createElement('th');
 		        col2 = document.createElement('td');
@@ -31,6 +29,10 @@ function getAule(str){
     xhttp.send();
 }
 
+function sendingTrough(aula){
+	window.location.href = "NavAula?aula="+aula
+}
+
 function getDipartimenti(str){
 	if (str.length == 0)
 		return;
@@ -42,10 +44,8 @@ function getDipartimenti(str){
 		if (this.readyState == 4 && this.status == 200) {
 			for (var i = 0; i < this.response.length; i++) {
 			    var room = document.createElement('tr');
-		        room.value = this.response[i];
-		        room.addEventListener("click", function (){
-		            window.location.href = "NavAula?aula="+room.value;
-		        });
+			    room.setAttribute("id", this.response[i])
+		        room.setAttribute("onclick", "sendingTrough('"+room.getAttribute("id")+"')")
 		        building.appendChild(room);
 		        col1 = document.createElement('th');
 		        col2 = document.createElement('td');

@@ -18,7 +18,7 @@
     <div class="login-clean">
         <form method="GET" action="RimuoviEdificio">
             <div class="illustration">
-                <img src="edificio.png" width="80%">
+                <img src="img/edificio.png" width="80%">
             </div>
             <div class="form-group">
                 <div class="wrapper">

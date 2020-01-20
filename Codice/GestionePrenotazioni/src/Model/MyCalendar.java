@@ -83,7 +83,6 @@ public class MyCalendar  {
 		// Cast answer back to integer to get result from array
 		int ans = (int) h;
 
-		System.out.println("Day of the week is: " + DAY_OF_WEEK[ans]);
 		date.set(Calendar.DAY_OF_WEEK, ans);
 		return ans;
 	}
@@ -109,7 +108,6 @@ public class MyCalendar  {
 		// Cast answer back to integer to get result from array
 		int ans = (int) h;
 
-		System.out.println("Day of the week is: " + DAY_OF_WEEK[ans]);
 		date.set(Calendar.DAY_OF_WEEK, ans);
 		return ans;
 	}

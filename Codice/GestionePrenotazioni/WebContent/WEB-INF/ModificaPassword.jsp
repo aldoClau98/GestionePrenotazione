@@ -26,7 +26,7 @@
 						<label for="validationServer01"> Vecchia Password</label>
 					</div>
 					<div class="col-sm-6 input-column">
-						<input type="text" class="form-control" id="password" Name="password" value="pippolo66" required onchange="verifyP(this.id, this.value)">
+						<input type="text" class="form-control" id="password" Name="password" value="pippolo66" required onchange="verifyP(this.id, this.value, ${utente.password})" />
 						<div class="invalid-feedback">Improbabile che sia la tua password originale..</div>
 					</div>
 				</div>

@@ -27,7 +27,7 @@ public class CreaEdificio extends HttpServlet {
 		String des =  request.getParameter("descrizione");
 		
 		
-		int result= new StrutturaDAO().doSave(aula, edificio, descrizione)
+		int result= new StrutturaDAO().doSave(aula, edificio, des);
 		System.out.println("CreaAula: "+result);
 		request.setAttribute("result", result);
 			

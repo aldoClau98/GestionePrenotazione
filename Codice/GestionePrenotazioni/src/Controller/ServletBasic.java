@@ -1,7 +1,6 @@
 package Controller;
 
 import java.io.IOException;
-import java.util.Calendar;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,32 +9,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Model.DipartimentoDAO;
 import Model.MyCalendar;
-
-
+import Model.PrenotazioneDAO;
+import Model.StrutturaDAO;
+import Model.UtenteDAO;
 
 @WebServlet("/ServletBasic")
 public class ServletBasic extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
-	
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		HttpSession session =  request.getSession();
-		MyCalendar dateToday =  new MyCalendar();
-		String dataCorrente =  dateToday.getToday();
-		session.setAttribute("dataCorrente", dataCorrente);
-		
-		
-	}
 
-	
-	
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+	protected static MyCalendar dateToday = new MyCalendar();
+	protected static String dataCorrente = dateToday.getToday();
+	protected static DipartimentoDAO dipDAO = new DipartimentoDAO();
+	protected static StrutturaDAO struttDAO = new StrutturaDAO();
+	protected static PrenotazioneDAO prenDAO = new PrenotazioneDAO();
+	protected static UtenteDAO userDAO = new UtenteDAO();
 
 }

@@ -15,13 +15,13 @@ function submittingP(form){
     }
 }
 
-function verifyP(id, str) {
+function verifyP(id, str, oldP) {
     var check = document.getElementById("check");
 
     if (id == "password") {
         var regex = /^\w+([\.-])?\w+$/;
         input = document.getElementById(id);
-        if (regex.test(str)) {
+        if (regex.test(str) && str == oldP) {
             input.setAttribute("class", "form-control is-valid");
         }
         else {

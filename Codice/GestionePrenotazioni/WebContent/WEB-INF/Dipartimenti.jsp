@@ -29,7 +29,7 @@
 				<table class="table table-hover">
 					<thead onclick="getDipartimenti('<%= str %>')">
 						<tr>
-							<th><%= str %></th>
+							<th colspan="2">Dipartimento <%= str %></th>
 							<th>Amministratore:
 							<% for(Model.Dipartimento d: listaAmministratori) {
 									if (d.getDip().equals(str)) {%>

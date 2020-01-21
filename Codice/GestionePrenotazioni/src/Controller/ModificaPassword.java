@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.*;
 
@@ -21,25 +22,27 @@ public class ModificaPassword extends ServletBasic {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		Utente utente = null;
-		String email = request.getParameter("email");
-		String newPassw = request.getParameter("newPassw");
-		System.out.println("email: "+email+"password: "+newPassw);
-		// trova l'utente nel database
-		utente = new UtenteDAO().doRetrieveByKey(email, newPassw);
 
-		if ( (email != null && newPassw != null) || utente == null) {
-				System.out.println("if di errore");
-			request.setAttribute("resultPassword", "0");
+		String email = request.getParameter("email");
+		String passw = request.getParameter("password");
+		String newPassw = request.getParameter("rpassword");
+		HttpSession session = request.getSession();
+
+		utente = (Utente) session.getAttribute("utente");
+
+		if (email == null || newPassw == null || utente == null) {
+			request.setAttribute("messaggio", "Modifica non avvenuta");
+
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 			requestDispatcher.forward(request, response);
 		} else {
-			System.out.println("if di buono ");
-			request.setAttribute("resultPassword", (UtenteDAO.doUpdate(email, newPassw)));
+			userDAO.doUpdate(email, newPassw);
+			request.setAttribute("messaggio", "Modifica avvenuta");
+
 			RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 			requestDispatcher.forward(request, response);
-	}
+		}
 	}
 
 	/**

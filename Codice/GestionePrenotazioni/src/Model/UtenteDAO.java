@@ -124,7 +124,7 @@ public class UtenteDAO {
 	}
 
 	// modifica della password
-	public static int doUpdate(String email, String password) {
+	public int doUpdate(String email, String password) {
 		int rs = 0;
 		try (Connection con = DriverManagerConnectionPool.getConnection()) {
 			PreparedStatement ps = con.prepareStatement("UPDATE Utente SET  password=?  WHERE email =?;");

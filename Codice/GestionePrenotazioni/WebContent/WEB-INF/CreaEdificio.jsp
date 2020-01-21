@@ -15,15 +15,23 @@
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
     <div class="login-clean">
-        <form method="GET" action="">
+        <form method="GET" action="CreaEdificio">
             <div class="illustration">
                 <img src="edificio.png" width="50%">
             </div>
             <div class="form-group">
-                <input class="form-control" name="name" placeholder="Nome" />
+                <input class="form-control" name="edificio" placeholder="Nome Edificio" />
             </div>
             <div class="form-group">
-                <a class="btn btn-secondary btn-block" href=>Crea</a>
+                <input class="form-control" name="aula" placeholder="Nome Aula" />
+            </div>
+            <div class="form-group">
+                <input class="form-control" name="descrizione" placeholder="Descrizione" />
+            </div>
+            <div class="form-group">
+            <button class="btn action-button" type="submit">
+										Crea Edificio
+									</button>
             </div>
         </form>
     </div>

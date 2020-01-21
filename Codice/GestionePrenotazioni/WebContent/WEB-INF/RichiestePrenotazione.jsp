@@ -48,7 +48,7 @@
 							<td>${i.utente}</td>
 							<td>${i.descrizione}</td>
 							<td>${i.edificio}</td>
-							<td>${i.aulaPrenotata}</td>
+							<td>${i.aula}</td>
 							<td>${i.data}</td>
 							<td>${i.oraInizio}</td>
 							<td>${i.oraFine}</td>

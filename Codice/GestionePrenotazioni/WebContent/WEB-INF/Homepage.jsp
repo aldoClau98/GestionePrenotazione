@@ -1,4 +1,3 @@
-
 <% 	String pageTitle= "Home";
    	request.setAttribute("pageTitle", pageTitle);%>
 

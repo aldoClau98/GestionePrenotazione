@@ -22,14 +22,12 @@ public class NavAula extends ServletBasic {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession session = request.getSession();
-
 		String aula = request.getParameter("aula");
 		String edificio = request.getParameter("edificio");
 
 		Struttura strutt = struttDAO.doStrutturabyAula(aula);
 
-		session.setAttribute("strutt", strutt);
+		request.setAttribute("strutt", strutt);
 
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/CalendarioAula.jsp");
 		view.forward(request, response);

@@ -6,8 +6,8 @@
 <%@ page import="Model.Dipartimento" 
 		 import="java.util.ArrayList" %>
 		 
-<% ArrayList<Model.Dipartimento> listaAmministratori = (ArrayList<Model.Dipartimento>)session.getAttribute("listaAmministratori"); 
-	ArrayList<String> listaDipartimenti =(ArrayList<String>) session.getAttribute("listaDipartimenti"); %>
+<% ArrayList<Model.Dipartimento> listaAmministratori = (ArrayList<Model.Dipartimento>)request.getAttribute("listaAmministratori"); 
+	ArrayList<String> listaDipartimenti =(ArrayList<String>) request.getAttribute("listaDipartimenti"); %>
 
 <% 	String pageTitle= "Dipartimenti";
    	request.setAttribute("pageTitle", pageTitle);%>

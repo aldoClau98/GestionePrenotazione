@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/ServletHome")
 public class ServletHome extends ServletBasic {
@@ -14,6 +15,9 @@ public class ServletHome extends ServletBasic {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		session.setAttribute("utente", null);
+		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 		view.forward(request, response);
 	}

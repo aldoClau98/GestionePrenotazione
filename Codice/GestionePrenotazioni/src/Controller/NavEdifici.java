@@ -22,13 +22,11 @@ public class NavEdifici extends ServletBasic {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		HttpSession sessione = request.getSession();
 		ArrayList<String> listaEdifici = struttDAO.doRetrieveAllEdifici();
-		sessione.setAttribute("listaEdifici", listaEdifici);
+		request.setAttribute("listaEdifici", listaEdifici);
 
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Edifici.jsp");
 		view.forward(request, response);
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

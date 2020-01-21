@@ -20,7 +20,7 @@
 
 <div class="container" style="padding-top: 160px">
 	<p>
-		<span><%=pageTitle%> per ###(dipartimento)</span>
+		<span><%=pageTitle%></span>
 	</p>
 </div>
 <!--INIZIO CONTAINER CENTRALE-->
@@ -44,7 +44,7 @@
 					<% int k = 1;
 					for(Prenotazione p : listaPrenotazioni) { %>
 					<tr>
-						<th># <%=k%> <%= p.getTitolo() %>
+						<th># <%=k%>    <%= p.getTitolo() %>
 
 							<form action="EliminaPrenotazione" method="get">
 								<input type="hidden" name="id"

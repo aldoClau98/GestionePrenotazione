@@ -189,17 +189,15 @@ public class PrenotazioneDAO {
 			ArrayList<Prenotazione> prenotazioniData = new ArrayList<>();
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
-
 				Prenotazione p = new Prenotazione();
+				
 				p.setIDprenotazione(rs.getInt(1));
 				p.setTitolo(rs.getString(2));
-
 				p.setData(PrenotazioneDAO.SplitData(rs.getString(3)));
-
 				p.setOraInizio(rs.getInt(4));
 				p.setOraFine(rs.getInt(5));
 				p.setDescrizione(rs.getString(6));
-				p.setAulaPrenotata(rs.getString(7));
+				p.setAula(rs.getString(7));
 				p.setEdificio(rs.getString(8));
 				prenotazioniData.add(p);
 			}

@@ -22,6 +22,10 @@
 	<p>
 		<span><%=pageTitle%></span>
 	</p>
+
+	<% if (request.getAttribute("messaggio") != null) { %>
+	<div id="snackbar"><%= request.getAttribute("messaggio") %></div>
+	<% } %>
 </div>
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
@@ -44,7 +48,7 @@
 					<% int k = 1;
 					for(Prenotazione p : listaPrenotazioni) { %>
 					<tr>
-						<th># <%=k%>    <%= p.getTitolo() %>
+						<th># <%=k%> <%= p.getTitolo() %>
 
 							<form action="EliminaPrenotazione" method="get">
 								<input type="hidden" name="id"

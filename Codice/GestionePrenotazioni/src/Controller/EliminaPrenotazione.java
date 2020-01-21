@@ -14,50 +14,54 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Model.*;
+
 /**
  * Servlet implementation class EliminaPrenotazione
  */
 @WebServlet("/EliminaPrenotazione")
-public class EliminaPrenotazione extends HttpServlet {
+public class EliminaPrenotazione extends ServletBasic {
 	private static final long serialVersionUID = 1L;
-       
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		String ids =  request.getParameter("id");
-		if(ids!=null) {
-		System.out.println("Elimina prenotazione,  ID: "+ids);
-		int id =  Integer.parseInt(ids);
-		HttpSession sessione = request.getSession();
 
-		Utente c = (Utente) sessione.getAttribute("utente");
-		// prende la data corrente
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-		LocalDate localDate = LocalDate.now();
-		System.out.println(dtf.format(localDate)); 
-		
-		//rimozione della prenotazione
-		new  PrenotazioneDAO().doDelete(id);
-		
-		ArrayList<Model.Prenotazione> listaPrenotazioni = new PrenotazioneDAO().doRetrieveByDate(c.getEmail(),
-				dtf.format(localDate));
-		//rimuovo la vecchia lista
-		sessione.removeAttribute("listaPrenotazioni");
-		//aggiorno la lista 
-		sessione.setAttribute("listaPrenotazioni", listaPrenotazioni);
-		
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/StoricoPrenotazioni.jsp");
-		view.forward(request, response);
-		}else {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String ids = request.getParameter("id");
+		if (ids != null) {
+			int id = Integer.parseInt(ids);
+
+			HttpSession sessione = request.getSession();
+			Utente c = (Utente) sessione.getAttribute("utente");
+
+			// prende la data corrente
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+			LocalDate localDate = LocalDate.now();
+			System.out.println(dtf.format(localDate));
+
+			prenDAO.doDelete(id);
+
+			ArrayList<Model.Prenotazione> listaPrenotazioni = prenDAO.doRetrieveByDate(c.getEmail(),
+					dtf.format(localDate));
+
+			request.removeAttribute("listaPrenotazioni");
+			request.setAttribute("listaPrenotazioni", listaPrenotazioni);
+			request.setAttribute("messaggio", "Eliminazione effettuata");
+
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/StoricoPrenotazioni.jsp");
+			view.forward(request, response);
+		} else {
+			request.setAttribute("messaggio", "Eliminazione non effettuata");
+
 			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/StoricoPrenotazioni.jsp");
 			view.forward(request, response);
 		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

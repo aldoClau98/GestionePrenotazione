@@ -190,7 +190,7 @@ public class PrenotazioneDAO {
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 				Prenotazione p = new Prenotazione();
-				
+
 				p.setIDprenotazione(rs.getInt(1));
 				p.setTitolo(rs.getString(2));
 				p.setData(PrenotazioneDAO.SplitData(rs.getString(3)));

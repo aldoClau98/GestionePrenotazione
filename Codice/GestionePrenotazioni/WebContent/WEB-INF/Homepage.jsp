@@ -1,16 +1,17 @@
+
 <% 	String pageTitle= "Home";
    	request.setAttribute("pageTitle", pageTitle);%>
-   	
+
 <jsp:include page="Header.jsp" />
 
-<div class="container" style="padding-top:160px">
+<div class="container" style="padding-top: 160px">
 	<p>
 		<span><%= pageTitle %></span>
 	</p>
-	
-  	<% if (request.getAttribute("messaggio") != null) { %>
-  	<div id="snackbar"><%= request.getAttribute("messaggio") %></div>
-  	<% } %>
+
+	<% if (request.getAttribute("messaggio") != null) { %>
+	<div id="snackbar"><%= request.getAttribute("messaggio") %></div>
+	<% } %>
 </div>
 
 <!--INIZIO CONTAINER CENTRALE-->

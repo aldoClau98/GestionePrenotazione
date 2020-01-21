@@ -32,11 +32,10 @@ public class NavStoricoPrenotazioni extends ServletBasic {
 		LocalDate localDate = LocalDate.now();
 //		System.out.println(dtf.format(localDate)); // 2016/11/16
 
-		ArrayList<Model.Prenotazione> listaPrenotazioni = prenDAO.doRetrieveByDate(c.getEmail(),
-				dtf.format(localDate));
-		
+		ArrayList<Model.Prenotazione> listaPrenotazioni = prenDAO.doRetrieveByDate(c.getEmail(), dtf.format(localDate));
+
 		request.setAttribute("listaPrenotazioni", listaPrenotazioni);
-		
+
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/StoricoPrenotazioni.jsp");
 		view.forward(request, response);
 	}

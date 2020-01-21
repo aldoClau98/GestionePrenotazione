@@ -13,7 +13,8 @@
 	String pageTitle = "Storico prenotazioni";
 	request.setAttribute("pageTitle", pageTitle);
 	Utente c = (Utente) session.getAttribute("utente");
-	ArrayList<Model.Prenotazione> listaPrenotazioni = (ArrayList<Model.Prenotazione>)request.getAttribute("listaPrenotazioni");
+	ArrayList<Model.Prenotazione> listaPrenotazioni = (ArrayList<Model.Prenotazione>) request
+			.getAttribute("listaPrenotazioni");
 %>
 
 <jsp:include page="Header.jsp" />
@@ -23,9 +24,13 @@
 		<span><%=pageTitle%></span>
 	</p>
 
-	<% if (request.getAttribute("messaggio") != null) { %>
-	<div id="snackbar"><%= request.getAttribute("messaggio") %></div>
-	<% } %>
+	<%
+		if (request.getAttribute("messaggio") != null) {
+	%>
+	<div id="snackbar"><%=request.getAttribute("messaggio")%></div>
+	<%
+		}
+	%>
 </div>
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
@@ -45,30 +50,32 @@
 				</thead>
 				<tbody>
 
-					<% int k = 1;
-					for(Prenotazione p : listaPrenotazioni) { %>
+					<%
+						int k = 1;
+						for (Prenotazione p : listaPrenotazioni) {
+					%>
 					<tr>
-						<th># <%=k%> <%= p.getTitolo() %>
+						<th style="display: ruby block"># <%=k%> <%=p.getTitolo()%>
 
 							<form action="EliminaPrenotazione" method="get">
 								<input type="hidden" name="id"
-									value="<%= p.getIDprenotazione() %>">
+									value="<%=p.getIDprenotazione()%>">
 								<button class="btn action-button" role="button" type="submit">
 									<i class="material-icons">delete</i>
 								</button>
 							</form>
 						</th>
-						<td><%= p.getDescrizione() %></td>
-						<td><%= p.getAula() %></td>
-						<td><%= p.getEdificio() %></td>
-						<td><%= p.getData() %></td>
-						<td><%= p.getOraInizio() %>:00</td>
-						<td><%= p.getOraFine() %>:00</td>
+						<td><%=p.getDescrizione()%></td>
+						<td><%=p.getAula()%></td>
+						<td><%=p.getEdificio()%></td>
+						<td><%=p.getData()%></td>
+						<td><%=p.getOraInizio()%>:00</td>
+						<td><%=p.getOraFine()%>:00</td>
 					</tr>
 					<%
-							k++;
+						k++;
 						}
-						%>
+					%>
 
 				</tbody>
 			</table>

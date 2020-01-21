@@ -34,14 +34,17 @@
 				
 					<c:forEach items="${listaPrenotazioni}" var="i">
 						<tr>
-							<th scope="row">1
+							<th style="display: ruby block">1
 								<form action="EliminaRichiesta" method="get">
-									<input type="hidden" value="${i.IDprenotazione}" name="id" /> <input
-										type="submit" value="elimina" />
+									<input type="hidden" value="${i.IDprenotazione}" name="id" /> <button class="btn action-button" role="button" type="submit" >
+										<i class="material-icons">delete</i>
+									</button>
 								</form>
 								<form action="AccettaRichiesta" method="get">
-									<input type="hidden" value="${i.IDprenotazione}" name="id"/> <input
-										type="submit" value="Accetta" />
+								<input type="hidden" value="${i.IDprenotazione}" name="id"/> 
+									<button class="btn action-button" role="button" type="submit" >
+										<i class="material-icons">check_circle</i>
+									</button>
 								</form>
 							</th>
 							<td>${i.titolo}</td>

@@ -23,8 +23,6 @@ public class CalGetter extends ServletBasic {
 			throws ServletException, IOException {
 		String data = request.getParameter("data");
 		String aula = request.getParameter("aula");
-		System.out.println(aula);
-		System.out.println(data);
 
 		if (data != null && aula != null) {
 			JSONArray prodJson = new JSONArray();

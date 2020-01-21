@@ -14,10 +14,9 @@ public class PrenotazioneDAO {
 	public synchronized int doSave(String titolo, String data, int oraInizio, int oraFine, String descrizione,
 			String nomeUtente, String aula, String edificio, int accettata) {
 		PreparedStatement ps = null;
-
 		try (Connection conn = DriverManagerConnectionPool.getConnection();) {
 			ps = conn.prepareStatement(
-					"insert into Prenotazione(Titolo,Data ,OraInizio ,OraFine ,Descrizione ,NomeUtente ,Aula ,Edificio,accettata) values (?,?,?,?,?,?,?,?,?);");
+					"INSERT INTO Prenotazione(Titolo,Data ,OraInizio ,OraFine ,Descrizione ,NomeUtente ,Aula ,Edificio,accettata) VALUES (?,?,?,?,?,?,?,?,?);");
 			ps.setString(1, titolo);
 			ps.setString(2, data);
 			ps.setInt(3, oraInizio);

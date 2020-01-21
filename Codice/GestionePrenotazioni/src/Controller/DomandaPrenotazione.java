@@ -18,7 +18,7 @@ import Model.Utente;
  * Servlet implementation class RichiestaPrenotazione
  */
 @WebServlet("/DomandaPrenotazione")
-public class DomandaPrenotazione extends HttpServlet {
+public class DomandaPrenotazione extends ServletBasic {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -28,48 +28,53 @@ public class DomandaPrenotazione extends HttpServlet {
 		// parametri inseriti dall' utente
 		String titolo = request.getParameter("titolo");
 		String oraInizio = request.getParameter("oraInizio");
+		String data = request.getParameter("data");
 		String oraFine = request.getParameter("oraFine");
 		String descrizione = request.getParameter("descrizione");
 		// parametri nascosti
 		String aula = request.getParameter("aula");
 		String edificio = request.getParameter("edificio");
-		String data = request.getParameter("data");
 		Utente utente = (Utente) session.getAttribute("utente");
 		String email = utente.getEmail();
 		// se l' utente � amministratore...
 		// ...se il dipartimento corrisponde al dipartimento dell amministratore, allora
 		// la prenotazione viene salvata direttamente nel database
-		String dipAmm = new DipartimentoDAO().doRetrieveByKey(utente.getEmail());
-		String aulaDip = new DipartimentoDAO().doDipartimentoByStruttura(aula, edificio);
+		String dipAmm = dipDAO.doRetrieveByKey(utente.getEmail());
+		String aulaDip = dipDAO.doDipartimentoByStruttura(aula, edificio);
 		if (((utente.getTipoUtente()) > 1) && (dipAmm.equals(aulaDip))) {
 
-			int result = new PrenotazioneDAO().doSave(titolo, data, Integer.parseInt(oraInizio),
-					Integer.parseInt(oraFine), descrizione, email, aula, edificio, 1);
+			int result = prenDAO.doSave(titolo, data, Integer.parseInt(oraInizio), Integer.parseInt(oraFine),
+					descrizione, email, aula, edificio, 1);
+			if (result != 0)
+				request.setAttribute("messaggio", "Hai prenotato l'aula");
 
-			request.setAttribute("resultPren", result);
-			System.out.println("DomandaPrenotazione: " + result);
-			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
+			else {
+				request.setAttribute("messaggio", "Non hai prenotato l'aula");
+
+			}
+
+			RequestDispatcher view = request.getRequestDispatcher("NavAula?aula=" + aula);
 			view.forward(request, response);
 		} else {
 
-			int result = new PrenotazioneDAO().doSave(titolo, data, Integer.parseInt(oraInizio),
-					Integer.parseInt(oraFine), descrizione, email, aula, edificio, 0);
+			int result = prenDAO.doSave(titolo, data, Integer.parseInt(oraInizio), Integer.parseInt(oraFine),
+					descrizione, email, aula, edificio, 0);
+			if (result != 0)
+				request.setAttribute("messaggio", "Hai richiesto la prenotazione");
 
-			request.setAttribute("resultPren", result);
-			System.out.println("DomandaPrenotazione: " + result);
-			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
+			else {
+				request.setAttribute("messaggio", "Richiesta non avvenuta");
+
+			}
+
+			RequestDispatcher view = request.getRequestDispatcher("NavAula?aula=" + aula);
 			view.forward(request, response);
 		}
 
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

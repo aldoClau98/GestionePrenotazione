@@ -23,18 +23,12 @@ public class NavLogin extends ServletBasic {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Login.jsp");
+		view.forward(request, response);
+	}
 
-			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Login.jsp");
-			view.forward(request, response);
-		}
-		
-	
-
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

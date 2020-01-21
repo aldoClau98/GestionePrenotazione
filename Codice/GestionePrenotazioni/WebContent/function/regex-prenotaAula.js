@@ -6,9 +6,9 @@ function verifyA(id, value) {
 	oraFine = document.getElementById("oraFine");
 
 	if (id == "titolo") {
-		var regex = /^[\w+\s?\w+]{5,32}$/;
-		document.getElementById("data").value = document
-				.getElementById("datepicker").value
+		var regex = /^[\w\W\s]{5,32}$/;
+		formatData = document.getElementById("datepicker").value.split("/")
+		document.getElementById("data").value = formatData[2]+"-"+formatData[0]+"-"+formatData[1]
 		if (regex.test(value)) {
 			titolo.setAttribute("class", "form-control is-valid");
 			if (descrizione.getAttribute("class") != "form-control is-invalid")
@@ -20,9 +20,9 @@ function verifyA(id, value) {
 	}
 
 	else if (id == "descrizione") {
-		var regex = /^[\w+\W\s]{15,250}$/;
-		document.getElementById("data").value = document
-				.getElementById("datepicker").value
+		var regex = /^[\w\W\s]{15,250}$/;
+		formatData = document.getElementById("datepicker").value.split("/")
+		document.getElementById("data").value = formatData[2]+"-"+formatData[0]+"-"+formatData[1]
 		if (regex.test(value)) {
 			descrizione.setAttribute("class", "form-control is-valid");
 			if (titolo.getAttribute("class") != "form-control is-invalid")
@@ -37,8 +37,6 @@ function verifyA(id, value) {
 function getOra(value) {
 	oraF = document.getElementById("oraFine");
 	oraF.innerHTML = ''
-	document.getElementById("data").value = document
-			.getElementById("datepicker").value
 
 	for (var i = parseInt(value) + 1; i < 19; i++) {
 		opt = document.createElement('option');

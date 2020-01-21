@@ -22,7 +22,7 @@ function getData(data, aula) {
 				oraF = this.response[i + 2]
 				desc = this.response[i + 3]
 				colspan = oraF - oraI + 1;
-				
+
 				for (var k = oraI; k < oraF + 1; k++) {
 					col = document.getElementById(k)
 					col.style.background = "#fa6661"
@@ -30,11 +30,10 @@ function getData(data, aula) {
 						col.style.textAlign = "center";
 						col.setAttribute("colspan", colspan)
 						col.innerHTML = materia + "<br><br>" + desc;
-					}
-					else{
+					} else {
 						col.remove()
 					}
-					
+
 				}
 				i += 3;
 			}

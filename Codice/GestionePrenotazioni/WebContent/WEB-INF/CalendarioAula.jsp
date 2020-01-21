@@ -44,6 +44,9 @@
 			</button>
 		</span>
 	</p>
+	<% if (request.getAttribute("messaggio") != null) { %>
+	<div id="snackbar"><%= request.getAttribute("messaggio") %></div>
+	<% } %>
 </div>
 
 <!--INIZIO CONTAINER CENTRALE-->
@@ -67,7 +70,9 @@
 			</table>
 		</div>
 
-		<% if (c != null) {%>
+		<%
+			if (c != null) {
+		%>
 		<div class="col">
 			<div class="login-clean">
 				<form method="POST" action="DomandaPrenotazione">
@@ -79,17 +84,21 @@
 					</div>
 					<div class="form-group">
 						<input class="form-control" name="data" id="data"
-							placeholder="Data" disabled />
+							placeholder="Data" type="hidden"/>
 					</div>
 					<div class="form-group">
 						<div class="wrapper">
 							<select name="oraInizio" class="custom-select" tabindex="-1"
 								id="oraInizio" onchange=getOra(this.value)>
 								<option value="" selected>Orario inizio..</option>
-								<%for (int k = 9; k < 19; k++) {%>
-								<option value="<%= k %>"><%= k %>:00
+								<%
+									for (int k = 9; k < 19; k++) {
+								%>
+								<option value="<%=k%>"><%=k%>:00
 								</option>
-								<% } %>
+								<%
+									}
+								%>
 							</select>
 						</div>
 					</div>
@@ -104,21 +113,27 @@
 						<div class="invalid-feedback">Da 15 a 250 caratteri, no
 							caratteri speciali</div>
 					</div>
-					<input type="hidden" name="aula" value="${struttura.aula}" /> <input
-						type="hidden" name="edificio" value="${struttura.edificio}" />
+					<input type="hidden" name="aula" value="${strutt.aula}" /> <input
+						type="hidden" name="edificio" value="${strutt.edificio}" />
 					<div class="form-group">
 						<button class="btn btn-secondary btn-block" id="submit">Prenota</button>
 					</div>
 				</form>
 			</div>
-			<%if (c.getTipoUtente() == 2){ %>
+			<%
+				if (c.getTipoUtente() == 2) {
+			%>
 			<form action="" method="GET">
 				<button class="btn btn-secondary" type="submit"
 					style="margin-left: 100px;">Rendi aula prenotabile</button>
 			</form>
-			<% } %>
+			<%
+				}
+			%>
 		</div>
-		<% } %>
+		<%
+			}
+		%>
 	</div>
 </div>
 <!--FINE CONTAINER CENTRALE-->

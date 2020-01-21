@@ -20,26 +20,23 @@ import Model.Struttura;
 @WebServlet("/Dipartimento")
 public class Dipartimento extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	HttpSession session = request.getSession();
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
 		String dip = request.getParameter("dip");
-		//prendo  edifici  ed aule associate
+		// prendo edifici ed aule associate
 		ArrayList<Struttura> listaStr = new StrutturaDAO().doStrutturabyDip(dip);
-		
+
 		session.setAttribute("listaStr", listaStr);
-		//le mando  alla  JSP
+		// le mando alla JSP
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Dipartimenti.jsp");
 		view.forward(request, response);
-	
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

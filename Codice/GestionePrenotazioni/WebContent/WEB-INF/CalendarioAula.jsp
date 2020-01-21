@@ -44,9 +44,13 @@
 			</button>
 		</span>
 	</p>
-	<% if (request.getAttribute("messaggio") != null) { %>
-	<div id="snackbar"><%= request.getAttribute("messaggio") %></div>
-	<% } %>
+	<%
+		if (request.getAttribute("messaggio") != null) {
+	%>
+	<div id="snackbar"><%=request.getAttribute("messaggio")%></div>
+	<%
+		}
+	%>
 </div>
 
 <!--INIZIO CONTAINER CENTRALE-->
@@ -84,7 +88,7 @@
 					</div>
 					<div class="form-group">
 						<input class="form-control" name="data" id="data"
-							placeholder="Data" type="hidden"/>
+							placeholder="Data" type="hidden" />
 					</div>
 					<div class="form-group">
 						<div class="wrapper">

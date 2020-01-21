@@ -25,24 +25,20 @@ public class NavEditAmm extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-	HttpSession session = request.getSession();
-	
-	ArrayList<Model.Dipartimento> listaDipartimenti = new  DipartimentoDAO().doRetrieveAll();
-		
-		String email =  request.getParameter("email");
+		HttpSession session = request.getSession();
+
+		ArrayList<Model.Dipartimento> listaDipartimenti = new DipartimentoDAO().doRetrieveAll();
+
+		String email = request.getParameter("email");
 		session.setAttribute("listaDipartimenti", listaDipartimenti);
 		request.setAttribute("docente", email);
+		
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/EditAmministratore.jsp");
 		view.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

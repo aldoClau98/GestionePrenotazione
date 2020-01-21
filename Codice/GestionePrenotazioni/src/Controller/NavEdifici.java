@@ -19,15 +19,16 @@ import Model.StrutturaDAO;
 @WebServlet("/NavEdifici")
 public class NavEdifici extends ServletBasic {
 	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession sessione =  request.getSession();
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession sessione = request.getSession();
 		ArrayList<String> listaEdifici = struttDAO.doRetrieveAllEdifici();
 		sessione.setAttribute("listaEdifici", listaEdifici);
-		
+
 		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Edifici.jsp");
 		view.forward(request, response);
-	
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

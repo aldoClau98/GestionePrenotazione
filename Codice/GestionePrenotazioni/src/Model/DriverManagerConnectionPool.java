@@ -19,7 +19,7 @@ public class DriverManagerConnectionPool {
 			//
 			p.setDriverClassName("com.mysql.cj.jdbc.Driver");
 			p.setUsername("root");
-			p.setPassword("And-trois-456");
+			p.setPassword("toor");
 			p.setMaxActive(100);
 			p.setInitialSize(10);
 			p.setMinIdle(10);

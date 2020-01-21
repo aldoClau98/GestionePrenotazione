@@ -51,7 +51,7 @@ public class Login extends ServletBasic {
 			sessione.setAttribute("CurrentData", formatter);
 			sessione.setAttribute("utente", utente);
 
-			// se l'utente � amminsitratore di dipartimento
+			// se l'utente è amminsitratore di dipartimento
 			if ((utente.getTipoUtente()) == 2) {
 				String dip = dipDAO.doRetrieveByKey(utente.getEmail());
 				sessione.setAttribute("dipartimento", dip);

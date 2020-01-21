@@ -17,30 +17,25 @@ import Model.StrutturaDAO;
 @WebServlet("/CreaEdificio")
 public class CreaEdificio extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		String aula =  request.getParameter("aula");
-		String edificio =  request.getParameter("edificio");
-		
-		String des =  request.getParameter("descrizione");
-		
-		
-		int result= new StrutturaDAO().doSave(aula, edificio, des);
-		System.out.println("CreaAula: "+result);
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String aula = request.getParameter("aula");
+		String edificio = request.getParameter("edificio");
+
+		String des = request.getParameter("descrizione");
+
+		int result = new StrutturaDAO().doSave(aula, edificio, des);
 		request.setAttribute("result", result);
-			
-		RequestDispatcher view  =  request.getRequestDispatcher("WEB-INF/CreaAula.jsp");
+
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/CreaAula.jsp");
 		view.forward(request, response);
-	
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

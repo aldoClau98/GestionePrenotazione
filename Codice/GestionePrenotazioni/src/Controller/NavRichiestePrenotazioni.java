@@ -19,27 +19,24 @@ import Model.Prenotazione;
 public class NavRichiestePrenotazioni extends ServletBasic {
 	private static final long serialVersionUID = 1L;
 
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	HttpSession sessione = request.getSession();
-	//Dalla sessione prendo  il  dipartimento che gestisce l'amminsitratore
-	String dip =  (String) sessione.getAttribute("dipartimento");
-	System.out.println("NAVRichesteprenotazione dipartimento: "+dip);
-	//Dalla sessione prendo la data corrente 
-	String data = (String) sessione.getAttribute("CurrentData");
-	System.out.println("navrichiesteprenotazione data: "+data);
-	//Dal database prendo  tutte le prenotazioni  di  quel  dipartimento	
-	ArrayList<Prenotazione> listaPrenotazioni = new  PrenotazioneDAO().doRetrieveByDip(dip,data);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession sessione = request.getSession();
+		// Dalla sessione prendo il dipartimento che gestisce l'amminsitratore
+		String dip = (String) sessione.getAttribute("dipartimento");
+		System.out.println("NAVRichesteprenotazione dipartimento: " + dip);
+		// Dalla sessione prendo la data corrente
+		String data = (String) sessione.getAttribute("CurrentData");
+		System.out.println("navrichiesteprenotazione data: " + data);
+		// Dal database prendo tutte le prenotazioni di quel dipartimento
+		ArrayList<Prenotazione> listaPrenotazioni = new PrenotazioneDAO().doRetrieveByDip(dip, data);
 		sessione.setAttribute("listaPrenotazioni", listaPrenotazioni);
-	RequestDispatcher view  =  request.getRequestDispatcher("WEB-INF/RichiestePrenotazione.jsp");
-	view.forward(request, response);
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/RichiestePrenotazione.jsp");
+		view.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

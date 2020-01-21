@@ -25,8 +25,8 @@ public class Edifici extends HttpServlet {
 		String edificio = request.getParameter("edificio");
 		// Ricerca le aule per Edificio
 		ArrayList<Model.Struttura> listaAule = new StrutturaDAO().doAulabyEdificio(edificio);
-	
-		System.out.println("Edifici Servlet:  edificio: "+edificio);
+
+		System.out.println("Edifici Servlet:  edificio: " + edificio);
 		// salvataggio dei dati nella request
 		request.setAttribute("listaAule", listaAule);
 		request.setAttribute("edificio", edificio);
@@ -38,7 +38,6 @@ public class Edifici extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

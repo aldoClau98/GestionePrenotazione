@@ -20,22 +20,20 @@ import Model.UtenteDAO;
 @WebServlet("/NavElencoUtenti")
 public class NavElencoUtenti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-  
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session =  request.getSession();
-	
-		ArrayList<Utente> listaUtente =  new UtenteDAO().doRetrieveAll();
-			
-			session.setAttribute("listaUtente", listaUtente);
-		RequestDispatcher view =  request.getRequestDispatcher("WEB-INF/ElencoUtenti.jsp");
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+
+		ArrayList<Utente> listaUtente = new UtenteDAO().doRetrieveAll();
+
+		session.setAttribute("listaUtente", listaUtente);
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/ElencoUtenti.jsp");
 		view.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

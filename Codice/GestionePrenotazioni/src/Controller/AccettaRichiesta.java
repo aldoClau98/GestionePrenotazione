@@ -17,35 +17,28 @@ import Model.PrenotazioneDAO;
 @WebServlet("/AccettaRichiesta")
 public class AccettaRichiesta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
- 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-		
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String ids = request.getParameter("id");
 		if (ids != null) {
-			System.out.println("Accetta prenotazione,  ID: " + ids);
 			int id = Integer.parseInt(ids);
-			
+
 			new PrenotazioneDAO().doUpdate(id);
-			System.out.println("AccettaRichiesta Modifica:OK");
-			RequestDispatcher view =  request.getRequestDispatcher("WEB-INF/RichiestePrenotazione.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/RichiestePrenotazione.jsp");
 			view.forward(request, response);
 
-		}else {
-			
-			RequestDispatcher view =  request.getRequestDispatcher("WEB-INF/RichiestePrenotazione.jsp");
+		} else {
+
+			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/RichiestePrenotazione.jsp");
 			view.forward(request, response);
 		}
-	
+
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

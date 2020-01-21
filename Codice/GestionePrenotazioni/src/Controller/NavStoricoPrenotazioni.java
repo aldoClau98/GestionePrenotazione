@@ -27,7 +27,7 @@ public class NavStoricoPrenotazioni extends ServletBasic {
 		HttpSession sessione = request.getSession();
 
 		Utente c = (Utente) sessione.getAttribute("utente");
-		// prende la data corrente
+
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 		LocalDate localDate = LocalDate.now();
 //		System.out.println(dtf.format(localDate)); // 2016/11/16

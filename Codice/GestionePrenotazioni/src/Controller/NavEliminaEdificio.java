@@ -1,4 +1,5 @@
 package Controller;
+
 import Model.*;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,25 +18,20 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/NavEliminaEdificio")
 public class NavEliminaEdificio extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	HttpSession session =  request.getSession();
-		
-		
-		ArrayList<String> listaEdifici =  new StrutturaDAO().doRetrieveAllEdifici();
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+
+		ArrayList<String> listaEdifici = new StrutturaDAO().doRetrieveAllEdifici();
 		session.setAttribute("listaEdifici", listaEdifici);
-		
-		RequestDispatcher view  =  request.getRequestDispatcher("WEB-INF/RimuoviEdificio.jsp");
+
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/RimuoviEdificio.jsp");
 		view.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

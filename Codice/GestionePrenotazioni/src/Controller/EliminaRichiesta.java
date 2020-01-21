@@ -28,43 +28,35 @@ public class EliminaRichiesta extends HttpServlet {
 
 		String ids = request.getParameter("id");
 		if (ids != null) {
-			System.out.println("Elimina prenotazione,  ID: " + ids);
 			int id = Integer.parseInt(ids);
 
 			Utente c = (Utente) sessione.getAttribute("utente");
 			// prende la data corrente
 			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
 			LocalDate localDate = LocalDate.now();
-			System.out.println(dtf.format(localDate));
 
 			// rimozione della prenotazione
 			new PrenotazioneDAO().doDelete(id);
 
-			String dip =  (String) sessione.getAttribute("dipartimento");
-			System.out.println("NAVRichesteprenotazione dipartimento: "+dip);
-			//Dalla sessione prendo la data corrente 
+			String dip = (String) sessione.getAttribute("dipartimento");
+			// Dalla sessione prendo la data corrente
 			String data = "2019-06-09";// (String) sessione.getAttribute("CurrentData");
-			//Dal database prendo  tutte le prenotazioni  di  quel  dipartimento	
-			ArrayList<Prenotazione> listaPrenotazioni = new  PrenotazioneDAO().doRetrieveByDip(dip,data);
+			// Dal database prendo tutte le prenotazioni di quel dipartimento
+			ArrayList<Prenotazione> listaPrenotazioni = new PrenotazioneDAO().doRetrieveByDip(dip, data);
 			sessione.removeAttribute("listaPrenotazioni");
-				sessione.setAttribute("listaPrenotazioni", listaPrenotazioni);
+			sessione.setAttribute("listaPrenotazioni", listaPrenotazioni);
 
 			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/RichiestePrenotazione.jsp");
 			view.forward(request, response);
 		} else {
-			
+
 			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/RichiestePrenotazione.jsp");
 			view.forward(request, response);
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

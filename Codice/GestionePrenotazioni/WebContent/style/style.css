@@ -90,6 +90,10 @@ nav .navbar-brand img{
     font-weight: bold;
 }
 
+#date{
+	margin: 0;
+}
+
 #container-centrale {
     background: #f1f7fc;
     padding: 4% 20% 4% 20%;

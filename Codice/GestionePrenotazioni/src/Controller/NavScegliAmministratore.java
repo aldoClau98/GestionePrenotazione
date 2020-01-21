@@ -20,30 +20,26 @@ import Model.UtenteDAO;
 @WebServlet("/NavScegliAmministratore")
 public class NavScegliAmministratore extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-   
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session =  request.getSession();
-		ArrayList<String> listaUtenti =  new ArrayList<String>();
-		ArrayList<Utente> listaAllUtenti =  new UtenteDAO().doRetrieveAll();
-		
-		for(int i = 0;  i< listaAllUtenti.size();i++) {
-			if((listaAllUtenti.get(i).getTipoUtente()) == 1) {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		HttpSession session = request.getSession();
+		ArrayList<String> listaUtenti = new ArrayList<String>();
+		ArrayList<Utente> listaAllUtenti = new UtenteDAO().doRetrieveAll();
+
+		for (int i = 0; i < listaAllUtenti.size(); i++) {
+			if ((listaAllUtenti.get(i).getTipoUtente()) == 1) {
 				listaUtenti.add(listaAllUtenti.get(i).getEmail());
-				System.out.println("NavScegliAmm: "+listaAllUtenti.get(i).getEmail());
+				System.out.println("NavScegliAmm: " + listaAllUtenti.get(i).getEmail());
 			}
 		}
 		session.setAttribute("listaUtente", listaUtenti);
-		RequestDispatcher view  =  request.getRequestDispatcher("WEB-INF/ScegliAmministratore.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/ScegliAmministratore.jsp");
 		view.forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
 	}
 

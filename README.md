@@ -20,9 +20,8 @@ informazioni quali, l'utilizzo momentaneo delle strutture in ateneo.
 
 ## Installazione:
 Dal momento che la piattaforma è stata pensata come una web-application, non 
-dovrebbe esser necessaria alcuna installazione. Ma essendo non ufficialmente
-piazzata sulla rete, per funzionare, il progetto deve passare per una fase di
-deployment.
+dovrebbe esser necessaria alcuna installazione. Non essendo ufficialmente online, 
+la nostra piattaforma per essere utilizzata deve attraversare una fase di deployment.
 
 ## Deployment:
 Il sistema è stato progettato in Java Servlet per poter funzionare su server Java,

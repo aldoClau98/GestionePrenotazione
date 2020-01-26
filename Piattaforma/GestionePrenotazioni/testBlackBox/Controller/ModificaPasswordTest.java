@@ -44,7 +44,7 @@ class ModificaPasswordTest extends Mockito{
 	@Test
 	void testCase_1_3_02() throws ServletException, IOException {
 		doReturn("veronica.marcantuono@unisa.it").when(request).getParameter("email");
-		doReturn("12345").when(request).getParameter("password");
+		doReturn("12345678").when(request).getParameter("password");
 		doReturn(null).when(request).getParameter("rpassword");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
 		servlet.doPost(request, response);
@@ -55,7 +55,7 @@ class ModificaPasswordTest extends Mockito{
 	@Test
 	void testCase_1_3_03() throws ServletException, IOException {
 		doReturn("veronica.marcantuono@unisa.it").when(request).getParameter("email");
-		doReturn("12345").when(request).getParameter("password");
+		doReturn("12345678").when(request).getParameter("password");
 		doReturn("Utente14").when(request).getParameter("rpassword");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
 		servlet.doPost(request, response);

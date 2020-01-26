@@ -74,7 +74,7 @@ class LoginTest extends Mockito {
 	@Test
 	void testCase_1_2_05() throws ServletException, IOException {
 		doReturn("veronica.marcantuono@unisa.it").when(request).getParameter("email");
-		doReturn("12345").when(request).getParameter("password");
+		doReturn("12345678").when(request).getParameter("password");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
 		doReturn(session).when(request).getSession();
 		servlet.doPost(request, response);

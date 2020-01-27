@@ -53,7 +53,7 @@ public class CreaEdificio extends ServletBasic {
 				}
 			}
 		}
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Edifici.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 		view.forward(request, response);
 	}
 

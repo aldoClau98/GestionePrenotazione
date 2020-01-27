@@ -1,8 +1,6 @@
 package Controller;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -27,11 +25,6 @@ public class EliminaRichiesta extends ServletBasic {
 		if (ids != null) {
 			int id = Integer.parseInt(ids);
 
-			// prende la data corrente
-			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
-			LocalDate localDate = LocalDate.now();
-//			System.out.println(dtf.format(localDate));
-
 			// rimozione della prenotazione
 			prenDAO.doDelete(id);
 
@@ -42,11 +35,14 @@ public class EliminaRichiesta extends ServletBasic {
 			ArrayList<Prenotazione> listaPrenotazioni = prenDAO.doRetrieveByDip(dip, data);
 
 			request.setAttribute("listaPrenotazioni", listaPrenotazioni);
+			request.setAttribute("messaggio", "Eliminazione effettuata");
 
 			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/RichiestePrenotazione.jsp");
 			view.forward(request, response);
 		} else {
 
+			request.setAttribute("messaggio", "Eliminazione non effettuata");
+			
 			RequestDispatcher view = request.getRequestDispatcher("WEB-INF/RichiestePrenotazione.jsp");
 			view.forward(request, response);
 		}

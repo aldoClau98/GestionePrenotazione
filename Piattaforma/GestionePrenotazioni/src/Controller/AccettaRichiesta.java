@@ -30,13 +30,9 @@ public class AccettaRichiesta extends ServletBasic {
 		String aula = request.getParameter("aula");
 		String edificio = request.getParameter("edificio");
 
-		int id = Integer.parseInt(ids);
-
-		int temp = prenDAO.controlloOra(dataPren, Integer.parseInt(oraInizio), Integer.parseInt(oraFine), aula,
-				edificio);
-
-		if (temp == 1) {
-			prenDAO.doUpdate(id);
+		if (prenDAO.controlloOra(dataPren, Integer.parseInt(oraInizio), Integer.parseInt(oraFine), aula,
+				edificio) == 1) {
+			prenDAO.doUpdate(Integer.parseInt(ids));
 
 			String dip = (String) sessione.getAttribute("dipartimento");
 			// Dalla sessione prendo la data corrente

@@ -18,7 +18,7 @@ public class AulaStudenti extends ServletBasic {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-	String aula= request.getParameter("aula");
+	String aula = request.getParameter("aula");
 	String edificio =  request.getParameter("edificio");
 	String tipoaula =  request.getParameter("tipoaula");
 	
@@ -28,7 +28,7 @@ public class AulaStudenti extends ServletBasic {
 	else
 		 result= struttDAO.doUpdate(aula, edificio,"1");
 
-	request.setAttribute("result", result);
+	request.setAttribute("messaggio", "Prenotabilita' aula cambiata");
 	
 	RequestDispatcher view  =  request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 	view.forward(request, response);

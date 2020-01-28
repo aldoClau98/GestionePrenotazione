@@ -1,0 +1,278 @@
+{
+  "id": "04a5dfa4-a0c2-41c8-8bc0-418b8af6abae",
+  "version": "2.0",
+  "name": "GestioneEventiDocenteStudente_SeleniumTest",
+  "url": "http://localhost:8080/GestionePrenotazioni/ServletHome",
+  "tests": [{
+    "id": "7ba4c5a8-2c48-4b8d-8128-67ec132484e9",
+    "name": "RichiestaPrenotazioneAula",
+    "commands": [{
+      "id": "46c82fb6-898e-45cb-8dd5-34c95870df57",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/GestionePrenotazioni/Logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "731762a0-29c5-4802-8907-daf20d83d704",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "38b01eab-d5b6-4f70-b61c-61665c922c20",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log In",
+      "targets": [
+        ["linkText=Log In", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Log In')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavLogin')]", "xpath:href"],
+        ["xpath=//span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "73505bca-a731-411c-9d5d-b61cc69b942d",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "084d1b65-77ee-4d6e-bf35-fce57bab1ad6",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "ma.ro@unisa.it"
+    }, {
+      "id": "ae33d544-5407-43d4-9390-a995580f55ad",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "123456"
+    }, {
+      "id": "0747c130-8a8b-4dca-96df-d7f196877127",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "715e9dce-9bfd-4ae2-b139-dc678910a5cd",
+      "comment": "",
+      "command": "click",
+      "target": "id=elementoL",
+      "targets": [
+        ["id=elementoL", "id"],
+        ["linkText=Edifici", "linkText"],
+        ["css=#elementoL", "css:finder"],
+        ["xpath=//a[contains(text(),'Edifici')]", "xpath:link"],
+        ["xpath=//a[@id='elementoL']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarText']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavEdifici')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Edifici')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b643908-0c0b-4931-9a9a-5054b34701d3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col:nth-child(1) th",
+      "targets": [
+        ["css=.col:nth-child(1) th", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th", "xpath:idRelative"],
+        ["xpath=//th", "xpath:position"],
+        ["xpath=//th[contains(.,'Edificio F2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ebb6b488-1de2-4310-a065-befe4c6f8eb7",
+      "comment": "",
+      "command": "click",
+      "target": "css=#F1 > td:nth-child(2)",
+      "targets": [
+        ["css=#F1 > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[@id='F1']/td", "xpath:idRelative"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'laboratorio')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8895ffeb-affe-418a-8730-05901777f36f",
+      "comment": "",
+      "command": "click",
+      "target": "id=datepicker",
+      "targets": [
+        ["id=datepicker", "id"],
+        ["css=#datepicker", "css:finder"],
+        ["xpath=//input[@id='datepicker']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "85a5257b-050b-43bf-a932-a6cc74605da0",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(5) > .current-month:nth-child(5) > div",
+      "targets": [
+        ["css=tr:nth-child(5) > .current-month:nth-child(5) > div", "css:finder"],
+        ["xpath=//tr[5]/td[5]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b81b7b3a-ad3c-439e-9642-1a4ee7e1f964",
+      "comment": "",
+      "command": "click",
+      "target": "id=titolo",
+      "targets": [
+        ["id=titolo", "id"],
+        ["name=titolo", "name"],
+        ["css=#titolo", "css:finder"],
+        ["xpath=//input[@id='titolo']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f058a804-b64c-4d37-af25-a2c08ab6fba2",
+      "comment": "",
+      "command": "type",
+      "target": "id=titolo",
+      "targets": [
+        ["id=titolo", "id"],
+        ["name=titolo", "name"],
+        ["css=#titolo", "css:finder"],
+        ["xpath=//input[@id='titolo']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/input", "xpath:position"]
+      ],
+      "value": "ciao sono un prof"
+    }, {
+      "id": "b14c4faa-fc2d-41a4-99b5-c1fb73306ff1",
+      "comment": "",
+      "command": "click",
+      "target": "id=oraInizio",
+      "targets": [
+        ["id=oraInizio", "id"],
+        ["name=oraInizio", "name"],
+        ["css=#oraInizio", "css:finder"],
+        ["xpath=//select[@id='oraInizio']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div[3]/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d61b75d-497d-4c77-87c2-5c470fdee599",
+      "comment": "",
+      "command": "select",
+      "target": "id=oraInizio",
+      "targets": [],
+      "value": "label=11:00"
+    }, {
+      "id": "ac82841c-a01e-4ad6-91aa-5a0fe7225af8",
+      "comment": "",
+      "command": "click",
+      "target": "css=#oraInizio > option:nth-child(4)",
+      "targets": [
+        ["css=#oraInizio > option:nth-child(4)", "css:finder"],
+        ["xpath=//option[@value='11']", "xpath:attributes"],
+        ["xpath=//select[@id='oraInizio']/option[4]", "xpath:idRelative"],
+        ["xpath=//option[4]", "xpath:position"],
+        ["xpath=//option[contains(.,'11:00')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c6416c0-2147-4043-a2e3-74ed6d408dff",
+      "comment": "",
+      "command": "click",
+      "target": "id=descrizione",
+      "targets": [
+        ["id=descrizione", "id"],
+        ["name=descrizione", "name"],
+        ["css=#descrizione", "css:finder"],
+        ["xpath=//input[@id='descrizione']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1fadeaea-ee87-4d1f-8d2b-c937a7188454",
+      "comment": "",
+      "command": "type",
+      "target": "id=descrizione",
+      "targets": [
+        ["id=descrizione", "id"],
+        ["name=descrizione", "name"],
+        ["css=#descrizione", "css:finder"],
+        ["xpath=//input[@id='descrizione']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "sto prenotando l'aula"
+    }, {
+      "id": "cca76ef4-c4f0-4d5e-97cc-03998bcd973d",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div[6]/button", "xpath:idRelative"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prenota')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6fe3240-b4d9-46d3-9124-d350bac795cb",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=snackbar",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "c503c29f-59a5-4b30-84fe-dcad6ae263d2",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/GestionePrenotazioni/ServletHome"],
+  "plugins": []
+}

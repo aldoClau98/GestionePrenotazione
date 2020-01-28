@@ -1,0 +1,544 @@
+{
+  "id": "04a5dfa4-a0c2-41c8-8bc0-418b8af6abae",
+  "version": "2.0",
+  "name": "GestioneEventiAmministratoreDipartimento_SeleniumTest",
+  "url": "http://localhost:8080/GestionePrenotazioni/ServletHome",
+  "tests": [{
+    "id": "b3c3e43e-d001-48e7-924b-46dacff5f061",
+    "name": "PrenotazioneAula",
+    "commands": [{
+      "id": "e5acc5ac-5609-4c6b-86c1-c1d2ddc72c92",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/GestionePrenotazioni/Logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a91902e5-9627-4c6e-9be0-2d79657031ca",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1050",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "250a08b3-578d-46f7-913d-877eff7eabc3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log In",
+      "targets": [
+        ["linkText=Log In", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Log In')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavLogin')]", "xpath:href"],
+        ["xpath=//span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f06d1a3a-f1dc-4d0a-b89e-f2bd1fb7ec6c",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7219167c-7efd-4bde-8c4f-b34bb3deb76d",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "carlo.lerro@unisa.it"
+    }, {
+      "id": "d7f9c516-891d-4dca-afbf-ac5bed3e2830",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "be997a18-5c44-44a2-a6c4-af057873d1d4",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4abf584f-e151-4651-b333-8029cc5cacb4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dipartimenti",
+      "targets": [
+        ["linkText=Dipartimenti", "linkText"],
+        ["css=.nav-item:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dipartimenti')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavDipartimento')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Dipartimenti')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d492dbf-8e5a-47c1-8bbe-adb41168e3cd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col:nth-child(1) th:nth-child(2)",
+      "targets": [
+        ["css=.col:nth-child(1) th:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th[2]", "xpath:idRelative"],
+        ["xpath=//th[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "210838d4-1b1d-4993-9238-f85279c50431",
+      "comment": "",
+      "command": "click",
+      "target": "css=#P1 > td:nth-child(3)",
+      "targets": [
+        ["css=#P1 > td:nth-child(3)", "css:finder"],
+        ["xpath=//tr[@id='P1']/td[2]", "xpath:idRelative"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Edificio: F3')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e322ee67-80c1-4037-beb1-a7d9d9460d8d",
+      "comment": "",
+      "command": "click",
+      "target": "id=datepicker",
+      "targets": [
+        ["id=datepicker", "id"],
+        ["css=#datepicker", "css:finder"],
+        ["xpath=//input[@id='datepicker']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "43b7677a-3c29-40c5-9d90-7bbc3685b20f",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(5) > .current-month:nth-child(4) > div",
+      "targets": [
+        ["css=tr:nth-child(5) > .current-month:nth-child(4) > div", "css:finder"],
+        ["xpath=//tr[5]/td[4]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d0c570e7-a9b3-4f07-911f-af00134301ab",
+      "comment": "",
+      "command": "click",
+      "target": "id=titolo",
+      "targets": [
+        ["id=titolo", "id"],
+        ["name=titolo", "name"],
+        ["css=#titolo", "css:finder"],
+        ["xpath=//input[@id='titolo']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9493a10d-6f41-4a58-9bbb-4c243db8d4e3",
+      "comment": "",
+      "command": "type",
+      "target": "id=titolo",
+      "targets": [
+        ["id=titolo", "id"],
+        ["name=titolo", "name"],
+        ["css=#titolo", "css:finder"],
+        ["xpath=//input[@id='titolo']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/input", "xpath:position"]
+      ],
+      "value": "prenotazione"
+    }, {
+      "id": "d7adb18e-1dc9-4d3c-8bb6-2b087ce8855b",
+      "comment": "",
+      "command": "click",
+      "target": "id=oraInizio",
+      "targets": [
+        ["id=oraInizio", "id"],
+        ["name=oraInizio", "name"],
+        ["css=#oraInizio", "css:finder"],
+        ["xpath=//select[@id='oraInizio']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div[3]/div/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1208be82-d08c-4d9c-b7d8-d6d3070e860e",
+      "comment": "",
+      "command": "select",
+      "target": "id=oraInizio",
+      "targets": [],
+      "value": "label=13:00"
+    }, {
+      "id": "65d2e79b-6d0c-41e0-8ee8-f837fe630e91",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(6)",
+      "targets": [
+        ["css=option:nth-child(6)", "css:finder"],
+        ["xpath=//option[@value='13']", "xpath:attributes"],
+        ["xpath=//select[@id='oraInizio']/option[6]", "xpath:idRelative"],
+        ["xpath=//option[6]", "xpath:position"],
+        ["xpath=//option[contains(.,'13:00')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "46389636-2069-4729-b13e-5f98551b0e6f",
+      "comment": "",
+      "command": "click",
+      "target": "id=descrizione",
+      "targets": [
+        ["id=descrizione", "id"],
+        ["name=descrizione", "name"],
+        ["css=#descrizione", "css:finder"],
+        ["xpath=//input[@id='descrizione']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "af8f0942-bdef-4714-a9be-6f22d9a74026",
+      "comment": "",
+      "command": "type",
+      "target": "id=descrizione",
+      "targets": [
+        ["id=descrizione", "id"],
+        ["name=descrizione", "name"],
+        ["css=#descrizione", "css:finder"],
+        ["xpath=//input[@id='descrizione']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": "prenoto quest' aula"
+    }, {
+      "id": "bd45f52b-6bcc-4ae1-a12d-0650ca11c782",
+      "comment": "",
+      "command": "mouseDown",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div[6]/button", "xpath:idRelative"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prenota')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8aa3c3d5-dbfe-4c60-9a79-9131754cf084",
+      "comment": "",
+      "command": "click",
+      "target": "id=descrizione",
+      "targets": [
+        ["id=descrizione", "id"],
+        ["name=descrizione", "name"],
+        ["css=#descrizione", "css:finder"],
+        ["xpath=//input[@id='descrizione']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div[5]/input", "xpath:idRelative"],
+        ["xpath=//div[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b6e23f7-0729-46e3-91c8-20671080db22",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/div/form/div[6]/button", "xpath:idRelative"],
+        ["xpath=//div[6]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prenota')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "04b198bd-6783-4c41-9349-de63cda54779",
+      "comment": "",
+      "command": "click",
+      "target": "id=datepicker",
+      "targets": [
+        ["id=datepicker", "id"],
+        ["css=#datepicker", "css:finder"],
+        ["xpath=//input[@id='datepicker']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b451c33b-073f-4647-b362-93d295113a8d",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(5) > .current-month:nth-child(4) > div",
+      "targets": [
+        ["css=tr:nth-child(5) > .current-month:nth-child(4) > div", "css:finder"],
+        ["xpath=//tr[5]/td[4]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8651367f-53f7-480b-93eb-744b7e76b20c",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=13",
+      "targets": [
+        ["id=13", "id"],
+        ["css=#\\31 3", "css:finder"],
+        ["xpath=//td[@id='13']", "xpath:attributes"],
+        ["xpath=//tbody[@id='orario']/tr/td[6]", "xpath:idRelative"],
+        ["xpath=//td[6]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "9dce4038-c1a9-436d-b323-cb38cfe06352",
+    "name": "ModificaPrenotabilitaAula",
+    "commands": [{
+      "id": "b8b7243b-b7eb-4ff2-b50a-bfe25a03044c",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/GestionePrenotazioni/Logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f07a9050-d069-4c6f-8292-905564f80c29",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1050",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "af49c3b5-bafe-490b-ab89-0fa50930ec24",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log In",
+      "targets": [
+        ["linkText=Log In", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Log In')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavLogin')]", "xpath:href"],
+        ["xpath=//span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c6178587-fb78-49e9-8d04-6d73d34b60c3",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "71c49ac6-f40a-4dd5-aa46-501cde69eb4e",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "carlo.lerro@unisa.it"
+    }, {
+      "id": "a0029653-7199-4076-94bd-f640f5fdbdc5",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "c92f852f-e3b7-445f-832e-c3fc3125f688",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c1410a7-a410-4cd6-8f70-f88f1999bf10",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dipartimenti",
+      "targets": [
+        ["linkText=Dipartimenti", "linkText"],
+        ["css=.nav-item:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dipartimenti')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavDipartimento')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Dipartimenti')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d8a0061-bcb0-4f8b-9554-df8fe8cbd9af",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col:nth-child(1) th:nth-child(1)",
+      "targets": [
+        ["css=.col:nth-child(1) th:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th", "xpath:idRelative"],
+        ["xpath=//th", "xpath:position"],
+        ["xpath=//th[contains(.,'Dipartimento: matematica')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "301b7a3d-fa78-481a-8fa4-65ec7da4bd07",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.col:nth-child(1) th:nth-child(1)",
+      "targets": [
+        ["css=.col:nth-child(1) th:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th", "xpath:idRelative"],
+        ["xpath=//th", "xpath:position"],
+        ["xpath=//th[contains(.,'Dipartimento: matematica')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "83d8381b-e1db-4d8e-a9b5-197100b827a1",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.col:nth-child(1) thead th:nth-child(1)",
+      "targets": [
+        ["css=.col:nth-child(1) thead th:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th", "xpath:idRelative"],
+        ["xpath=//th", "xpath:position"],
+        ["xpath=//th[contains(.,'Dipartimento: matematica')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "647efd3e-b6a3-4f09-a948-75ea559173de",
+      "comment": "",
+      "command": "click",
+      "target": "css=#P1 > td:nth-child(2)",
+      "targets": [
+        ["css=#P1 > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[@id='P1']/td", "xpath:idRelative"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'laboratorio')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "69db07cf-6ca4-4cb8-aaf4-b55a436ad7cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn:nth-child(4)",
+      "targets": [
+        ["css=.btn:nth-child(4)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-tabelle']/div[2]/form/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Rendi aula prenotabile')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "73bb148d-887a-469e-9db1-4287d1b1286b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dipartimenti",
+      "targets": [
+        ["linkText=Dipartimenti", "linkText"],
+        ["css=.nav-item:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dipartimenti')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavDipartimento')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Dipartimenti')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "63540f34-fd17-4f5e-85b7-8c4fa1aeac84",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col:nth-child(1) th:nth-child(2)",
+      "targets": [
+        ["css=.col:nth-child(1) th:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th[2]", "xpath:idRelative"],
+        ["xpath=//th[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "aa9b158c-d616-4568-a8de-480424939fce",
+      "comment": "",
+      "command": "click",
+      "target": "css=#P1 > td:nth-child(2)",
+      "targets": [
+        ["css=#P1 > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[@id='P1']/td", "xpath:idRelative"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'laboratorio')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f9b00c44-53e0-4b71-8341-b51aff1d86e0",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=p:nth-child(5) > span",
+      "targets": [
+        ["css=p:nth-child(5) > span", "css:finder"],
+        ["xpath=//p[5]/span", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "c503c29f-59a5-4b30-84fe-dcad6ae263d2",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://localhost:8080/GestionePrenotazioni/ServletHome"],
+  "plugins": []
+}

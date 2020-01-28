@@ -1,0 +1,1383 @@
+{
+  "id": "57690f5b-abf0-485e-8190-88713180b3b6",
+  "version": "2.0",
+  "name": "GestioneEventiAmministratoreAteneo_SeleniumTest",
+  "url": "http://localhost:8080/GestionePrenotazioni/ServletHome",
+  "tests": [{
+    "id": "4c4160bb-e513-4c34-b981-66ca8dc89555",
+    "name": "AggiuntaDipartimento",
+    "commands": [{
+      "id": "5a469f60-9010-49b7-b911-5c25e439d920",
+      "comment": "",
+      "command": "open",
+      "target": "/GestionePrenotazioni/Logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a0a8307b-a9e6-42fd-8be4-0f182bd78ccc",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0d7ec5bd-542e-48c4-8b64-b9354b4ad9bd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log In",
+      "targets": [
+        ["linkText=Log In", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Log In')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavLogin')]", "xpath:href"],
+        ["xpath=//span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d21b8dd7-5803-4e61-aebc-d55f5958eb16",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "96ef6f32-ecaf-41e6-9d25-841418c834c4",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "aldo.claudini@unisa.it"
+    }, {
+      "id": "360f392e-6423-471c-becd-9fcfd81ff956",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "f0aadd5f-1fc2-4901-b8ae-9fbbf4cea327",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "ccb1b344-b62c-482a-b52a-96bc448ca9be",
+      "comment": "",
+      "command": "click",
+      "target": "css=#btnGroupDrop1 > .material-icons",
+      "targets": [
+        ["css=#btnGroupDrop1 > .material-icons", "css:finder"],
+        ["xpath=//button[@id='btnGroupDrop1']/i", "xpath:idRelative"],
+        ["xpath=//i", "xpath:position"],
+        ["xpath=//i[contains(.,'face')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b28d4926-31c9-435e-b79c-d99f7dd09a0f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dropdown-item:nth-child(5)",
+      "targets": [
+        ["css=.dropdown-item:nth-child(5)", "css:finder"],
+        ["xpath=//a[contains(text(),'Crea\n\t\t\t\t\t\t\tDipartimento')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span[2]/div/div/a[5]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavCreaDipartimento')]", "xpath:href"],
+        ["xpath=//a[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ad2cba5-2135-4e6f-b355-bf8e959f78f5",
+      "comment": "",
+      "command": "click",
+      "target": "name=dipartimento",
+      "targets": [
+        ["name=dipartimento", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='dipartimento']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7023fe36-29fb-4a89-bae3-a755f60da0f5",
+      "comment": "",
+      "command": "type",
+      "target": "name=dipartimento",
+      "targets": [
+        ["name=dipartimento", "name"],
+        ["css=.form-control", "css:finder"],
+        ["xpath=//input[@name='dipartimento']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Giurisprudenza"
+    }, {
+      "id": "1f6805a4-fef1-4b10-9cd1-a75578fa39fe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-block",
+      "targets": [
+        ["css=.btn-block", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crea')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3ac2269c-f492-4f0e-9921-41d6ec21776e",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col:nth-child(1) th:nth-child(1)",
+      "targets": [
+        ["css=.col:nth-child(1) th:nth-child(1)", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th", "xpath:idRelative"],
+        ["xpath=//th", "xpath:position"],
+        ["xpath=//th[contains(.,'Dipartimento: Giurisprudenza')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "148dff74-2fdc-4ea8-8968-b9f67870441c",
+    "name": "AggiuntaEdificio",
+    "commands": [{
+      "id": "8c55b7d7-63ee-426f-b8eb-64f0845f00e5",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/GestionePrenotazioni/ServletHome",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0370dfba-bddb-42bc-8327-1d7d79171fca",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d52526b2-5d36-41fb-8317-e15d89c1b500",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log In",
+      "targets": [
+        ["linkText=Log In", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Log In')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavLogin')]", "xpath:href"],
+        ["xpath=//span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb1d5991-7411-44c2-b15d-b97f26188ca3",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b864366-54a6-43a1-8a97-ec9af7b8f1a0",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "aldo.claudini@unisa.it"
+    }, {
+      "id": "cc093b07-04a7-45e5-b854-c10da59aece2",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "6a88363d-d999-484e-b201-e5eccbfb6186",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b3039d5-5669-42e7-b059-fbfbe3a16fd5",
+      "comment": "",
+      "command": "click",
+      "target": "css=#btnGroupDrop1 > .material-icons",
+      "targets": [
+        ["css=#btnGroupDrop1 > .material-icons", "css:finder"],
+        ["xpath=//button[@id='btnGroupDrop1']/i", "xpath:idRelative"],
+        ["xpath=//i", "xpath:position"],
+        ["xpath=//i[contains(.,'face')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0149dcec-dbaa-4cca-8677-c27650157fe3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dropdown-item:nth-child(3)",
+      "targets": [
+        ["css=.dropdown-item:nth-child(3)", "css:finder"],
+        ["xpath=//a[contains(text(),'Crea\n\t\t\t\t\t\t\tedificio')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span[2]/div/div/a[3]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavCreaEdificio')]", "xpath:href"],
+        ["xpath=//a[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d5228f1-1211-449b-b4ea-4161a3ace35e",
+      "comment": "",
+      "command": "click",
+      "target": "name=edificio",
+      "targets": [
+        ["name=edificio", "name"],
+        ["css=.form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='edificio']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "50551ee5-cd8b-4c1a-9fb3-0aa44bd1a021",
+      "comment": "",
+      "command": "type",
+      "target": "name=edificio",
+      "targets": [
+        ["name=edificio", "name"],
+        ["css=.form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='edificio']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "B2"
+    }, {
+      "id": "0ab82b9b-f00d-461b-b509-b7789be0b787",
+      "comment": "",
+      "command": "click",
+      "target": "name=descrizione",
+      "targets": [
+        ["name=descrizione", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='descrizione']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "133c1523-c67b-4bc2-a713-ea47c85e5c19",
+      "comment": "",
+      "command": "type",
+      "target": "name=descrizione",
+      "targets": [
+        ["name=descrizione", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='descrizione']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "sede legale"
+    }, {
+      "id": "5818e5d1-13bd-4f1e-8a83-fe2795a83970",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-block",
+      "targets": [
+        ["css=.btn-block", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[5]/button", "xpath:idRelative"],
+        ["xpath=//div[5]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crea')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4d0a1a2e-5c1a-4999-ba34-815c17a15116",
+      "comment": "",
+      "command": "click",
+      "target": "id=elementoL",
+      "targets": [
+        ["id=elementoL", "id"],
+        ["linkText=Edifici", "linkText"],
+        ["css=#elementoL", "css:finder"],
+        ["xpath=//a[contains(text(),'Edifici')]", "xpath:link"],
+        ["xpath=//a[@id='elementoL']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarText']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavEdifici')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Edifici')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8fe222d2-3f92-4b90-bcff-a4ea17f29b0f",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col:nth-child(1) th",
+      "targets": [
+        ["css=.col:nth-child(1) th", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th", "xpath:idRelative"],
+        ["xpath=//th", "xpath:position"],
+        ["xpath=//th[contains(.,'Edificio B2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "2f600f25-4a0a-4508-8a5e-5f713c29e351",
+    "name": "AggiuntaAula",
+    "commands": [{
+      "id": "31fb272d-1880-4957-82dd-042268505910",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/GestionePrenotazioni/Logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6666f9b3-1f17-4de1-8a7a-27b8c3cbea80",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "34f5bb27-b88c-41ee-817d-fe82a5e6a655",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log In",
+      "targets": [
+        ["linkText=Log In", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Log In')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavLogin')]", "xpath:href"],
+        ["xpath=//span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "511ff0cc-90a5-4fdc-85d6-ed27cf3777c8",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "971eb726-1e06-4fdb-8c06-ef3cf51f8951",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "aldo.claudini@unisa.it"
+    }, {
+      "id": "88329dac-8e96-441a-9c6c-0afd20b1c133",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "2d2ee3c7-7525-4065-83a7-71c8b5c5a1b1",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dcb37a72-0edc-4da9-a925-c2b775713e24",
+      "comment": "",
+      "command": "click",
+      "target": "css=#btnGroupDrop1 > .material-icons",
+      "targets": [
+        ["css=#btnGroupDrop1 > .material-icons", "css:finder"],
+        ["xpath=//button[@id='btnGroupDrop1']/i", "xpath:idRelative"],
+        ["xpath=//i", "xpath:position"],
+        ["xpath=//i[contains(.,'face')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2f7f442-8be6-4614-8f53-e2bcbf5af6c8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Crea aula",
+      "targets": [
+        ["linkText=Crea aula", "linkText"],
+        ["css=.dropdown-item:nth-child(7)", "css:finder"],
+        ["xpath=//a[contains(text(),'Crea aula')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span[2]/div/div/a[7]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavCreaAula')]", "xpath:href"],
+        ["xpath=//a[7]", "xpath:position"],
+        ["xpath=//a[contains(.,'Crea aula')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eca81171-ea3e-4dcd-8dd1-6303ab70b488",
+      "comment": "",
+      "command": "click",
+      "target": "name=nome",
+      "targets": [
+        ["name=nome", "name"],
+        ["css=.form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='nome']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a1e5b04-ccfc-4a5f-9c8b-a598462a7cd0",
+      "comment": "",
+      "command": "type",
+      "target": "name=nome",
+      "targets": [
+        ["name=nome", "name"],
+        ["css=.form-group:nth-child(2) > .form-control", "css:finder"],
+        ["xpath=//input[@name='nome']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "s4"
+    }, {
+      "id": "570e3bc6-eb57-4927-bcc3-6e8dd1275102",
+      "comment": "",
+      "command": "click",
+      "target": "id=select-name",
+      "targets": [
+        ["id=select-name", "id"],
+        ["name=edificio", "name"],
+        ["css=#select-name", "css:finder"],
+        ["xpath=//select[@id='select-name']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6bee4e9-17c4-45b6-b2f4-0ae6b9a20cc7",
+      "comment": "",
+      "command": "select",
+      "target": "id=select-name",
+      "targets": [],
+      "value": "label=B2"
+    }, {
+      "id": "81ee2b11-7bd1-4f81-a3a8-6e6e6ef471ca",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='B2']", "xpath:attributes"],
+        ["xpath=//select[@id='select-name']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'B2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6d0179d3-9fbc-431b-a1ab-e44ec9455e93",
+      "comment": "",
+      "command": "click",
+      "target": "name=descrizione",
+      "targets": [
+        ["name=descrizione", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='descrizione']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e48879bc-684c-4fe4-b0a3-f8c06d874b5d",
+      "comment": "",
+      "command": "type",
+      "target": "name=descrizione",
+      "targets": [
+        ["name=descrizione", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='descrizione']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[4]/input", "xpath:idRelative"],
+        ["xpath=//div[4]/input", "xpath:position"]
+      ],
+      "value": "sede legale"
+    }, {
+      "id": "ad494686-bf69-4af6-b0e0-0068aedb13b7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-block",
+      "targets": [
+        ["css=.btn-block", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[5]/button", "xpath:idRelative"],
+        ["xpath=//div[5]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Crea')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e107a08-ef62-40de-a043-637db3e3964c",
+      "comment": "",
+      "command": "click",
+      "target": "id=elementoL",
+      "targets": [
+        ["id=elementoL", "id"],
+        ["linkText=Edifici", "linkText"],
+        ["css=#elementoL", "css:finder"],
+        ["xpath=//a[contains(text(),'Edifici')]", "xpath:link"],
+        ["xpath=//a[@id='elementoL']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarText']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavEdifici')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Edifici')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e659d072-084b-4df6-8636-d88e532fedab",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col:nth-child(1) th",
+      "targets": [
+        ["css=.col:nth-child(1) th", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th", "xpath:idRelative"],
+        ["xpath=//th", "xpath:position"],
+        ["xpath=//th[contains(.,'Edificio B2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3a26739d-91a4-4d2f-80e4-e5e8369fb6db",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.col:nth-child(1) th",
+      "targets": [
+        ["css=.col:nth-child(1) th", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th", "xpath:idRelative"],
+        ["xpath=//th", "xpath:position"],
+        ["xpath=//th[contains(.,'Edificio B2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "214b4f5b-e634-420f-a577-f4b7384d2962",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.col:nth-child(1) thead th",
+      "targets": [
+        ["css=.col:nth-child(1) thead th", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th", "xpath:idRelative"],
+        ["xpath=//th", "xpath:position"],
+        ["xpath=//th[contains(.,'Edificio B2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d4304a17-b5a1-4070-85ee-9954911c66a9",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=#s4 > th",
+      "targets": [
+        ["css=#s4 > th", "css:finder"],
+        ["xpath=//tr[@id='s4']/th", "xpath:idRelative"],
+        ["xpath=//tr[2]/th", "xpath:position"],
+        ["xpath=//th[contains(.,'Aula: s4')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "e933e4e5-0a2b-4378-854c-0697b7164358",
+    "name": "AggiuntaAulaDipartimento",
+    "commands": [{
+      "id": "9f9693fb-1587-479b-9f67-96e73b0e6a32",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/GestionePrenotazioni/Logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2fc30a0b-09f5-4fe2-acad-107af2ec34fa",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0b08bb6a-1b17-4878-9f44-262df3940cda",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log In",
+      "targets": [
+        ["linkText=Log In", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Log In')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavLogin')]", "xpath:href"],
+        ["xpath=//span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "87ff8caf-8c55-4b11-a619-185d6d5a0ade",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "134e795c-c620-4d84-a74d-5d2580bbd13c",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "aldo.claudini@unisa.it"
+    }, {
+      "id": "f2970c88-e3f0-4dd5-8ce8-d964014f7d7e",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "824c76ef-4e7a-47ab-a6d2-d043fcaa007e",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "93118c9a-7bd6-4b43-86f3-eaccf01d8f9c",
+      "comment": "",
+      "command": "click",
+      "target": "id=elementoL",
+      "targets": [
+        ["id=elementoL", "id"],
+        ["linkText=Edifici", "linkText"],
+        ["css=#elementoL", "css:finder"],
+        ["xpath=//a[contains(text(),'Edifici')]", "xpath:link"],
+        ["xpath=//a[@id='elementoL']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarText']/ul/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavEdifici')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Edifici')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6f683242-ad5d-48ab-9268-bcffba46dee8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col:nth-child(1) th",
+      "targets": [
+        ["css=.col:nth-child(1) th", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th", "xpath:idRelative"],
+        ["xpath=//th", "xpath:position"],
+        ["xpath=//th[contains(.,'Edificio B2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "735c7fa7-06b9-4e5f-a2a5-80721f2ae91c",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.col:nth-child(1) th",
+      "targets": [
+        ["css=.col:nth-child(1) th", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th", "xpath:idRelative"],
+        ["xpath=//th", "xpath:position"],
+        ["xpath=//th[contains(.,'Edificio B2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "14f2b1be-b615-493e-bac5-f60a6a7cee76",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.col:nth-child(1) thead th",
+      "targets": [
+        ["css=.col:nth-child(1) thead th", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th", "xpath:idRelative"],
+        ["xpath=//th", "xpath:position"],
+        ["xpath=//th[contains(.,'Edificio B2')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "942fbb9c-f165-4ad7-afca-b621dfc5ea31",
+      "comment": "",
+      "command": "click",
+      "target": "css=td:nth-child(3)",
+      "targets": [
+        ["css=td:nth-child(3)", "css:finder"],
+        ["xpath=//tr[@id='s4']/td[2]", "xpath:idRelative"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Dipartimento: null')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "86708342-d89b-4c14-92e0-3b1d06c0973e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.action-button > .material-icons",
+      "targets": [
+        ["css=.action-button > .material-icons", "css:finder"],
+        ["xpath=//a/i", "xpath:position"],
+        ["xpath=//i[contains(.,'edit')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "daef3ff6-2a67-499c-b19d-8b6de81987de",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Giurisprudenza']", "xpath:attributes"],
+        ["xpath=//select[@id='select-name']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Giurisprudenza')]", "xpath:innerText"]
+      ],
+      "value": "-614,-341.54998779296875"
+    }, {
+      "id": "63480c3f-5c8c-47ed-b2cf-ee8112995f92",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Giurisprudenza']", "xpath:attributes"],
+        ["xpath=//select[@id='select-name']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Giurisprudenza')]", "xpath:innerText"]
+      ],
+      "value": "-614,-341.54998779296875"
+    }, {
+      "id": "d7984cec-b5aa-403e-8aa4-34eca9eae234",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Giurisprudenza']", "xpath:attributes"],
+        ["xpath=//select[@id='select-name']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Giurisprudenza')]", "xpath:innerText"]
+      ],
+      "value": "-614,-341.54998779296875"
+    }, {
+      "id": "6675f8d3-c07a-455f-ba3a-16d3d1f2a62f",
+      "comment": "",
+      "command": "select",
+      "target": "id=select-name",
+      "targets": [],
+      "value": "label=Giurisprudenza"
+    }, {
+      "id": "bcb157c0-0516-42cd-9f08-7fddce085e59",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Giurisprudenza']", "xpath:attributes"],
+        ["xpath=//select[@id='select-name']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Giurisprudenza')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f8b9653-5a1c-4d6a-a73a-c7962064df1c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-block",
+      "targets": [
+        ["css=.btn-block", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Assegna')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b9783c7c-cafb-486e-8406-c5ac91c6a4bb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dipartimenti",
+      "targets": [
+        ["linkText=Dipartimenti", "linkText"],
+        ["css=.nav-item:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dipartimenti')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavDipartimento')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Dipartimenti')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce8f7073-6832-4d38-8912-a19d88d59da4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col:nth-child(1) th:nth-child(2)",
+      "targets": [
+        ["css=.col:nth-child(1) th:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th[2]", "xpath:idRelative"],
+        ["xpath=//th[2]", "xpath:position"],
+        ["xpath=//th[contains(.,'Amministratore:')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4191f20e-a537-4f1b-a352-a1727223b700",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.col:nth-child(1) th:nth-child(2)",
+      "targets": [
+        ["css=.col:nth-child(1) th:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th[2]", "xpath:idRelative"],
+        ["xpath=//th[2]", "xpath:position"],
+        ["xpath=//th[contains(.,'Amministratore:')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eadff0f7-2b02-407e-a84e-49172f0756b6",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.col:nth-child(1) th:nth-child(2)",
+      "targets": [
+        ["css=.col:nth-child(1) th:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/thead/tr/th[2]", "xpath:idRelative"],
+        ["xpath=//th[2]", "xpath:position"],
+        ["xpath=//th[contains(.,'Amministratore:')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "95767893-f6e4-410d-883a-211b9adcf029",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=#s4 > th",
+      "targets": [
+        ["css=#s4 > th", "css:finder"],
+        ["xpath=//tr[@id='s4']/th", "xpath:idRelative"],
+        ["xpath=//tbody/tr/th", "xpath:position"],
+        ["xpath=//th[contains(.,'Aula: s4')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "a1b25adb-3b50-48c2-b39a-274e463e7782",
+    "name": "AssegnazioneTitoloAmministratore",
+    "commands": [{
+      "id": "60b99064-72e4-47ac-ad82-1c48a32514e1",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/GestionePrenotazioni/Logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8ed966e0-0418-42cc-9189-a75ebae11a67",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b277422f-6ecb-472d-ba41-0a7baf51704a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log In",
+      "targets": [
+        ["linkText=Log In", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Log In')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavLogin')]", "xpath:href"],
+        ["xpath=//span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc586e37-0b5f-4a0d-a459-40d971c6131c",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "436594f1-15d7-4454-be38-3f9e9adbfdfb",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "aldo.claudini@unisa.it"
+    }, {
+      "id": "31642743-aa07-4f34-b9b9-48f5dc3fe74b",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "4678c04b-bb34-4f92-a4bf-551d808884d8",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2b4e4952-d43c-4cf0-81ae-ba9ed76a4991",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnGroupDrop1",
+      "targets": [
+        ["id=btnGroupDrop1", "id"],
+        ["css=#btnGroupDrop1", "css:finder"],
+        ["xpath=//button[@id='btnGroupDrop1']", "xpath:attributes"],
+        ["xpath=//div[@id='navbarText']/span[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b10dd5d5-0a59-4e99-a22a-aa2926019de2",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dropdown-item:nth-child(9)",
+      "targets": [
+        ["css=.dropdown-item:nth-child(9)", "css:finder"],
+        ["xpath=//a[contains(text(),'Scegli\n\t\t\t\t\t\t\tAmministratore')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span[2]/div/div/a[9]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavScegliAmministratore')]", "xpath:href"],
+        ["xpath=//a[9]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3e5c996-590f-4d28-8de5-c3e21f5bdfd8",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='ma.ro@unisa.it']", "xpath:attributes"],
+        ["xpath=//select[@id='select-name']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'mario rossi')]", "xpath:innerText"]
+      ],
+      "value": "-614,-541.5499877929688"
+    }, {
+      "id": "dc24f0d3-bf67-445a-810d-80261ab6470f",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='ma.ro@unisa.it']", "xpath:attributes"],
+        ["xpath=//select[@id='select-name']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'mario rossi')]", "xpath:innerText"]
+      ],
+      "value": "-614,-541.5499877929688"
+    }, {
+      "id": "6e8a4b50-17b6-4b0d-ab1c-bde575e5570a",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='ma.ro@unisa.it']", "xpath:attributes"],
+        ["xpath=//select[@id='select-name']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'mario rossi')]", "xpath:innerText"]
+      ],
+      "value": "-614,-541.5499877929688"
+    }, {
+      "id": "b5a245ab-b4b1-462d-955f-299883096e8b",
+      "comment": "",
+      "command": "select",
+      "target": "id=select-name",
+      "targets": [],
+      "value": "label=mario rossi"
+    }, {
+      "id": "2f58171f-684d-4c05-beb4-a0456a79c5f9",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='ma.ro@unisa.it']", "xpath:attributes"],
+        ["xpath=//select[@id='select-name']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'mario rossi')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cb227ab3-1628-4e3b-aa97-28a6a98b7b05",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-block",
+      "targets": [
+        ["css=.btn-block", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Assegna')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "14713752-a783-4a06-b7e4-93019f4f6e61",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=tr:nth-child(3) > td:nth-child(6)",
+      "targets": [
+        ["css=tr:nth-child(3) > td:nth-child(6)", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/tbody/tr[3]/td[5]", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[5]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "552539c8-d9c3-4e0b-82e3-5ebf2dc1fc62",
+    "name": "AssegnazioneAmministratoreDipartimento",
+    "commands": [{
+      "id": "6f56efd3-e852-4211-8a29-97c2bad371ca",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost:8080/GestionePrenotazioni/ServletHome",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "69f0555c-2f09-43b4-b936-10d2f42918a9",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1680x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7d753ac7-4f8d-4218-9f0e-722a600d1dfc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Log In",
+      "targets": [
+        ["linkText=Log In", "linkText"],
+        ["css=.login", "css:finder"],
+        ["xpath=//a[contains(text(),'Log In')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavLogin')]", "xpath:href"],
+        ["xpath=//span/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fde734d7-83f3-42c0-887f-36a0cba6c61b",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "64abdd13-932c-4d73-88b2-7f0ee1dfa050",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[2]/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "aldo.claudini@unisa.it"
+    }, {
+      "id": "9667e623-5f5a-4b6f-a48d-2d949a2e65e9",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=.form-group:nth-child(4) > .form-control", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/input", "xpath:idRelative"],
+        ["xpath=//div[3]/input", "xpath:position"]
+      ],
+      "value": "12345678"
+    }, {
+      "id": "7e8ebc4b-7b4c-40c0-ac16-b0b13b993fa8",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//button[@id='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[4]/button", "xpath:idRelative"],
+        ["xpath=//div[4]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Log In')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "de46bbac-ec02-4dcb-8baf-8d86ccd53fbd",
+      "comment": "",
+      "command": "click",
+      "target": "css=#btnGroupDrop1 > .material-icons",
+      "targets": [
+        ["css=#btnGroupDrop1 > .material-icons", "css:finder"],
+        ["xpath=//button[@id='btnGroupDrop1']/i", "xpath:idRelative"],
+        ["xpath=//i", "xpath:position"],
+        ["xpath=//i[contains(.,'face')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "41c74bf3-5a5a-4db4-9597-07638e78b411",
+      "comment": "",
+      "command": "click",
+      "target": "css=.dropdown-item:nth-child(2)",
+      "targets": [
+        ["css=.dropdown-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Elenco\n\t\t\t\t\t\t\tutenti')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/span[2]/div/div/a[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavElencoUtenti')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "281dc415-ac38-43f1-b4ec-64b9c68876c2",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(3) form .material-icons",
+      "targets": [
+        ["css=tr:nth-child(3) form .material-icons", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/tbody/tr[3]/td[5]/form/span/button/i", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[5]/form/span/button/i", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "584c5f8e-7a72-465f-98ea-75e0c74564e2",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Giurisprudenza']", "xpath:attributes"],
+        ["xpath=//select[@id='select-name']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Giurisprudenza')]", "xpath:innerText"]
+      ],
+      "value": "-614,-565.5499877929688"
+    }, {
+      "id": "462a2caf-8ccd-48cf-a6a5-1d80cd62a2c1",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Giurisprudenza']", "xpath:attributes"],
+        ["xpath=//select[@id='select-name']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Giurisprudenza')]", "xpath:innerText"]
+      ],
+      "value": "-614,-565.5499877929688"
+    }, {
+      "id": "d4424fd1-46d5-4270-be08-dbc669ac2c22",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Giurisprudenza']", "xpath:attributes"],
+        ["xpath=//select[@id='select-name']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Giurisprudenza')]", "xpath:innerText"]
+      ],
+      "value": "-614,-565.5499877929688"
+    }, {
+      "id": "c7d094c3-14ac-4295-a396-a8aa72f90cd6",
+      "comment": "",
+      "command": "select",
+      "target": "id=select-name",
+      "targets": [],
+      "value": "label=Giurisprudenza"
+    }, {
+      "id": "a2de5cc5-53ad-4cc3-b2b8-eba5000fbae8",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='Giurisprudenza']", "xpath:attributes"],
+        ["xpath=//select[@id='select-name']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Giurisprudenza')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a60c447-2f73-44d7-b4b9-a8081a1fafb7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-block",
+      "targets": [
+        ["css=.btn-block", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "81f44980-3d77-4426-95cc-df68e65daff6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Dipartimenti",
+      "targets": [
+        ["linkText=Dipartimenti", "linkText"],
+        ["css=.nav-item:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Dipartimenti')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'NavDipartimento')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Dipartimenti')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "86558c20-2085-49b2-bfee-3aa9f64ee367",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.col:nth-child(3) th:nth-child(2)",
+      "targets": [
+        ["css=.col:nth-child(3) th:nth-child(2)", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div[3]/table/thead/tr/th[2]", "xpath:idRelative"],
+        ["xpath=//div[3]/table/thead/tr/th[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "3786777c-78ec-43ab-8e3e-2fe2d4056ea4",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["4c4160bb-e513-4c34-b981-66ca8dc89555"]
+  }],
+  "urls": ["http://localhost:8080/", "http://localhost:8080/GestionePrenotazioni/ServletHome"],
+  "plugins": []
+}

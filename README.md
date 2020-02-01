@@ -27,7 +27,7 @@ la nostra piattaforma per essere utilizzata deve attraversare una fase di deploy
 Il sistema è stato progettato in Java Servlet per poter funzionare su server Java,
 quindi il deploy dovrà esser completato per quanto riguarda tali tipologie di 
 server.
-Nel nostro caso è stato utilizzato il server di Tomcat.
+Nel nostro caso è stato utilizzato il server Tomcat.
 
 ## Autori:
 <table>

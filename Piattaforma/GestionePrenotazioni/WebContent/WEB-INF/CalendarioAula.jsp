@@ -54,10 +54,10 @@
 	<p>
 		<span>Prenotabilita': <c:if test="${strutt.tipoAula == 0}">solo docenti</c:if>
 			<c:if test="${strutt.tipoAula == 1}">docenti/studenti</c:if>
-		</span>  
-		<span>		<%
-					if (c.getTipoUtente() == 2 && dip.getAmmDip().equals(c.getEmail())) {
-				%> <c:choose>
+		</span> <span> <%
+ 	if (c != null) {
+ 		if (c.getTipoUtente() == 2 && dip.getAmmDip().equals(c.getEmail())) {
+ %> <c:choose>
 				<c:when test="${strutt.tipoAula=='1'}">
 
 					<form action="AulaStudenti" method="POST">
@@ -87,7 +87,9 @@
 				</c:otherwise>
 
 			</c:choose> <%
-				} %>
+ 	}
+ 	}
+ %>
 		</span>
 	</p>
 
@@ -176,17 +178,15 @@
 						<button class="btn btn-secondary btn-block" id="submit">Prenota</button>
 					</div>
 				</form>
-
-				<%
-					}
-			%>
 			</div>
+		</div>
+		<%
+			}
 
-			<%
 			}
 		%>
-		</div>
 	</div>
+</div>
 </div>
 <!--FINE CONTAINER CENTRALE-->
 

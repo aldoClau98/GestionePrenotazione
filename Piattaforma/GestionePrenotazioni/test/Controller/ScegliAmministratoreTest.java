@@ -42,7 +42,7 @@ class ScegliAmministratoreTest extends Mockito{
 
 	@Test
 	void testCase_4_5_02() throws ServletException, IOException {
-		doReturn("alf.claro@unisa.it").when(request).getParameter("email");
+		doReturn("m.rossi@unisa.it").when(request).getParameter("email");
 		doReturn("2").when(request).getParameter("flag");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
 		servlet.doPost(request, response);

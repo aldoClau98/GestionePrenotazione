@@ -157,7 +157,7 @@ class RichiestaPrenotazioneAulaTest extends Mockito {
 		doReturn("F1").when(request).getParameter("aula");
 		doReturn("Tutorato").when(request).getParameter("titolo");
 		doReturn("descrizione tutorato").when(request).getParameter("descrizione");
-		doReturn("12/12/2018").when(request).getParameter("data");
+		doReturn("2018-12-12").when(request).getParameter("data");
 		doReturn(null).when(request).getParameter("oraInizio");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
 		doReturn(session).when(request).getSession();
@@ -173,7 +173,7 @@ class RichiestaPrenotazioneAulaTest extends Mockito {
 		doReturn("F1").when(request).getParameter("aula");
 		doReturn("Tutorato").when(request).getParameter("titolo");
 		doReturn("descrizione tutorato").when(request).getParameter("descrizione");
-		doReturn("12/12/2018").when(request).getParameter("data");
+		doReturn("2018-12-12").when(request).getParameter("data");
 		doReturn("14.00").when(request).getParameter("oraInizio");
 		doReturn(null).when(request).getParameter("oraFine");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
@@ -189,7 +189,7 @@ class RichiestaPrenotazioneAulaTest extends Mockito {
 		doReturn("F1").when(request).getParameter("aula");
 		doReturn("Tutorato").when(request).getParameter("titolo");
 		doReturn("descrizione tutorato").when(request).getParameter("descrizione");
-		doReturn("12/12/2018").when(request).getParameter("data");
+		doReturn("2018-12-12").when(request).getParameter("data");
 		doReturn("14").when(request).getParameter("oraInizio");
 		doReturn("12").when(request).getParameter("oraFine");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
@@ -205,7 +205,7 @@ class RichiestaPrenotazioneAulaTest extends Mockito {
 		doReturn("F1").when(request).getParameter("aula");
 		doReturn("Tutorato").when(request).getParameter("titolo");
 		doReturn("descrizione tutorato").when(request).getParameter("descrizione");
-		doReturn("12/12/2018").when(request).getParameter("data");
+		doReturn("2018-12-12").when(request).getParameter("data");
 		doReturn("14").when(request).getParameter("oraInizio");
 		doReturn("16").when(request).getParameter("oraFine");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());

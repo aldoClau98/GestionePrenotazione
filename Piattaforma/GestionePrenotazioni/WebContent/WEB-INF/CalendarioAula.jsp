@@ -40,12 +40,13 @@
 		%>
 
 		<span> <a class="btn action-button"
-			href="NavScegliDipartimento?dipartimento=${strutt.dipartimento}&aula=${strutt.aula}&edificio=${strutt.edificio}" role="button"> <i class="material-icons">edit</i>
+			href="NavScegliDipartimento?dipartimento=${strutt.dipartimento}&aula=${strutt.aula}&edificio=${strutt.edificio}"
+			role="button"> <i class="material-icons">edit</i>
 		</a>
 		</span>
 		<%
-		}
-	%>
+			}
+		%>
 	</p>
 	<p>
 		<span>Tipo Aula: ${strutt.descrizione}</span><br>
@@ -53,6 +54,40 @@
 	<p>
 		<span>Prenotabilita': <c:if test="${strutt.tipoAula == 0}">solo docenti</c:if>
 			<c:if test="${strutt.tipoAula == 1}">docenti/studenti</c:if>
+		</span>  
+		<span>		<%
+					if (c.getTipoUtente() == 2 && dip.getAmmDip().equals(c.getEmail())) {
+				%> <c:choose>
+				<c:when test="${strutt.tipoAula=='1'}">
+
+					<form action="AulaStudenti" method="POST">
+						<input type="hidden" name="aula" value="${strutt.aula}" /> <input
+							type="hidden" name="edificio" value="${strutt.edificio}" /> <input
+							type="hidden" name="tipoaula" value="${strutt.tipoAula}" />
+						<button class="btn btn-secondary" type="submit">Rimuovi
+							prenotabilita' agli studenti</button>
+					</form>
+
+
+
+				</c:when>
+
+				<c:otherwise>
+
+					<form action="AulaStudenti" method="POST">
+						<input type="hidden" name="aula" value="${strutt.aula}" /> <input
+							type="hidden" name="edificio" value="${strutt.edificio}" /> <input
+							type="hidden" name="tipoaula" value="${strutt.tipoAula}" />
+						<button class="btn btn-secondary" type="submit">Rendi
+							aula prenotabile agli studenti</button>
+					</form>
+
+
+
+				</c:otherwise>
+
+			</c:choose> <%
+				} %>
 		</span>
 	</p>
 
@@ -91,9 +126,7 @@
 
 		<%
 			if (c != null) {
-		%>
-		<%
-			//se è  docente,  se invece è uno studente e l aula è prenotabile
+				//se è  docente,  se invece è uno studente e l aula è prenotabile
 				if (c.getTipoUtente() == 1 || (c.getTipoUtente() == 0 && s.getTipoAula() == 1)
 						|| c.getTipoUtente() == 2) {
 		%>
@@ -143,49 +176,16 @@
 						<button class="btn btn-secondary btn-block" id="submit">Prenota</button>
 					</div>
 				</form>
+
 				<%
 					}
-				%>
-			</div>
-			<%
-				if (c.getTipoUtente() == 2 && dip.getAmmDip().equals(c.getEmail())) {
 			%>
-			<c:choose>
-				<c:when test="${strutt.tipoAula=='1'}">
+			</div>
 
-					<form action="AulaStudenti" method="POST">
-						<input type="hidden" name="aula" value="${strutt.aula}" /> <input
-							type="hidden" name="edificio" value="${strutt.edificio}" /> <input
-							type="hidden" name="tipoaula" value="${strutt.tipoAula}" />
-						<button class="btn btn-secondary" type="submit"
-							style="margin-left: 100px;">Rimuovi aula prenotabile</button>
-					</form>
-
-
-
-				</c:when>
-
-				<c:otherwise>
-
-					<form action="AulaStudenti" method="POST">
-						<input type="hidden" name="aula" value="${strutt.aula}" /> <input
-							type="hidden" name="edificio" value="${strutt.edificio}" /> <input
-							type="hidden" name="tipoaula" value="${strutt.tipoAula}" />
-						<button class="btn btn-secondary" type="submit"
-							style="margin-left: 100px;">Rendi aula prenotabile</button>
-					</form>
-
-
-
-				</c:otherwise>
-
-			</c:choose>
-		</div>
-		<%
-			}
-
+			<%
 			}
 		%>
+		</div>
 	</div>
 </div>
 <!--FINE CONTAINER CENTRALE-->

@@ -10,7 +10,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 String email = request.getParameter("docente"); %>
-<div class="container" style="padding-top: 160px;">
+<div class="container" style="padding-top: 180px;">
 	<p><%= pageTitle %></p>
 </div>
 

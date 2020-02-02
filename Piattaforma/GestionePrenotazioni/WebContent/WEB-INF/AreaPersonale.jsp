@@ -15,7 +15,7 @@
 	String result = request.getParameter("result");
 %>
 
-<div class="container" style="padding-top: 160px">
+<div class="container" style="padding-top: 180px">
 	<p>
 		<span><%=pageTitle%></span>
 	</p>

@@ -532,8 +532,15 @@
       "comment": "",
       "command": "select",
       "target": "id=select-name",
-      "targets": [],
-      "value": "label=B2"
+      "targets": [
+        ["id=select-name", "id"],
+        ["name=edificio", "name"],
+        ["css=#select-name", "css:finder"],
+        ["xpath=//select[@id='select-name']", "xpath:attributes"],
+        ["xpath=//div[@id='container-centrale']/div/form/div[3]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "label=F2"
     }, {
       "id": "81ee2b11-7bd1-4f81-a3a8-6e6e6ef471ca",
       "comment": "",
@@ -942,12 +949,12 @@
       "id": "95767893-f6e4-410d-883a-211b9adcf029",
       "comment": "",
       "command": "assertElementPresent",
-      "target": "css=#s4 > th",
+      "target": "css=#F1 > th",
       "targets": [
-        ["css=#s4 > th", "css:finder"],
-        ["xpath=//tr[@id='s4']/th", "xpath:idRelative"],
+        ["css=#F1 > th", "css:finder"],
+        ["xpath=//tr[@id='F1']/th", "xpath:idRelative"],
         ["xpath=//tbody/tr/th", "xpath:position"],
-        ["xpath=//th[contains(.,'Aula: s4')]", "xpath:innerText"]
+        ["xpath=//th[contains(.,'Aula: F1')]", "xpath:innerText"]
       ],
       "value": ""
     }]
@@ -1264,11 +1271,12 @@
       "id": "281dc415-ac38-43f1-b4ec-64b9c68876c2",
       "comment": "",
       "command": "click",
-      "target": "css=tr:nth-child(3) form .material-icons",
+      "target": "css=tr:nth-child(2) form .material-icons",
       "targets": [
-        ["css=tr:nth-child(3) form .material-icons", "css:finder"],
-        ["xpath=//div[@id='container-tabelle']/div/table/tbody/tr[3]/td[5]/form/span/button/i", "xpath:idRelative"],
-        ["xpath=//tr[3]/td[5]/form/span/button/i", "xpath:position"]
+        ["css=tr:nth-child(2) form .material-icons", "css:finder"],
+        ["xpath=//div[@id='container-tabelle']/div/table/tbody/tr[2]/td[5]/form/span/button/i", "xpath:idRelative"],
+        ["xpath=//span/button/i", "xpath:position"],
+        ["xpath=//i[contains(.,'edit')]", "xpath:innerText"]
       ],
       "value": ""
     }, {

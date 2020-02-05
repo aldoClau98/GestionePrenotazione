@@ -47,7 +47,7 @@
 					<tr>
 						<th style="display: ruby block"># <%=k%> <%=p.getTitolo()%>
 
-							<form action="EliminaPrenotazione" method="get">
+							<form action="EliminaPrenotazione" method="POST">
 								<input type="hidden" name="id"
 									value="<%=p.getIDprenotazione()%>">
 								<button class="btn action-button" role="button" type="submit">

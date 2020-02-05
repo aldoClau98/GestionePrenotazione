@@ -23,7 +23,7 @@
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
 	<div class="login-clean">
-		<form action="RimuoviAula" method="GET" if="form-rimozione">
+		<form action="RimuoviAula" method="POST" if="form-rimozione">
 			<div class="illustration">
 				<img src="img/aula.png" width="80%">
 			</div>

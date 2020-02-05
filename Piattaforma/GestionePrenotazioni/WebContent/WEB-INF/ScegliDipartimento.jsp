@@ -20,7 +20,7 @@
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
 	<div class="login-clean">
-		<form method="Post" action="AssegnaDipartimentoAula">
+		<form method="POST" action="AssegnaDipartimentoAula">
 			<input type="hidden" value="<%= aula %>" name="aula" /> <input
 				type="hidden" value="<%= edificio %>" name="edificio" />
 

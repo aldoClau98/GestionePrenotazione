@@ -19,7 +19,7 @@
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
 	<div class="login-clean">
-		<form method="GET" action="CreaAula">
+		<form method="POST" action="CreaAula">
 			<div class="illustration">
 				<img src="img/aula.png" width="80%">
 			</div>

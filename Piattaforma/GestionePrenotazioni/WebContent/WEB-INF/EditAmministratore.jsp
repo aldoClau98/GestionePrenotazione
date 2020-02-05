@@ -17,7 +17,7 @@ String email = request.getParameter("docente"); %>
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
 	<div class="login-clean">
-		<form method="GET" action="EditAmministratore">
+		<form method="POST" action="EditAmministratore">
 			<input type="hidden" name="email" value="${email}" />
 			<div class="illustration">
 				<img src="img/profilo.png" width="80%">

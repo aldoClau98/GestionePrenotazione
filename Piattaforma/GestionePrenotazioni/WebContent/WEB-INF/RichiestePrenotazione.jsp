@@ -38,7 +38,7 @@
 					<c:forEach items="${listaPrenotazioni}" var="i">
 						<tr>
 							<th style="display: ruby block">1
-								<form action="EliminaRichiesta" method="get">
+								<form action="EliminaRichiesta" method="POST">
 									<input type="hidden" value="${i.IDprenotazione}" name="id" />
 									<button class="btn action-button" role="button" type="submit">
 										<i class="material-icons">delete</i>

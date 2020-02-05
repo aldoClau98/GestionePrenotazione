@@ -15,7 +15,7 @@
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
 	<div class="login-clean">
-		<form method="GET" action="CreaEdificio">
+		<form method="POST" action="CreaEdificio">
 			<div class="illustration">
 				<img src="img/edificio.png" width="50%">
 			</div>

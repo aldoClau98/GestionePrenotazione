@@ -21,7 +21,7 @@
 <!--INIZIO CONTAINER CENTRALE-->
 <div id="container-centrale">
 	<div class="login-clean">
-		<form method="GET" action="ScegliAmministratore">
+		<form method="POST" action="ScegliAmministratore">
 			<input type="hidden" name="flag" value="2">
 			<div class="illustration">
 				<img src="img/profilo.png" width="80%">

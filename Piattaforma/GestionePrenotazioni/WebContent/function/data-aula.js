@@ -21,19 +21,18 @@ function getData(data, aula) {
 				oraI = this.response[i + 1]
 				oraF = this.response[i + 2]
 				desc = this.response[i + 3]
-				colspan = oraF - oraI + 1;
-
-				for (var k = oraI; k < oraF + 1; k++) {
+				colspan = oraF - oraI;
+				
+				for (var k = oraI; k < oraF; k++) {
 					col = document.getElementById(k)
-					col.style.background = "#fa6661"
-					if (k == oraI) {
+					if (k != oraI) {
+						col.remove()
+					}else {
+						col.style.background = "#fa6661"
 						col.style.textAlign = "center";
 						col.setAttribute("colspan", colspan)
 						col.innerHTML = materia + "<br><br>" + desc;
-					} else {
-						col.remove()
 					}
-
 				}
 				i += 3;
 			}

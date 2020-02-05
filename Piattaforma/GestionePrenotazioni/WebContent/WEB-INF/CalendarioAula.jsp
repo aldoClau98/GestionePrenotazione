@@ -59,7 +59,6 @@
  		if (c.getTipoUtente() == 2 && dip.getAmmDip().equals(c.getEmail())) {
  %> <c:choose>
 				<c:when test="${strutt.tipoAula=='1'}">
-
 					<form action="AulaStudenti" method="POST">
 						<input type="hidden" name="aula" value="${strutt.aula}" /> <input
 							type="hidden" name="edificio" value="${strutt.edificio}" /> <input
@@ -67,13 +66,9 @@
 						<button class="btn btn-secondary" type="submit">Rimuovi
 							prenotabilita' agli studenti</button>
 					</form>
-
-
-
 				</c:when>
 
 				<c:otherwise>
-
 					<form action="AulaStudenti" method="POST">
 						<input type="hidden" name="aula" value="${strutt.aula}" /> <input
 							type="hidden" name="edificio" value="${strutt.edificio}" /> <input
@@ -81,9 +76,6 @@
 						<button class="btn btn-secondary" type="submit">Rendi
 							aula prenotabile agli studenti</button>
 					</form>
-
-
-
 				</c:otherwise>
 
 			</c:choose> <%
@@ -97,10 +89,6 @@
 	<p style="display: block ruby">
 		<span>Seleziona data</span> <span> <input id="datepicker"
 			width="200px" onchange="getData(this.value, '${strutt.aula}')" />
-		</span> <span>
-			<button class="btn btn-secondary" style="height: 38px;">
-				<i class="material-icons">calendar_today</i>
-			</button>
 		</span>
 	</p>
 </div>
@@ -116,7 +104,7 @@
 						<%
 							for (int k = 9; k < 19; k++) {
 						%>
-						<th><%=k%>:00</th>
+						<th style="text-align:center"><%=k%>:00</th>
 						<%
 							}
 						%>
@@ -186,7 +174,6 @@
 			}
 		%>
 	</div>
-</div>
 </div>
 <!--FINE CONTAINER CENTRALE-->
 

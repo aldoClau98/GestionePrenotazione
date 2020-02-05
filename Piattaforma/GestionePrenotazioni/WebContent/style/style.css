@@ -78,6 +78,7 @@ nav .navbar-brand img{
     width: 0%;
     background-color: #fa6661;
     transition: width .5s ease-in-out;
+    max-width: 130px;
 }
 
 #navbarText .nav-item:hover:after, .nav-item:focus:after{
@@ -97,6 +98,7 @@ nav .navbar-brand img{
     background: #f1f7fc;
     padding: 4% 20% 4% 20%;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+
 }
 
 hr {
@@ -320,7 +322,6 @@ footer .social a {
   
   .login-clean form {
     max-width: 320px;
-    width: 90%;
     margin: 0 auto;
     background-color: #ffffff;
     padding: 40px;

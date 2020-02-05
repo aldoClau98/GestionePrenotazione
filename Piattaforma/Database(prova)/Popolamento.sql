@@ -43,7 +43,6 @@ values("Sistemi operativi",'2019-07-03',11,13,"Corso del secondo  anno della tri
 ("Sistemi operativi",'2019-06-07',11,13,"Corso del secondo  anno della triennale i informatica","aldo.claudini@unisa.it","P2","F3",0),
 ("Sistemi operativi",'2019-06-07',11,13,"Corso del secondo  anno della triennale i informatica","aldo.claudini@unisa.it","P2","F3",0),
 ("Sistemi operativi",'2020-06-07',11,13,"Corso del secondo  anno della triennale i informatica","veronica.marcantuono@unisa.it","F1","F2",1),
-("Sistemi operativi",'2020-06-07',11,13,"Corso del secondo  anno della triennale i informatica","veronica.marcantuono@unisa.it","F1","F2",1),
 ("Sistemi operativi",'2019-06-07',11,13,"Corso del secondo  anno della triennale i informatica","aldo.claudini@unisa.it","P2","F3",0),
 ("Sistemi operativi",'2020-06-07',9,10,"Corso del secondo  anno della triennale i informatica","martina.borriello@studenti.unisa.it","F1","F2",0),
 ("Sistemi operativi",'2020-06-07',10,11,"Corso del secondo  anno della triennale i informatica","martina.borriello@studenti.unisa.it","F1","F2",1);

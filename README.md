@@ -51,7 +51,9 @@ Nel nostro caso è stato utilizzato il server Tomcat.
         <a href="https://github.com/martina211">Martina Boriello</a>
       </td>
       <td align="center" valign="top">
-        Veronica Marcantuono
+       <img width="100" height="100" src="https://avatars3.githubusercontent.com/u/55535031?s=400&v=4">
+        <br>
+        <a href="https://github.com/Veronica19981998">Veronica Marcantuono</a>
       </td>
       </tr>
   </tbody>

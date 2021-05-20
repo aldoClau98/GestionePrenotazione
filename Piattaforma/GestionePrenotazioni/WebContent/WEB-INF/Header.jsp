@@ -150,10 +150,10 @@
 						<i class="material-icons">face</i>
 					</button>
 					<div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-						<a class="dropdown-item" href="NavAreaPersonale">Area
-							personale</a> <a class="dropdown-item" href="NavStoricoPrenotazioni">Storico
-							prenotazioni</a> <a class="dropdown-item"
-							href="NavRichiestePrenotazioni">Richieste prenotazione</a>
+						<a class="dropdown-item" href="NavAreaPersonale">Area personale</a>
+						 <a class="dropdown-item" href="NavStoricoPrenotazioni">Storico	prenotazioni</a>
+						  <a class="dropdown-item" href="NavRichiestePrenotazioni">Richieste prenotazione</a>
+						  <a class="dropdown-item" href="NavGestisciTutor">Gestisci Tutor </a>
 					</div>
 				</div>
 			</span>

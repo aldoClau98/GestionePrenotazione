@@ -83,6 +83,42 @@
  	}
  %>
 		</span>
+		
+		
+		<!-- AGGIORNAMENTO: Aggiunto il tasto "agg aula tutor" e "rimuovi aula tutor"  -->
+		<span> <%   
+ 	if (c != null) {
+ 		if (c.getTipoUtente() == 2 && dip.getAmmDip().equals(c.getEmail())) {
+ %> <c:choose>
+				<c:when test="${strutt.tipoAula=='2'}">
+					<form action="AulaStudenti" method="POST">
+						<input type="hidden" name="aula" value="${strutt.aula}" /> <input
+							type="hidden" name="edificio" value="${strutt.edificio}" /> <input
+							type="hidden" name="tipoaula" value="${strutt.tipoAula}" />
+						<button class="btn btn-secondary" type="submit">Rimuovi
+							aula tutor</button>
+					</form>
+				</c:when>
+
+				<c:otherwise>
+					<form action="AulaStudenti" method="POST">
+						<input type="hidden" name="aula" value="${strutt.aula}" /> <input
+							type="hidden" name="edificio" value="${strutt.edificio}" /> <input
+							type="hidden" name="tipoaula" value="${strutt.tipoAula}" />
+						<button class="btn btn-secondary" type="submit">Rendi
+							aula prenotabile ai tutor</button>
+					</form>
+				</c:otherwise>
+
+			</c:choose> <%
+ 	}
+ 	}
+ %>
+		</span>
+		
+		
+		
+		
 	</p>
 
 	<br> <br> <br>

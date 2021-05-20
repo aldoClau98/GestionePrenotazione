@@ -31,6 +31,7 @@
 						<th scope="col">Nome</th>
 						<th scope="col">Cognome</th>
 						<th scope="col">E-mail</th>
+						<th scope="col"> Tipo utente </th>
 						<th scope="col">Password</th>
 					</tr>
 				</thead>
@@ -39,6 +40,13 @@
 						<td>${utente.nome}</td>
 						<td>${utente.cognome}</td>
 						<td>${utente.email}</td>
+						<!-- AGGIORNAMENTO: aggiunta visualizzazione tipo di utente -->
+						<td><c:choose>
+											<c:when test="${utente.tipoUtente=='0'}">Studente</c:when>
+											<c:when test="${utente.tipoUtente=='1'}">Docente</c:when>
+											<c:when test="${utente.tipoUtente=='2'}">Amministratore</c:when>
+										</c:choose></td>
+										
 						<td><c:forEach var="i" begin="1"
 								end='${fn:length(utente.password)}'>
 							*</c:forEach> <a class="btn action-button" role="button"

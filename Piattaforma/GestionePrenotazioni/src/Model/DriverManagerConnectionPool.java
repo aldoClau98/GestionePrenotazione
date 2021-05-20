@@ -10,9 +10,9 @@ public class DriverManagerConnectionPool {
 
   static {
     HikariConfig config = new HikariConfig();
-    config.setJdbcUrl("jdbc:mysql://localhost:3306/GestionePrenotazioni");
+    config.setJdbcUrl("jdbc:mysql://localhost:3306/gestioneprenotazioni");
     config.setUsername("root");
-    config.setPassword("And-trois-456");
+    config.setPassword("1234");
     config.addDataSourceProperty("cachePrepStmts", "true");
     config.addDataSourceProperty("prepStmtCacheSize", "250");
     config.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");

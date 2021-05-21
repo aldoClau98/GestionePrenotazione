@@ -37,7 +37,7 @@ public class NavGestisciTutor extends ServletBasic {
 			
 		}
 		for (Utente utente : listaUtenti) {
-			System.out.println(utente.getEmail());
+			System.out.println(utente.getEmail()+" "+ utente.getTipoUtente());
 		}
 		System.out.println();
 		//dopo lo passo alla JSP

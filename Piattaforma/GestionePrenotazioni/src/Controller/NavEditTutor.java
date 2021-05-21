@@ -27,11 +27,11 @@ public class NavEditTutor extends ServletBasic implements Servlet {
 		//ritorna la lista di tutti i corsi di ateneo
 		ArrayList<Corso> listaCorsi =  courseDAO.doRetrieveAll(); 
 		String email = request.getParameter("email");
-
+		System.out.println("Controller: navEditTutor  "+email);
 		request.setAttribute("listaCorsi", listaCorsi);
 		request.setAttribute("email", email);
 
-		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/EditAmministratore.jsp");
+		RequestDispatcher view = request.getRequestDispatcher("WEB-INF/EditTutor.jsp");
 		view.forward(request, response);
 	}
 	

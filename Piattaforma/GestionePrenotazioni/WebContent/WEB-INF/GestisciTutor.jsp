@@ -25,7 +25,7 @@
 						<th scope="col">Cognome</th>
 						<th scope="col">E-mail</th>
 						<th scope="col">Tipo utente</th>
-						<th scope="col">Amministratore</th>
+						<th scope="col">Tutor</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -37,29 +37,27 @@
 									<td>${i.nome}</td>
 									<td>${i.cognome}</td>
 									<td>${i.email}</td>
-
-									<td><c:choose>
-											<c:when test="${i.tipoUtente=='0'}">Studente</c:when>
-											<c:when test="${i.tipoUtente=='1'}">Docente</c:when>
-											<c:when test="${i.tipoUtente=='2'}">Amministratore</c:when>
-										</c:choose></td>
+									<td>Studente</td>
+									
+									
+									
 									<td style="display: block ruby;"><c:choose>
-											<c:when test="${i.tipoUtente == '2'}">
+											<c:when test="${i.tipoUtente == '4'}">
     						Si
-    						<form method="POST" action="NavEditTutor">
-													<input type="hidden" name="email" value="${i.email}" /> <span>
-														<button class="btn action-button" type="submit">
-															<i class="material-icons">edit</i>
-														</button>
-													</span>
-												</form>
 												<a class="btn action-button"
 													href="ScegliAmministratore?email=${i.email}&flag=1"> <i
-													class="material-icons">delete</i>
+													class="">delete</i>
 												</a>
 											</c:when>
 											<c:otherwise>
     						No
+    						<form method="POST" action="NavEditTutor">
+													<input type="hidden" name="email" value="${i.email}" /> <span>
+														<button class="btn action-button" type="submit">
+															<i class="">CreaTutor</i>
+														</button>
+													</span>
+												</form>
     						</c:otherwise>
 										</c:choose></td>
 								</tr>

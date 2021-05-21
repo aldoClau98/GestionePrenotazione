@@ -30,10 +30,14 @@ public class EditTutor extends ServletBasic {
 				if (corso == null)
 					request.setAttribute("messaggio", "Errore, campo corso non compilato");
 				else {
+					System.out.println("Controller: EditTutor"+email);
 						//cambia il tutor del corso 
-					if (userDAO.doChangeCorso(email, corso) == 0) 
-						request.setAttribute("messaggio", "Riassegnamento fallito");
-					else
+					if (userDAO.doChangeCorso(email, corso) == 0) {
+						request.setAttribute("messaggio", "Riassegnamento fallito corso");
+					}
+						else if(userDAO.doChangeTypeUser(email) == 0) {
+						request.setAttribute("messaggio", "Riassegnamento fallito email");
+					}else
 						request.setAttribute("messaggio", "Riassegnamento avvenuto");
 				}
 			}

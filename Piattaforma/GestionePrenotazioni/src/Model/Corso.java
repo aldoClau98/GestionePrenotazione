@@ -6,41 +6,41 @@ public class Corso {
 		
 	}
 	
-	public Corso(String NomeCorso, String Tutor, String NomeDip) {
+	public Corso(String nomeCorso, String tutor, String nomeDip) {
 		
-		this.NomeCorso=NomeCorso;
-		this.Tutor= Tutor;
-		this.NomeDip=NomeDip;
+		this.nomeCorso=nomeCorso;
+		this.tutor= tutor;
+		this.nomeDip=nomeDip;
 	}
 
 	
-	private String NomeCorso;
-	private String Tutor;
-	private String NomeDip;
+	private String nomeCorso;
+	private String tutor;
+	private String nomeDip;
 	
 	
 	
 	public String getNomeCorso() {
-		return NomeCorso;
+		return nomeCorso;
 	}
 
 	public void setNomeCorso(String nomeCorso) {
-		NomeCorso = nomeCorso;
+		this.nomeCorso = nomeCorso;
 	}
 
 	public String getTutor() {
-		return Tutor;
+		return tutor;
 	}
 
 	public void setTutor(String tutor) {
-		Tutor = tutor;
+		this.tutor = tutor;
 	}
 
 	public String getNomeDip() {
-		return NomeDip;
+		return nomeDip;
 	}
 
 	public void setNomeDip(String nomeDip) {
-		NomeDip = nomeDip;
+		this.nomeDip = nomeDip;
 	}
 }

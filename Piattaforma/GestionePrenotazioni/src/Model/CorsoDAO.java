@@ -1,0 +1,55 @@
+package Model;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class CorsoDAO {
+	
+	// inizio metodi CRUD
+	public synchronized int doSave( String NomeCorso, String NomeDip) {
+		PreparedStatement ps = null;
+
+		try (Connection conn = DriverManagerConnectionPool.getConnection();) {
+			ps = conn.prepareStatement("insert into Corso(NomeCorso,NomeDip) values (?,?);");
+			ps.setString(1, NomeCorso);
+			ps.setString(2, NomeDip);
+			int rs = ps.executeUpdate();
+			return rs;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public synchronized int doDelete(String NomeCorso, String NomeDip) {
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("DELETE FROM Corso WHERE NomeCorso=? && NomeDip=?;");
+			ps.setString(1, NomeCorso);
+			ps.setString(2, NomeDip);
+			int rs =ps.executeUpdate();
+			return rs;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	public synchronized int doUpdate(String CorsoNuovo,String CorsoVecchio) {
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("Update Corso set NomeCorso=? WHERE NomeCorso=?;");
+			ps.setString(1, CorsoNuovo);
+			ps.setString(2, CorsoVecchio);
+			int rs =ps.executeUpdate();
+			return rs;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	//fine metodi CRUD
+	
+	
+
+}

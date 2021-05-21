@@ -3,6 +3,7 @@ package Controller;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
+import Model.CorsoDAO;
 import Model.DipartimentoDAO;
 import Model.MyCalendar;
 import Model.PrenotazioneDAO;
@@ -19,4 +20,5 @@ public class ServletBasic extends HttpServlet {
 	protected static StrutturaDAO struttDAO = new StrutturaDAO();
 	protected static PrenotazioneDAO prenDAO = new PrenotazioneDAO();
 	protected static UtenteDAO userDAO = new UtenteDAO();
+	protected static CorsoDAO courseDAO = new CorsoDAO();
 }

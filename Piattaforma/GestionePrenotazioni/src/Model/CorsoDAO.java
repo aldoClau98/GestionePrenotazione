@@ -2,7 +2,9 @@ package Model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class CorsoDAO {
 	
@@ -50,6 +52,27 @@ public class CorsoDAO {
 	
 	//fine metodi CRUD
 	
+	//inizio metodi di ricerca
 	
+	public synchronized ArrayList<Corso> doRetrieveAll() {
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+
+			PreparedStatement ps = con.prepareStatement("select NomeCorso, Tutor, NomeDip from Corso ;");
+			ArrayList<Corso> listaCorsi = new ArrayList<Corso>();
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				Corso p = new Corso();
+
+				p.setNomeCorso(rs.getString(1));
+				p.setTutor(rs.getString(2));
+				p.setNomeDip(rs.getString(3));
+				
+				listaCorsi.add(p);
+			}
+			return listaCorsi;
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 }

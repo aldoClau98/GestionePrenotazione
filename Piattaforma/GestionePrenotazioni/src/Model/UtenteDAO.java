@@ -158,4 +158,21 @@ public class UtenteDAO {
 		return null;
 	}
 
+	public int doChangeCorso(String email, String corso) {
+		PreparedStatement ps = null;
+
+		try (Connection conn = DriverManagerConnectionPool.getConnection();) {
+
+			ps = conn.prepareStatement("Update Corso set  Tutor=? where NomeCorso=?;");
+			ps.setString(1, email);
+			ps.setString(2, corso);
+			int rs = ps.executeUpdate();
+			return rs;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
 }

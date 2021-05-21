@@ -15,9 +15,9 @@ values("analisi","","informatica"),
 	("programmazione","","informatica"),
 	("algoritmi","","informatica"),
     ("sicurezza","","informatica"),
-    ("geometria 1","","matematica"),
-    ("analisi 2","","matematica"),
-    ("ricerca operativa","","matematica");
+    ("geometria_1","","matematica"),
+    ("analisi_2","","matematica"),
+    ("ricerca_operativa","","matematica");
     
 insert into Struttura (Aula,Edificio,Tipo,Descrizione,Dipartimento)
 values("F1","F2",0,"laboratorio","informatica"),

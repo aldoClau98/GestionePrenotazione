@@ -25,7 +25,7 @@ CREATE TABLE Dipartimento (
 CREATE TABLE Corso (
 	
     NomeCorso VARCHAR(30) PRIMARY KEY,
-    Tutor VARCHAR(30),
+    Tutor VARCHAR(55),
     NomeDip  VARCHAR(30),
     FOREIGN KEY(NomeDip) References Dipartimento(Nome) 
      on delete cascade

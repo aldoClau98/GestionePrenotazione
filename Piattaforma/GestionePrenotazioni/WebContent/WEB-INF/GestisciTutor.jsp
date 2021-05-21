@@ -46,7 +46,7 @@
 									<td style="display: block ruby;"><c:choose>
 											<c:when test="${i.tipoUtente == '2'}">
     						Si
-    						<form method="POST" action="NavEditAmm">
+    						<form method="POST" action="NavEditTutor">
 													<input type="hidden" name="email" value="${i.email}" /> <span>
 														<button class="btn action-button" type="submit">
 															<i class="material-icons">edit</i>

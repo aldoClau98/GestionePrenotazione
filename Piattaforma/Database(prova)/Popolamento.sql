@@ -2,16 +2,23 @@ insert into  Utente(Email,Password,Nome,Cognome,TipoUtente)
 values("aldo.claudini@unisa.it","12345678","aldo","claudini",3),
 ("veronica.marcantuono@unisa.it","12345678","veronica","marcantuono",2),
 ("martina.borriello@studenti.unisa.it","12345678","martina","boriello",0),
-("andrea.claro@unisa.it","12345678","andrea","claro",1),
-("carlo.lerro@unisa.it","12345678","carlo","lerro",2);
+("andrea.claro@unisa.it","12345678","andrea","claro",0),
+("carlo.lerro@unisa.it","12345678","carlo","lerro",0);
 
 
 insert into  Dipartimento(Nome,AmmDip)
 values("informatica","veronica.marcantuono@unisa.it"),
 ("matematica","carlo.lerro@unisa.it");
 
-
-
+insert into  Corso(NomeCorso,Tutor,NomeDip)
+values("analisi","","informatica"),
+	("programmazione","","informatica"),
+	("algoritmi","","informatica"),
+    ("sicurezza","","informatica"),
+    ("geometria 1","","matematica"),
+    ("analisi 2","","matematica"),
+    ("ricerca operativa","","matematica");
+    
 insert into Struttura (Aula,Edificio,Tipo,Descrizione,Dipartimento)
 values("F1","F2",0,"laboratorio","informatica"),
 ("F2","F2",1,"laboratorio","informatica"),

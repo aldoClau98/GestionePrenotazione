@@ -22,6 +22,16 @@ CREATE TABLE Dipartimento (
   
 );
 
+CREATE TABLE Corso (
+	
+    NomeCorso VARCHAR(30) PRIMARY KEY,
+    Tutor VARCHAR(30),
+    NomeDip  VARCHAR(30),
+    FOREIGN KEY(NomeDip) References Dipartimento(Nome) 
+     on delete cascade
+     on update cascade
+);
+
 CREATE TABLE Struttura (
   Edificio varchar(55) not null,
 	Aula varchar(55) not null,

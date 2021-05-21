@@ -35,7 +35,7 @@ public class EditTutor extends ServletBasic {
 					if (userDAO.doChangeCorso(email, corso) == 0) {
 						request.setAttribute("messaggio", "Riassegnamento fallito corso");
 					}
-						else if(userDAO.doChangeTypeUser(email) == 0) {
+						else if(userDAO.doChangeTypeUser(email, 4) == 0) {
 						request.setAttribute("messaggio", "Riassegnamento fallito email");
 					}else
 						request.setAttribute("messaggio", "Riassegnamento avvenuto");

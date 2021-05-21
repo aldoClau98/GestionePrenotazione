@@ -175,13 +175,13 @@ public class UtenteDAO {
 		return 0;
 	}
 	
-	public int doChangeTypeUser(String email) {
+	public int doChangeTypeUser(String email,int flag) {
 		PreparedStatement ps = null;
 		System.out.println("model: utenteDAO" +email);
 		try (Connection conn = DriverManagerConnectionPool.getConnection();) {
 
 			ps = conn.prepareStatement("Update Utente set  TipoUtente=? where Email=?;");
-			ps.setInt(1, 4);
+			ps.setInt(1, flag);
 			ps.setString(2, email);
 			int rs = ps.executeUpdate();
 			return rs;

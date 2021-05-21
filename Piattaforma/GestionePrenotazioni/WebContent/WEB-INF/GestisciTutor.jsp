@@ -45,7 +45,7 @@
 											<c:when test="${i.tipoUtente == '4'}">
     						Si
 												<a class="btn action-button"
-													href="ScegliAmministratore?email=${i.email}&flag=1"> <i
+													href="DeleteTutor?email=${i.email}&flag=0"> <i
 													class="">delete</i>
 												</a>
 											</c:when>

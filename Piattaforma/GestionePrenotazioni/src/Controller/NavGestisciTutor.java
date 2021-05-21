@@ -30,7 +30,7 @@ public class NavGestisciTutor extends ServletBasic {
 			
 			Utente u =  listaUtenti.get(i);
 			
-			if(u.getTipoUtente() != 0) {
+			if((u.getTipoUtente() == 1) || (u.getTipoUtente() == 2) || (u.getTipoUtente() == 3)) {
 				listaUtenti.remove(i);
 			}
 			

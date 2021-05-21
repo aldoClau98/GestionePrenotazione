@@ -52,6 +52,20 @@ public class CorsoDAO {
 	
 	//fine metodi CRUD
 	
+	//update customizzato per tutor
+	public synchronized int doUpdateTutor(String email) {
+		try (Connection con = DriverManagerConnectionPool.getConnection()) {
+			PreparedStatement ps = con.prepareStatement("Update Corso set tutor=? WHERE tutor=?;");
+			ps.setString(1, "");
+			ps.setString(2, email);
+			int rs =ps.executeUpdate();
+			return rs;
+
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
 	//inizio metodi di ricerca
 	
 	public synchronized ArrayList<Corso> doRetrieveAll() {

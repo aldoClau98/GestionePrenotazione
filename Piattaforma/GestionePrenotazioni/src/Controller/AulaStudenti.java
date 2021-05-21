@@ -20,16 +20,15 @@ public class AulaStudenti extends ServletBasic {
 	
 	String aula = request.getParameter("aula");
 	String edificio =  request.getParameter("edificio");
-	String tipoaula =  request.getParameter("tipoaula");
-	
-	int result;
-	if(Integer.parseInt(tipoaula)==1)
-		 result= struttDAO.doUpdate(aula, edificio,"0");
-	else
-		 result= struttDAO.doUpdate(aula, edificio,"1");
+	String flag = request.getParameter("flag");
 
+		int  result= struttDAO.doUpdate(aula, edificio,flag);
+
+		if(result!=0)
 	request.setAttribute("messaggio", "Prenotabilita' aula cambiata");
-	
+		else 
+			request.setAttribute("messaggio", "Prenotabilita' aula non riuscita");
+		
 	RequestDispatcher view  =  request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 	view.forward(request, response);
 	

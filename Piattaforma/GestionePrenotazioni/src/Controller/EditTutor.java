@@ -28,12 +28,12 @@ public class EditTutor extends ServletBasic {
 
 				String corso = request.getParameter("corso");
 				if (corso == null)
-					request.setAttribute("messaggio", "Errore, campo corso non compilato");
+					request.setAttribute("messaggio", "Errore campo corso assente");
 				else {
 					System.out.println("Controller: EditTutor"+email);
 						//cambia il tutor del corso 
 					if (userDAO.doChangeCorso(email, corso) == 0) {
-						request.setAttribute("messaggio", "Riassegnamento fallito corso");
+						request.setAttribute("messaggio", "Campo corso assente");
 					}
 						else if(userDAO.doChangeTypeUser(email, 4) == 0) {
 						request.setAttribute("messaggio", "Riassegnamento fallito email");

@@ -48,7 +48,7 @@ public class AssegnaAulaTutorTest extends Mockito{
 	}
 
 	@Test
-	void testCaseWhiteBox_001() throws ServletException, IOException {
+	void testCase_FN_1_01() throws ServletException, IOException {
 		doReturn("P1").when(request).getParameter("aula");
 		doReturn("F3").when(request).getParameter("edificio");
 		doReturn("3").when(request).getParameter("tipoaula");
@@ -59,7 +59,7 @@ public class AssegnaAulaTutorTest extends Mockito{
 		assertEquals("Prenotabilita' aula cambiata" , ac.getValue());
 	}
 	@Test
-	void testCaseWhiteBox_002() throws ServletException, IOException {
+	void testCase_FN_1_02() throws ServletException, IOException {
 		doReturn("P1").when(request).getParameter("aula");
 		doReturn("F3").when(request).getParameter("edificio");
 		doReturn("2").when(request).getParameter("tipoaula");

@@ -178,8 +178,8 @@
 		<%
 			if (c != null) {
 				//se è  docente,  se invece è uno studente e l aula è prenotabile
-				if (c.getTipoUtente() == 1 || (c.getTipoUtente() == 0 && s.getTipoAula() == 1)
-						|| c.getTipoUtente() == 2) {
+				if ( (c.getTipoUtente() == 1) || (c.getTipoUtente() == 0 && s.getTipoAula() == 1) ||
+						(c.getTipoUtente() == 2) || (c.getTipoUtente() == 4 && ( ( s.getTipoAula() == 2) || (s.getTipoAula() == 3) ) )) {
 		%>
 		<div class="col">
 			<div class="login-clean">

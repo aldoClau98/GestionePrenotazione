@@ -94,7 +94,7 @@
 				}
 				}
 				// l' utente è Studente
-				else if (c.getTipoUtente() == 0) {
+				else if (c.getTipoUtente() == 0 || c.getTipoUtente() == 4) {
 			%>
 			<span class="navbar-text actions"> <a class="login"
 				href="Logout">Log Out</a>

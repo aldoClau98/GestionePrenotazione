@@ -22,16 +22,21 @@ public class AulaStudenti extends ServletBasic {
 	String edificio =  request.getParameter("edificio");
 	String flag = request.getParameter("flag");
 
-		int  result= struttDAO.doUpdate(aula, edificio,flag);
+	if( (aula == null) || (edificio == null) || (flag == null)) {
+		request.setAttribute("messaggio", "Prenotabilita' aula non riuscita");
+	
+			RequestDispatcher view  =  request.getRequestDispatcher("WEB-INF/Homepage.jsp");
+			view.forward(request, response);
+}else {
 
+		int  result= struttDAO.doUpdate(aula, edificio,flag);
 		if(result!=0)
-	request.setAttribute("messaggio", "Prenotabilita' aula cambiata");
-		else 
-			request.setAttribute("messaggio", "Prenotabilita' aula non riuscita");
+			request.setAttribute("messaggio", "Prenotabilita' aula cambiata");
+	
 		
 	RequestDispatcher view  =  request.getRequestDispatcher("WEB-INF/Homepage.jsp");
 	view.forward(request, response);
-	
+}
 	
 	}
 

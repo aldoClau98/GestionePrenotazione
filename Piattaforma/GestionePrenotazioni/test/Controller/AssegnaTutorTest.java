@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 
-public class AssegnaRimuoviTutorTest  extends Mockito{
+public class AssegnaTutorTest  extends Mockito{
 
 	private static HttpServletRequest request;
 	private static HttpServletResponse response;
@@ -34,6 +34,7 @@ public class AssegnaRimuoviTutorTest  extends Mockito{
 	@Test
 	void testCase_FN_2_01() throws ServletException, IOException {
 		doReturn(null).when(request).getParameter("email");
+		doReturn("programmazione").when(request).getParameter("corso");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
 		servlet.doPost(request, response);
 		verify(request).setAttribute(any(), ac.capture());
@@ -42,15 +43,6 @@ public class AssegnaRimuoviTutorTest  extends Mockito{
 	
 	@Test
 	void testCase_FN_2_02() throws ServletException, IOException {
-		doReturn(null).when(request).getParameter("corso");
-		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
-		servlet.doPost(request, response);
-		verify(request).setAttribute(any(), ac.capture());
-		assertEquals("Riassegnamento fallito" , ac.getValue());
-	}
-	
-	@Test
-	void testCase_FN_2_03() throws ServletException, IOException {
 		doReturn("andrea.claro@unisa.it").when(request).getParameter("email");
 		doReturn(null).when(request).getParameter("corso");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
@@ -59,8 +51,10 @@ public class AssegnaRimuoviTutorTest  extends Mockito{
 		assertEquals("Errore campo corso assente" , ac.getValue());
 	}
 	
+	
+	
 	@Test
-	void testCase_FN_2_04() throws ServletException, IOException {
+	void testCase_FN_2_03() throws ServletException, IOException {
 		doReturn("andrea.claro@unisa.it").when(request).getParameter("email");
 		doReturn("programmazione").when(request).getParameter("corso");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());

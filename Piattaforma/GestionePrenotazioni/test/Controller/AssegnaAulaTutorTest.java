@@ -48,10 +48,10 @@ public class AssegnaAulaTutorTest extends Mockito{
 	}
 
 	@Test
-	void testCase_FN_1_01() throws ServletException, IOException {
+	void TC_AsAutut_01() throws ServletException, IOException {
 		doReturn("P1").when(request).getParameter("aula");
 		doReturn("F3").when(request).getParameter("edificio");
-		doReturn("3").when(request).getParameter("tipoaula");
+		doReturn("3").when(request).getParameter("flag");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
 		doReturn(1).when(struttDAO).doUpdate(any(), any(), any());
 		servlet.doPost(request, response);
@@ -59,15 +59,39 @@ public class AssegnaAulaTutorTest extends Mockito{
 		assertEquals("Prenotabilita' aula cambiata" , ac.getValue());
 	}
 	@Test
-	void testCase_FN_1_02() throws ServletException, IOException {
+	void TC_AsAutut_02() throws ServletException, IOException {
 		doReturn("P1").when(request).getParameter("aula");
 		doReturn("F3").when(request).getParameter("edificio");
-		doReturn("2").when(request).getParameter("tipoaula");
+		doReturn(null).when(request).getParameter("flag");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
 		doReturn(1).when(struttDAO).doUpdate(any(), any(), any());
 		servlet.doPost(request, response);
 		verify(request).setAttribute(any(), ac.capture());
-		assertEquals("Prenotabilita' aula cambiata" , ac.getValue());
+		assertEquals("Prenotabilita' aula non riuscita" , ac.getValue());
 	}
 
+	@Test
+	void TC_AsAutut_03() throws ServletException, IOException {
+		doReturn("P1").when(request).getParameter("aula");
+		doReturn(null).when(request).getParameter("edificio");
+		doReturn("1").when(request).getParameter("flag");
+		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
+		doReturn(1).when(struttDAO).doUpdate(any(), any(), any());
+		servlet.doPost(request, response);
+		verify(request).setAttribute(any(), ac.capture());
+		assertEquals("Prenotabilita' aula non riuscita" , ac.getValue());
+	}
+	
+	@Test
+	void TC_AsAutut_04() throws ServletException, IOException {
+		doReturn(null).when(request).getParameter("aula");
+		doReturn("F3").when(request).getParameter("edificio");
+		doReturn("3").when(request).getParameter("flag");
+		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
+		doReturn(1).when(struttDAO).doUpdate(any(), any(), any());
+		servlet.doPost(request, response);
+		verify(request).setAttribute(any(), ac.capture());
+		assertEquals("Prenotabilita' aula non riuscita" , ac.getValue());
+	}
+	
 }

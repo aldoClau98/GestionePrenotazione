@@ -32,7 +32,7 @@ public class AssegnaTutorTest  extends Mockito{
 	
 	
 	@Test
-	void testCase_FN_2_01() throws ServletException, IOException {
+	void TC_assegnaTutor_01() throws ServletException, IOException {
 		doReturn(null).when(request).getParameter("email");
 		doReturn("programmazione").when(request).getParameter("corso");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
@@ -42,7 +42,7 @@ public class AssegnaTutorTest  extends Mockito{
 	}
 	
 	@Test
-	void testCase_FN_2_02() throws ServletException, IOException {
+	void TC_assegnaTutor_02() throws ServletException, IOException {
 		doReturn("andrea.claro@unisa.it").when(request).getParameter("email");
 		doReturn(null).when(request).getParameter("corso");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
@@ -54,7 +54,7 @@ public class AssegnaTutorTest  extends Mockito{
 	
 	
 	@Test
-	void testCase_FN_2_03() throws ServletException, IOException {
+	void TC_assegnaTutor_03() throws ServletException, IOException {
 		doReturn("andrea.claro@unisa.it").when(request).getParameter("email");
 		doReturn("programmazione").when(request).getParameter("corso");
 		doReturn(requestDispatcher).when(request).getRequestDispatcher(any());
